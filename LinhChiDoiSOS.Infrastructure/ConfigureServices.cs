@@ -1,4 +1,5 @@
 ﻿using LinhChiDoiSOS.Application.Common.Interfaces;
+using LinhChiDoiSOS.Application.Models.Identity;
 using LinhChiDoiSOS.Domain.IdentityModels;
 using LinhChiDoiSOS.Infrastructure.Files;
 using LinhChiDoiSOS.Infrastructure.Identity;
@@ -22,6 +23,7 @@ namespace LinhChiDoiSOS.Infrastructure
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<AuditableEntitySaveChangesInterceptor>();
+            services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
             if (configuration.GetValue<bool>("UseInMemoryDatabase")) {
                 services.AddDbContext<LinhChiDoiSOSDbContext>(options =>

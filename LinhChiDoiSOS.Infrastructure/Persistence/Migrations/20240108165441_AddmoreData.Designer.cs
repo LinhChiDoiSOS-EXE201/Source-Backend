@@ -4,6 +4,7 @@ using LinhChiDoiSOS.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(LinhChiDoiSOSDbContext))]
-    partial class LinhChiDoiSOSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240108165441_AddmoreData")]
+    partial class AddmoreData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -535,7 +538,7 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "NHAN@GMAIL.COM",
                             NormalizedUserName = "NHANNGUYEN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIjGfpd4Gcj2weSxd6GbGsVDTJIRc6f4xxxxUKVSwgZUUD+NUcwbMd5whiBxCiMK1A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELBNBVEaKLPiH0GMl0YJtU00Ss5zZODHsIRzLlxZlgsxD1ZOy8YBBpvTdyxPsp2+AQ==",
                             PhoneNumber = "0961868641",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "FHSBRSP7Q6SW6JWBVKCFBC6LKFR4MAR7",

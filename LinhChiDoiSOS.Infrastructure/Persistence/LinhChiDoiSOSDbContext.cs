@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace LinhChiDoiSOS.Infrastructure.Persistence
@@ -44,7 +45,60 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            
+
+            var hasher = new PasswordHasher<ApplicationUser>();
+            builder.Entity<AppIdentityRole>()
+                .HasData(
+                    new AppIdentityRole
+                    {
+                        Id = "37dde3f4-d0c9-4477-97d6-ff29f677dccc",
+                        Name = "Manager",
+                        NormalizedName = "MANAGER",
+                        ConcurrencyStamp = null,
+                        Description = "Quản lí hệ thống"
+                    },
+                    new AppIdentityRole
+                    {
+                        Id = "b9cf3487-3d04-4cbf-85b7-e33360566485",
+                        Name = "Customer",
+                        NormalizedName = "CUSTOMER",
+                        ConcurrencyStamp = null,
+                        Description = "Khách hàng"
+                    }
+                );
+            builder.Entity<ApplicationUser>()
+                .HasData(
+                    new ApplicationUser
+                    {
+                        Id = "871a809a-b3fa-495b-9cc2-c5d738a866cf",
+                        Fullname = "Nguyễn Thành Nhân",
+                        BirthDay = DateTime.Parse("2002-06-20 08:30:56"),
+                        Image = null,
+                        UserName = "NhanNguyen",
+                        NormalizedUserName = "NHANNGUYEN",
+                        Email = "nhan@gmail.com",
+                        NormalizedEmail = "NHAN@GMAIL.COM",
+                        EmailConfirmed = false,
+                        PasswordHash = hasher.HashPassword(null, "Passw0rd1"),
+                        SecurityStamp = "FHSBRSP7Q6SW6JWBVKCFBC6LKFR4MAR7",
+                        ConcurrencyStamp = "445607b7-57f3-4092-9129-c8becc104929",
+                        PhoneNumber = "0961868641",
+                        PhoneNumberConfirmed = false,
+                        TwoFactorEnabled = false,
+                        LockoutEnd = null,
+                        LockoutEnabled = true,
+                        AccessFailedCount = 0
+                    }
+                );
+            builder.Entity<IdentityUserRole<string>>()
+                .HasData(
+                    new IdentityUserRole<string>
+                    {
+                        UserId = "871a809a-b3fa-495b-9cc2-c5d738a866cf",
+                        RoleId = "37dde3f4-d0c9-4477-97d6-ff29f677dccc"
+                    }
+                );
+
             base.OnModelCreating(builder);
         }
 

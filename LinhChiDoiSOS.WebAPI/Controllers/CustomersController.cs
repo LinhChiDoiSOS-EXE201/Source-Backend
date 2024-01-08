@@ -5,7 +5,7 @@ namespace LinhChiDoiSOS.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeesController : ControllerBase
+    public class CustomersController : ControllerBase
     {
     }
 }

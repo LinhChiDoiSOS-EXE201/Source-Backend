@@ -1,11 +1,13 @@
 ﻿using LinhChiDoiSOS.Application.Common.Interfaces;
 using LinhChiDoiSOS.Application.Models;
+using LinhChiDoiSOS.Application.Models.Identity;
 using LinhChiDoiSOS.Domain.IdentityModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -25,11 +27,13 @@ namespace LinhChiDoiSOS.Infrastructure.Identity
         private readonly IAuthorizationService _authorizationService;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IConfiguration _configuration;
+        private readonly JwtSettings _jwtSettings;
 
         public IdentityService(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
         IUserClaimsPrincipalFactory<ApplicationUser> userClaimsPrincipalFactory,
+        IOptions<JwtSettings> jwtSettings,
         IAuthorizationService authorizationService,
         IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
         {
@@ -39,6 +43,7 @@ namespace LinhChiDoiSOS.Infrastructure.Identity
             _authorizationService = authorizationService;
             _httpContextAccessor = httpContextAccessor;
             _configuration = configuration;
+            _jwtSettings = jwtSettings.Value;
         }
 
         public async Task<string> AuthenticateAsync(string username, string password)
@@ -71,12 +76,12 @@ namespace LinhChiDoiSOS.Infrastructure.Identity
                     authClaims.Add(new Claim(ClaimTypes.Role, item));
                 }
 
-                var authenKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:SecrectKey"]));
+                var authenKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
 
                 var token = new JwtSecurityToken(
-                    issuer: _configuration["JWT:ValidIssuer"],
-                    audience: _configuration["JWT:ValidAudience"],
-                    expires: DateTime.Now.AddDays(1),
+                    issuer: _jwtSettings.Issuer,
+                    audience: _jwtSettings.Audience,
+                    expires: DateTime.Now.AddHours(7).AddMinutes(_jwtSettings.DurationInMinutes),
                     claims: authClaims,
                     signingCredentials: new SigningCredentials(authenKey, SecurityAlgorithms.HmacSha512Signature)
                     );
