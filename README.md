@@ -1,6 +1,6 @@
  <img align="left" width="84" height="84" src="https://github.com/jasontaylordev/CleanArchitecture/raw/main/.github/icon.png" />
  
- # Clean Architecture Solution Template
+ # Linh Chi Doi SOS Application with C#
 [![Build](https://github.com/jasontaylordev/CleanArchitecture/actions/workflows/dotnet-build.yml/badge.svg)](https://github.com/jasontaylordev/CleanArchitecture/actions/workflows/dotnet-build.yml)
 [![CodeQL](https://github.com/jasontaylordev/CleanArchitecture/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jasontaylordev/CleanArchitecture/actions/workflows/codeql-analysis.yml)
 [![Nuget](https://img.shields.io/nuget/v/Clean.Architecture.Solution.Template?label=NuGet)](https://www.nuget.org/packages/Clean.Architecture.Solution.Template)
