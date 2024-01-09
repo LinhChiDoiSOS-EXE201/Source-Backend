@@ -81,17 +81,17 @@ namespace LinhChiDoiSOS.Infrastructure
                     .Combine(options.DefaultPolicy)
                     .RequireRole("Manager")
                     .Build());
-                options.AddPolicy("Staff", policy => policy
+                options.AddPolicy("Admin", policy => policy
                     .Combine(options.DefaultPolicy)
-                    .RequireRole("Staff")
+                    .RequireRole("Admin")
                     .Build());
-                options.AddPolicy("Employee", policy => policy
+                options.AddPolicy("Customer", policy => policy
                    .Combine(options.DefaultPolicy)
-                   .RequireRole("Employee")
+                   .RequireRole("Customer")
                    .Build());
-                options.AddPolicy("ManagerOrStaff", policy => policy
+                options.AddPolicy("AdminOrManager", policy => policy
             .Combine(options.DefaultPolicy)
-            .RequireRole("Manager", "Employee")
+            .RequireRole("Manager", "Admin")
             .Build());
             });
 
