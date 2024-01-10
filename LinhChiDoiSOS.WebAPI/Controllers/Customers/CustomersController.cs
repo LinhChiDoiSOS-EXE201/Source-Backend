@@ -1,5 +1,7 @@
 ﻿using LinhChiDoiSOS.Application.Common.Response;
 using LinhChiDoiSOS.Application.Features.Customers.Commands.CreateCustomer;
+using LinhChiDoiSOS.Application.Features.Customers.Commands.DeleteCustomer;
+using LinhChiDoiSOS.Application.Features.Customers.Commands.UpdateCustomer;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,16 +43,27 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Customers
             return response;
         }
 
-        // PUT api/<CustomersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        //[Route("{applicationuserid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public Task<SOSResponse> Put(UpdateCustomerCommand request)
         {
+            var response = _mediator.Send(request);
+            return response;
         }
 
-        // DELETE api/<CustomersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete]
+        //[Route("{applicationuserid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public Task<SOSResponse> Delete(DeleteCustomerCommand request)
         {
+            var response = _mediator.Send(request);
+            return response;
         }
     }
 }
