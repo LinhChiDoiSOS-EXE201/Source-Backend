@@ -4,6 +4,7 @@ using LinhChiDoiSOS.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(LinhChiDoiSOSDbContext))]
-    partial class LinhChiDoiSOSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240112163133_AdmoreDatahihi")]
+    partial class AdmoreDatahihi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,12 +114,7 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ServiceId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ServiceId");
 
                     b.ToTable("ComboService");
                 });
@@ -303,6 +301,9 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("ComboServiceId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("CreateBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -328,6 +329,8 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ComboServiceId");
 
                     b.HasIndex("CustomerId");
 
@@ -536,7 +539,7 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "NHAN@GMAIL.COM",
                             NormalizedUserName = "NHANNGUYEN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKL+7Ie1kSY5rBbIIbLh4jHNcMZvUC2NA12ClipzfZ0kRLtCAbBZcL3L6QYCSa6cQg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAED1S54djqUW3uAxCzkjWVy2rfPGdW/KDFE65ExiNlkwHg7M5IMbpfWfaNRL/NQ64aA==",
                             PhoneNumber = "0961868641",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "FHSBRSP7Q6SW6JWBVKCFBC6LKFR4MAR7",
@@ -854,17 +857,6 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
                     b.Navigation("ComboService");
                 });
 
-            modelBuilder.Entity("ComboService", b =>
-                {
-                    b.HasOne("Service", "Service")
-                        .WithMany()
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Service");
-                });
-
             modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Admin", b =>
                 {
                     b.HasOne("LinhChiDoiSOS.Domain.IdentityModels.ApplicationUser", "ApplicationUser")
@@ -878,6 +870,12 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Booking", b =>
                 {
+                    b.HasOne("ComboService", "ComboService")
+                        .WithMany()
+                        .HasForeignKey("ComboServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("LinhChiDoiSOS.Domain.Entities.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId")
@@ -889,6 +887,8 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
                         .HasForeignKey("PaymentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("ComboService");
 
                     b.Navigation("Customer");
 

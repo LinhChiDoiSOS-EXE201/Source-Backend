@@ -2,6 +2,8 @@
 using LinhChiDoiSOS.Application.Features.Customers.Commands.CreateCustomer;
 using LinhChiDoiSOS.Application.Features.Customers.Commands.DeleteCustomer;
 using LinhChiDoiSOS.Application.Features.Customers.Commands.UpdateCustomer;
+using LinhChiDoiSOS.Application.Features.Customers.Queries;
+using LinhChiDoiSOS.Application.Features.Customers.Queries.GetAllCustomer;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,16 +23,10 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Customers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public Task<List<CustomerResponse>> Get()
         {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<CustomersController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
+            var response = _mediator.Send(new GetAllCustomerQuery());
+            return response;
         }
 
         [HttpPost]

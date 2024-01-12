@@ -6,6 +6,7 @@ public class ServiceDetail : BaseAuditableEntity
     public string? Step { get; set; }
     public string? Content { get; set; }
     public string? ImageUrl { get; set; }
+    public bool? IsPaid { get; set; }
 
     [ForeignKey("Service")]
     public Guid ServiceId { get; set;}
