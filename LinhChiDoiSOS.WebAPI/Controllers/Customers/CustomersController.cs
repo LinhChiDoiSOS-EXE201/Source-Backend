@@ -15,7 +15,7 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Customers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private readonly IMediator _mediator;
+        private  IMediator _mediator;
 
         public CustomersController(IMediator mediator)
         {
@@ -23,9 +23,9 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Customers
         }
 
         [HttpGet]
-        public Task<List<CustomerResponse>> Get()
+        public async Task<List<CustomerResponse>> Get()
         {
-            var response = _mediator.Send(new GetAllCustomerQuery());
+            var response = await _mediator.Send(new GetAllCustomerQuery());
             return response;
         }
 

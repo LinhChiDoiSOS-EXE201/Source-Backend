@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using LinhChiDoiSOS.Application.Common.Interfaces;
 using LinhChiDoiSOS.Application.Features.Customers.Queries;
 using LinhChiDoiSOS.Application.Features.Customers.Queries.GetAllCustomer;
@@ -28,17 +29,24 @@ public class GetAllCustomerQueryHandler : IRequestHandler<GetAllCustomerQuery, L
     }
     public async Task<List<CustomerResponse>> Handle(GetAllCustomerQuery request, CancellationToken cancellationToken)
     {
-        var customerList = await _dbConext.Customer.Where(c => !c.IsDelete).ToListAsync();
+        var customerList = await _dbConext.Customer.Where(c => !c.IsDelete)
+            .ProjectTo<CustomerData>(_mapper.ConfigurationProvider)
+            .ToListAsync();
 
         var listResult = new List<CustomerResponse>();
         foreach (var customer in customerList) {
             var customerInfo = await _userManager.FindByIdAsync(customer.ApplicationUserId);
+            var customerInfo1 = await _dbConext.ApplicationUsers.Where(a => a.Id == customer.ApplicationUserId)
+                .ProjectTo<ApplicationCustomer>(_mapper.ConfigurationProvider)
+                .SingleOrDefaultAsync();
+            //var customerData = _mapper.Map<CustomerData>(customer);
+            //var applcationUserData = _mapper.Map<ApplicationCustomer>(customerInfo);
             var result = new CustomerResponse
             {
-                CustomerData = _mapper.Map<CustomerData>(customer),
-                ApplicationUserData = _mapper.Map<ApplicationCustomer>(customerInfo),
-                /* CustomerData = customer,
-                 ApplicationUserData = customerInfo*/
+                /* CustomerData = _mapper.Map<CustomerData>(customer),
+                 ApplicationUserData = _mapper.Map<ApplicationCustomer>(customerInfo),*/
+                CustomerData = customer,
+                ApplicationUserData = customerInfo1
             };
             listResult.Add(result);
         }

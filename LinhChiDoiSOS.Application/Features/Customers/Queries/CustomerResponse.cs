@@ -1,4 +1,5 @@
-﻿using LinhChiDoiSOS.Domain.Entities;
+﻿using LinhChiDoiSOS.Application.Common.Mappings;
+using LinhChiDoiSOS.Domain.Entities;
 using LinhChiDoiSOS.Domain.IdentityModels;
 using System;
 using System.Collections.Generic;
@@ -15,15 +16,15 @@ namespace LinhChiDoiSOS.Application.Features.Customers.Queries
         public ApplicationCustomer? ApplicationUserData { get; set; }
     }
 
-    public class CustomerData
+    public class CustomerData : IMapFrom<Customer>
     {
         public Guid Id { get; set; }
         public string? ApplicationUserId { get; set; }
     }
 
-    public class ApplicationCustomer
+    public class ApplicationCustomer : IMapFrom<ApplicationUser>
     {
-        public string Id { get; set; }
+        public string? Id { get; set; }
         public string? FullName { get; set; }
         public string? UserName { get; set; }
         public string? Email { get; set; }
