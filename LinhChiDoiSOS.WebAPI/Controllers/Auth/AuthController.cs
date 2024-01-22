@@ -9,6 +9,8 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using static Duende.IdentityServer.Models.IdentityResources;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -33,18 +35,48 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Auth
             _userManager = userManager;
             _identityService = identityService;
         }
+        [HttpPost("RenewToken")]
+        public async Task<IActionResult> RenewToken(TokenModel model)
+        {
+            try
+            { 
+                var result = await _identityService.RenewToken(model);
+                return Ok(result);
+            }
+            catch
+            {
+                return BadRequest("Đăng nhập thất bại");
+            }
+        }
+        [HttpPost("LoginWillOutWithRefreshToken")]
+        public async Task<IActionResult> LoginWithRefreshToken(AuthRequest model)
+        {
+            var aTAndRT = new TokenModel();
+            try
+            {
+                aTAndRT = await _identityService.AuthenticateWithRTAsync(model.Email, model.Password);
+                return Ok(aTAndRT);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Đăng nhập thất bại");
+            }
+        }
 
         [HttpPost("Login")]
         public async Task<IActionResult> Login(AuthRequest model)
         {
             string result;
-            if (User.Identity.IsAuthenticated) {
+            if (User.Identity!.IsAuthenticated)
+            {
                 return BadRequest("Bạn đã đăng nhập.");
             }
             var authResponse = new AuthResponse();
-            try {
+            try
+            {
                 result = await _identityService.AuthenticateAsync(model.Email, model.Password);
-                if (!String.IsNullOrEmpty(result)) {
+                if (!String.IsNullOrEmpty(result))
+                {
                     var tempUser = await _userManager.FindByEmailAsync(model.Email);
                     authResponse.Username = tempUser.UserName;
                     authResponse.FullName = tempUser.Fullname;
@@ -53,11 +85,12 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Auth
                     var roles = await _userManager.GetRolesAsync(tempUser);
                     authResponse.ListRoles = (List<string>)roles;
                     authResponse.Token = result;
-                    
+
                     return Ok(authResponse);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 return BadRequest(ex.Message);
             }
             return BadRequest("Đăng nhập thất bại");
@@ -100,5 +133,13 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Auth
                 return BadRequest(ex.Message);
             }
         }
+        /*        [HttpPost("RenewToken")]
+                public async Task<IActionResult> RefreshToken(TokenModel token)
+                {
+                    var jwtTokenHandler = new JwtSecurityTokenHandler();
+
+                    var secrectKeyBytes = Encoding.UTF8.GetBytes(_app)
+
+                }*/
     }
 }

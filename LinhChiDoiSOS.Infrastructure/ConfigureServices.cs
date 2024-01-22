@@ -14,7 +14,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 namespace LinhChiDoiSOS.Infrastructure
 {
@@ -50,6 +52,9 @@ namespace LinhChiDoiSOS.Infrastructure
             services.AddTransient<IIdentityService, IdentityService>();
             services.AddTransient<ICsvFileBuilder, CsvFileBuilder>();
 
+            var secretKey = configuration["JwtSettings:Key"];
+            var secretKeyBytes = Encoding.UTF8.GetBytes(secretKey);
+
             services.AddAuthentication(o =>
             {
                 o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -66,6 +71,20 @@ namespace LinhChiDoiSOS.Infrastructure
                    options.Cookie.IsEssential = true;
                    options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
                    options.Cookie.SameSite = SameSiteMode.Lax;
+               }).AddJwtBearer(opt =>
+               {
+                   opt.TokenValidationParameters = new TokenValidationParameters
+                   {
+                       //tự cấp token
+                       ValidateIssuer = false,
+                       ValidateAudience = false,
+
+                       //ký vào token
+                       ValidateIssuerSigningKey = true,
+                       IssuerSigningKey = new SymmetricSecurityKey(secretKeyBytes),
+
+                       ClockSkew = TimeSpan.Zero
+                   };
                });
 
             services.AddAuthorization(options =>
