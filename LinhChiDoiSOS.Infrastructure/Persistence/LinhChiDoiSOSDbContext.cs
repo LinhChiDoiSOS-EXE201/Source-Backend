@@ -37,10 +37,13 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
         public DbSet<Booking> Booking { get; set; }
         public DbSet<BookingDetail> BookingDetail { get; set; }
         public DbSet<Category> Category { get; set; }
-        public DbSet<ComboService> ComboService { get; set; }
+        public DbSet<ComboCourse> ComboCourse { get; set; }
         public DbSet<Payment> Payment { get; set; }
-        public DbSet<Service> Service { get; set; }
-        public DbSet<ServiceDetail> ServiceDetail { get; set; }
+        public DbSet<Course> Course { get; set; }
+        public DbSet<CourseDetail> CourseDetail { get; set; }
+        public DbSet<Emergency> Emergency { get; set; }
+        public DbSet<EmergencyCategory> EmergencyCategory { get; set; }
+        public DbSet<EmergencyDetail> EmergencyDetail { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

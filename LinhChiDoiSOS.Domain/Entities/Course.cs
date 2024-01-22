@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-public class Service : BaseAuditableEntity
+public class Course : BaseAuditableEntity
 {
     public string? Name { get; set; }
     public string? Image { get; set; }

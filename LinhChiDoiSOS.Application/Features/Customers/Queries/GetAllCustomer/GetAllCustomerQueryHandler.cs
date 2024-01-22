@@ -43,8 +43,6 @@ public class GetAllCustomerQueryHandler : IRequestHandler<GetAllCustomerQuery, L
             //var applcationUserData = _mapper.Map<ApplicationCustomer>(customerInfo);
             var result = new CustomerResponse
             {
-                /* CustomerData = _mapper.Map<CustomerData>(customer),
-                 ApplicationUserData = _mapper.Map<ApplicationCustomer>(customerInfo),*/
                 CustomerData = customer,
                 ApplicationUserData = customerInfo1
             };

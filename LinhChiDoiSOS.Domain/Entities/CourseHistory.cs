@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LinhChiDoiSOS.Domain.Entities
 {
-    public class ServiceDetailHistory : BaseAuditableEntity
+    public class CourseHistory : BaseAuditableEntity
     {
     }
 }
