@@ -1,8 +1,6 @@
 using LinhChiDoiSOS.Application;
 using LinhChiDoiSOS.Infrastructure;
-using LinhChiDoiSOS.Infrastructure.Persistence;
 using LinhChiDoiSOS.WebAPI;
-using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 

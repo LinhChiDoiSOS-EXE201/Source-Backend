@@ -1,9 +1,5 @@
 ﻿using LinhChiDoiSOS.Application.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LinhChiDoiSOS.Application.Models.Identity;
 
 namespace LinhChiDoiSOS.Application.Common.Interfaces
 {
@@ -18,7 +14,14 @@ namespace LinhChiDoiSOS.Application.Common.Interfaces
         Task<(Result Result, string UserId)> CreateUserAsync(string userName, string password);
 
         Task<Result> DeleteUserAsync(string userId);
-
+        /// <summary>
+        /// Dùng để generate JWT
+        /// </summary>
+        /// <param name="Email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         Task<string> AuthenticateAsync(string Email, string password);
+        Task<TokenModel> AuthenticateWithRTAsync(string Email, string password);
+        Task<TokenModel> RenewToken(TokenModel model);
     }
 }
