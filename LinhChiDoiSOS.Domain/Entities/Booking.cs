@@ -15,7 +15,10 @@ namespace LinhChiDoiSOS.Domain.Entities
 
         [ForeignKey("Payment")]
         public Guid PaymentId {  get; set; }
+        [ForeignKey("Customer")]
+        public Guid CustomerId { get; set; }
 
         public virtual Payment Payment { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

@@ -10,10 +10,6 @@ namespace LinhChiDoiSOS.Domain.Entities
 {
     public class Customer : BaseAuditableEntity
     {
-        public DateTime? Birthday { get; set; }
-        public string? Phone { get; set; }
-        public string? Address { get; set; }
-
         [ForeignKey("ApplicationUser")]
         public string ApplicationUserId { get; set; }
 

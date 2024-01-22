@@ -2,14 +2,15 @@ using LinhChiDoiSOS.Application;
 using LinhChiDoiSOS.Infrastructure;
 using LinhChiDoiSOS.Infrastructure.Persistence;
 using LinhChiDoiSOS.WebAPI;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddApplicationServices();
+builder.Services.AddRazorPages();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddApplicationServices();
 builder.Services.AddWebUIServices();
-
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
