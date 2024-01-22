@@ -1,9 +1,14 @@
-﻿using LinhChiDoiSOS.Application.Common.Interfaces;
+﻿using LinhChiDoiSOS.Application.Common.Exceptions;
+using LinhChiDoiSOS.Application.Common.Interfaces;
+using LinhChiDoiSOS.Application.Features.Auth.Queries.ChangePassword;
+using LinhChiDoiSOS.Application.Features.Auth.Queries.ResetPassword;
+using LinhChiDoiSOS.Application.Features.Customers.Queries.GetCustomerByEmail;
 using LinhChiDoiSOS.Application.Models.Identity;
 using LinhChiDoiSOS.Domain.IdentityModels;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using static Duende.IdentityServer.Models.IdentityResources;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,7 +23,10 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Auth
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IIdentityService _identityService;
 
-        public AuthController(IMediator mediator, ILogger<AuthController> logger, UserManager<ApplicationUser> userManager, IIdentityService identityService)
+        public AuthController(IMediator mediator, 
+            ILogger<AuthController> logger, 
+            UserManager<ApplicationUser> userManager, 
+            IIdentityService identityService)
         {
             _mediator = mediator;
             _logger = logger;
@@ -53,6 +61,44 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Auth
                 return BadRequest(ex.Message);
             }
             return BadRequest("Đăng nhập thất bại");
+        }
+
+        [HttpPost]
+        [Route("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromForm] ResetPasswordQuery request)
+        {
+            try {
+                var result = await _mediator.Send(new ResetPasswordQuery { Email = request.Email });
+
+                return Ok(result);
+            }
+            catch (Exception ex) {
+                throw new BadRequestException("User does not exist.");
+            }
+        }
+
+        [HttpPost]
+        [Route("change-password")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordQuery request)
+        {
+            try {
+                var result = await _mediator.Send(new ChangePasswordQuery
+                {
+                    Email = request.Email ?? "",
+                    CurrentPassword = request.CurrentPassword ?? "",
+                    NewPassword = request.NewPassword ?? ""
+                });
+
+                return Ok(result);
+            }
+            catch (Exception ex) {
+                if (ex is ValidationException) {
+                    ValidationException error = (ValidationException)ex;
+                    var errorsDiction = new Dictionary<string, string[]>(error.Errors);
+                    return BadRequest(errorsDiction);
+                }
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
