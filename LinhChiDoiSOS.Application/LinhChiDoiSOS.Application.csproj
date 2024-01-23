@@ -17,6 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\EmergencyCategorys\Commands\UpdateEmergencyCategory\" />
+    <Folder Include="Features\EmergencyCategorys\Queries\" />
+    <Folder Include="Features\Services\Commands\CreateService\" />
+    <Folder Include="Features\Services\Queries\" />
+    <Folder Include="Models\CRUDModel\" />
     <Folder Include="TodoItems\Commands\" />
     <Folder Include="TodoItems\EventHandlers\" />
     <Folder Include="TodoItems\Queries\" />
