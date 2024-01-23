@@ -23,6 +23,8 @@ namespace LinhChiDoiSOS.Application.Common.Interfaces
         public DbSet<EmergencyCategory> EmergencyCategory { get; set; }
         public DbSet<EmergencyDetail> EmergencyDetail { get; set; }
         public DbSet<RefreshToken> RefreshToken { get; set; }
+        public DbSet<MiniContent> MiniContent { get; set; }
+        public DbSet<AnswerContent> AnswerContents { get;set; }
 
         public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
