@@ -5,6 +5,5 @@ namespace LinhChiDoiSOS.Application.Features.EmergencyCategorys.Queries.GetAllEm
 {
     public class GetAllEmergencyCategoryQuery : IRequest<List<EmergencyCategoryModel>>
     {
-
     }
 }

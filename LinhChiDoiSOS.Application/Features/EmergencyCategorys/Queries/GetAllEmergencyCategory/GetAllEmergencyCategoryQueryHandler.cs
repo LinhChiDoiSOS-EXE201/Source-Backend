@@ -11,11 +11,11 @@ namespace LinhChiDoiSOS.Application.Features.EmergencyCategorys.Queries.GetAllEm
         public GetAllEmergencyCategoryQueryHandler(ILinhChiDoiSOSDbContext dbContext)
         {
             _dbContext = dbContext;
-        }s
+        }
 
         public Task<List<EmergencyCategoryModel>> Handle(GetAllEmergencyCategoryQuery request, CancellationToken cancellationToken)
         {
-            var listEC = _dbContext.EmergencyCategory.Where(x => x.IsDelete).ToList();
+            var listEC = _dbContext.EmergencyCategory.Where(x => !x.IsDelete).ToList();
             var listResult = new List<EmergencyCategoryModel>();
             foreach(var item in listEC)
             {
