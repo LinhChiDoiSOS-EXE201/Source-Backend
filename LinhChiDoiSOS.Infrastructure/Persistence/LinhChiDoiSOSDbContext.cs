@@ -47,6 +47,9 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
         public DbSet<RefreshToken> RefreshToken { get; set; }
         public DbSet<MiniContent> MiniContent { get; set; }
         public DbSet<AnswerContent> AnswerContents { get; set; }
+        public DbSet<ChuanDoan> ChuanDoan { get; set; }
+        public DbSet<Keyword> Keyword { get; set ; }
+        public DbSet<CategoryKeyword> CategoryKeyword { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

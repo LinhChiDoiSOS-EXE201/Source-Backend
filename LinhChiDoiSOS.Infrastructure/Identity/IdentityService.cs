@@ -169,10 +169,13 @@ namespace LinhChiDoiSOS.Infrastructure.Identity
         {
             try
             {
+                var userClaims = await _userManager.GetClaimsAsync(user);
                 var roles = await _userManager.GetRolesAsync(user);
+                var roleClaims = roles.Select(q => new Claim("role", q)).ToList();
+
                 List<Claim> authClaims = new List<Claim>();
                 authClaims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
-                authClaims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Email));
+                authClaims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.UserName));
                 authClaims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
                 authClaims.Add(new Claim("Id", user.Id));
                 foreach (var item in roles)
@@ -186,7 +189,7 @@ namespace LinhChiDoiSOS.Infrastructure.Identity
                     issuer: _jwtSettings.Issuer,
                     audience: _jwtSettings.Audience,
                     expires: DateTime.UtcNow.AddHours(7).AddMinutes(_jwtSettings.DurationInMinutes),
-                    claims: authClaims,
+                    claims: authClaims.Union(userClaims).Union(roleClaims),
                     signingCredentials: new SigningCredentials(authenKey, SecurityAlgorithms.HmacSha512Signature)
                     );
 
