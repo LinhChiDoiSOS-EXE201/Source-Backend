@@ -25,8 +25,9 @@ namespace LinhChiDoiSOS.WebAPI
                 .AddFluentValidation(x => x.AutomaticValidationEnabled = false);
 
             services.AddRazorPages();
+
             services.Configure<ApiBehaviorOptions>(options =>
-            options.SuppressModelStateInvalidFilter = true);
+                options.SuppressModelStateInvalidFilter = true);
 
             /*services.AddScoped<FluentValidationSchemaProcessor>(provider =>
             {

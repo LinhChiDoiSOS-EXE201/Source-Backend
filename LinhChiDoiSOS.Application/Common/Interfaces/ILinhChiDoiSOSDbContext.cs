@@ -25,6 +25,9 @@ namespace LinhChiDoiSOS.Application.Common.Interfaces
         public DbSet<RefreshToken> RefreshToken { get; set; }
         public DbSet<MiniContent> MiniContent { get; set; }
         public DbSet<AnswerContent> AnswerContents { get;set; }
+        public DbSet<ChuanDoan> ChuanDoan { get;set; }
+        public DbSet<Keyword> Keyword { get;set; }
+        public DbSet<CategoryKeyword> CategoryKeyword { get;set; }
 
         public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

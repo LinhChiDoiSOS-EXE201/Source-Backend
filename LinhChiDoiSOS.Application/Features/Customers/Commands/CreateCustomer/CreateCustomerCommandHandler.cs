@@ -43,6 +43,7 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
             Email = request.Email,
             Fullname = request.Fullname,
             SecurityStamp = Guid.NewGuid().ToString(),
+            PhoneNumber = request.Phone,
             EmailConfirmed = false,
             Address = null,
             BirthDay = null,

@@ -1,7 +1,5 @@
-﻿using AutoMapper;
-using FluentValidation;
+﻿using FluentValidation;
 using LinhChiDoiSOS.Application.Common.Behaviours;
-using LinhChiDoiSOS.Application.Common.Mappings;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
