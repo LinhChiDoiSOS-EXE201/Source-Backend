@@ -60,6 +60,7 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
         var customer = new Customer
         {
             ApplicationUserId = user.Id,
+            IsDelete = false,
         };
 
         await _dbContext.Customer.AddAsync(customer);

@@ -27,8 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Services\Commands\CreateService\" />
-    <Folder Include="Features\Services\Queries\" />
     <Folder Include="Features\EmergencyCategorys\Commands\UpdateEmergencyCategory\" />
     <Folder Include="Features\EmergencyCategorys\Queries\" />
     <Folder Include="TodoItems\Commands\" />

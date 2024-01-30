@@ -12,7 +12,7 @@ namespace LinhChiDoiSOS.Domain.Entities
     {
         [ForeignKey("ApplicationUser")]
         public string ApplicationUserId { get; set; }
-
+        public bool? IsPaid { get; set; } // chừng nào trả tiền rồi thì bật lên true, mới cho xem Course
 
         // relationShip
         public virtual ApplicationUser ApplicationUser { get; set; }
