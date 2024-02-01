@@ -1,4 +1,5 @@
 ﻿using LinhChiDoiSOS.Domain.Entities;
+using LinhChiDoiSOS.Domain.Entities.Payments;
 using LinhChiDoiSOS.Domain.IdentityModels;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +17,6 @@ namespace LinhChiDoiSOS.Application.Common.Interfaces
         public DbSet<BookingDetail> BookingDetail { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<ComboCourse> ComboCourse { get; set; }
-        public DbSet<Payment> Payment { get; set; }
         public DbSet<Course> Course { get; set; }
         public DbSet<CourseDetail> CourseDetail { get; set; }
         public DbSet<Emergency> Emergency { get; set; }
@@ -28,6 +28,12 @@ namespace LinhChiDoiSOS.Application.Common.Interfaces
         public DbSet<ChuanDoan> ChuanDoan { get;set; }
         public DbSet<Keyword> Keyword { get;set; }
         public DbSet<CategoryKeyword> CategoryKeyword { get;set; }
+        public DbSet<Payment> Payment { get;set; }
+        public DbSet<Merchant> Merchant { get;set; }
+        public DbSet<PaymentDestination> PaymentDestination { get;set; }
+        public DbSet<PaymentNotification> PaymentNotification { get;set; }
+        public DbSet<PaymentSignature> PaymentSignature { get;set; }
+        public DbSet<PaymentTransaction> PaymentTransaction { get;set; }
 
         public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

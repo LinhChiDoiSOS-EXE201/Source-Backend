@@ -1,4 +1,5 @@
 ﻿using LinhChiDoiSOS.Application.Common.Interfaces;
+using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
 namespace LinhChiDoiSOS.WebAPI.Services
@@ -12,6 +13,7 @@ namespace LinhChiDoiSOS.WebAPI.Services
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public string? UserId => _httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
+        public string? UserId => _httpContextAccessor?.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        public string? IpAddress => _httpContextAccessor?.HttpContext?.Connection?.LocalIpAddress?.ToString();
     }
 }
