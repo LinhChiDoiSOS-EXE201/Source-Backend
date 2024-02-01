@@ -4,6 +4,8 @@ using LinhChiDoiSOS.WebAPI.Services;
 using LinhChiDoiSOS.Infrastructure.Persistence;
 using LinhChiDoiSOS.WebAPI.Filters;
 using FluentValidation.AspNetCore;
+using MediatR;
+using LinhChiDoiSOS.Application.Features.Payments.Merchants.Commands;
 
 namespace LinhChiDoiSOS.WebAPI
 {

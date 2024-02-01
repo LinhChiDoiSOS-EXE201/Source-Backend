@@ -725,6 +725,326 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
                     b.ToTable("Keyword");
                 });
 
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.Merchant", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MerchantIpnUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MerchantName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MerchantReturnUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MerchantWebLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecretKey")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Merchant");
+                });
+
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.Payment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ExpireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("MerchantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal?>("PaidAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("PaymentContent")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentCurrency")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PaymentDestinationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PaymentLanguage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentLastMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentRefId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("RequiredAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MerchantId");
+
+                    b.HasIndex("PaymentDestinationId");
+
+                    b.ToTable("Payment");
+                });
+
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.PaymentDestination", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DesLogo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DesName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DesParentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DesShortName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SortIndex")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PaymentDestination");
+                });
+
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.PaymentNotification", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("MerchantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("NotiAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("NotiContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("NotiDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NotiMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NotiNotiStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("NotiResDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NotiResHttpCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NotiResMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NotiSignature")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("PaymentId")
+                        .IsRequired()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PaymentRefId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MerchantId");
+
+                    b.HasIndex("PaymentId");
+
+                    b.ToTable("PaymentNotification");
+                });
+
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.PaymentSignature", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsValid")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("PaymentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("SignAlgo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("SignDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SignOwn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SignValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PaymentId");
+
+                    b.ToTable("PaymentSignature");
+                });
+
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.PaymentTransaction", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("PaymentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal?>("TranAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("TranDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TranMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TranPayload")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TranRefId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TranStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PaymentId");
+
+                    b.ToTable("PaymentTransaction");
+                });
+
             modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.RefreshToken", b =>
                 {
                     b.Property<Guid>("Id")
@@ -947,7 +1267,7 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
                             LockoutEnabled = true,
                             NormalizedEmail = "NHAN@GMAIL.COM",
                             NormalizedUserName = "NHANNGUYEN",
-                            PasswordHash = "AQAAAAIAAYagAAAAENHOTWufz9WsKH9/ewIIl0shJmKMFpJQO23XrvfIdZEzUrNmEyt9gCykFKwIniW5Mw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELiX64CxWPD/48dXiYRlSp1YbMcFXJrvoztl6MwEHfE4x3dO+Z5a47BEMsuM+07xzw==",
                             PhoneNumber = "0961868641",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "FHSBRSP7Q6SW6JWBVKCFBC6LKFR4MAR7",
@@ -1145,35 +1465,6 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
                     b.ToTable("MiniContent");
                 });
 
-            modelBuilder.Entity("Payment", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CreateBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("LastModified")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PaymentMethod")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Payment");
-                });
-
             modelBuilder.Entity("LinhChiDoiSOS.Domain.IdentityModels.AppIdentityRole", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole");
@@ -1304,7 +1595,7 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Payment", "Payment")
+                    b.HasOne("LinhChiDoiSOS.Domain.Entities.Payments.Payment", "Payment")
                         .WithMany()
                         .HasForeignKey("PaymentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1346,6 +1637,66 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("CategoryKeyword");
+                });
+
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.Payment", b =>
+                {
+                    b.HasOne("LinhChiDoiSOS.Domain.Entities.Payments.Merchant", "Merchant")
+                        .WithMany("Payment")
+                        .HasForeignKey("MerchantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LinhChiDoiSOS.Domain.Entities.Payments.PaymentDestination", "PaymentDestination")
+                        .WithMany("Payment")
+                        .HasForeignKey("PaymentDestinationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Merchant");
+
+                    b.Navigation("PaymentDestination");
+                });
+
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.PaymentNotification", b =>
+                {
+                    b.HasOne("LinhChiDoiSOS.Domain.Entities.Payments.Merchant", "Merchant")
+                        .WithMany("PaymentNotification")
+                        .HasForeignKey("MerchantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LinhChiDoiSOS.Domain.Entities.Payments.Payment", "Payment")
+                        .WithMany()
+                        .HasForeignKey("PaymentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Merchant");
+
+                    b.Navigation("Payment");
+                });
+
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.PaymentSignature", b =>
+                {
+                    b.HasOne("LinhChiDoiSOS.Domain.Entities.Payments.Payment", "Payment")
+                        .WithMany("PaymentSignature")
+                        .HasForeignKey("PaymentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Payment");
+                });
+
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.PaymentTransaction", b =>
+                {
+                    b.HasOne("LinhChiDoiSOS.Domain.Entities.Payments.Payment", "Payment")
+                        .WithMany("PaymentTransaction")
+                        .HasForeignKey("PaymentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Payment");
                 });
 
             modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.RefreshToken", b =>
@@ -1465,6 +1816,25 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Keyword", b =>
                 {
                     b.Navigation("ChuanDoan");
+                });
+
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.Merchant", b =>
+                {
+                    b.Navigation("Payment");
+
+                    b.Navigation("PaymentNotification");
+                });
+
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.Payment", b =>
+                {
+                    b.Navigation("PaymentSignature");
+
+                    b.Navigation("PaymentTransaction");
+                });
+
+            modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.Payments.PaymentDestination", b =>
+                {
+                    b.Navigation("Payment");
                 });
 
             modelBuilder.Entity("LinhChiDoiSOS.Domain.Entities.TodoList", b =>

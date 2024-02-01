@@ -1,6 +1,11 @@
+using Hangfire;
 using LinhChiDoiSOS.Application;
 using LinhChiDoiSOS.Infrastructure;
+using LinhChiDoiSOS.Servicess.Momo.Config;
+using LinhChiDoiSOS.Servicess.VnPay.Config;
+using LinhChiDoiSOS.Servicess.ZaloPay.Config;
 using LinhChiDoiSOS.WebAPI;
+using MediatR;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,8 +25,27 @@ builder.Services.AddWebUIServices();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.Configure<VnpayConfig>(
+                builder.Configuration.GetSection(VnpayConfig.ConfigName));
+builder.Services.Configure<MomoConfig>(
+                builder.Configuration.GetSection(MomoConfig.ConfigName));
+builder.Services.Configure<ZaloPayConfig>(
+                builder.Configuration.GetSection(ZaloPayConfig.ConfigName));
+builder.Services.AddHangfire(configuration => configuration
+                .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                .UseSimpleAssemblyNameTypeSerializer()
+                .UseRecommendedSerializerSettings()
+                .UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnection"),
+                new Hangfire.SqlServer.SqlServerStorageOptions()
+                {
+                    //TODO: Change hangfire sql server option
+                }));
+builder.Services.AddHangfireServer();
+
 builder.Services.AddControllers()
-        .AddJsonOptions(options => {
+        .AddJsonOptions(options =>
+        {
             options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
         });
 
@@ -48,6 +72,7 @@ app.UseMigrationsEndPoint();
 
 app.UseHealthChecks("/health");
 app.UseHttpsRedirection();
+app.UseHangfireDashboard();
 app.UseStaticFiles();
 
 /*app.UseSwaggerUi3(settings =>
