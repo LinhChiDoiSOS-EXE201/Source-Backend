@@ -28,7 +28,6 @@
 
   <ItemGroup>
     <Folder Include="Features\EmergencyCategorys\Commands\UpdateEmergencyCategory\" />
-    <Folder Include="Features\EmergencyCategorys\Queries\" />
     <Folder Include="TodoItems\Commands\" />
     <Folder Include="TodoItems\EventHandlers\" />
     <Folder Include="TodoItems\Queries\" />

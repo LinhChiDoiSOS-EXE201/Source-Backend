@@ -4,6 +4,7 @@ using LinhChiDoiSOS.Application.Features.EmergencyCategorys.Commands.CreateEmerg
 using LinhChiDoiSOS.Application.Features.EmergencyCategorys.Commands.DeleteEmergencyCategory;
 using LinhChiDoiSOS.Application.Features.EmergencyCategorys.Commands.UpdateEmergencyCategory;
 using LinhChiDoiSOS.Application.Features.EmergencyCategorys.Queries.GetAllEmergencyCategory;
+using LinhChiDoiSOS.Application.Features.EmergencyCategorys.Queries.GetAllEmergencyCategoryAndEmergency;
 using LinhChiDoiSOS.Application.Models.CRUDModel;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -33,9 +34,9 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.EmergencyCategorys
             return response;
         }
         [HttpGet]
-        public Task<List<EmergencyCategoryModel>> GetAll()
+        public Task<List<EmergencyCategoryAndEmergencyModel>> GetAll()
         {
-            return _mediator.Send(new GetAllEmergencyCategoryQuery());
+            return _mediator.Send(new GetAllEmergencyCategoryAndEmergencyQuery());
         }
         [HttpDelete]
         public Task<SOSResponse> Delete([FromQuery] DeleteEmergencyCategoryCommand request)
