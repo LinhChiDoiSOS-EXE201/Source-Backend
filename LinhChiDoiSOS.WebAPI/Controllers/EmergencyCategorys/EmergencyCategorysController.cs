@@ -1,13 +1,10 @@
 ﻿using LinhChiDoiSOS.Application.Common.Response;
-using LinhChiDoiSOS.Application.Features.Customers.Commands.UpdateCustomer;
 using LinhChiDoiSOS.Application.Features.EmergencyCategorys.Commands.CreateEmergencyCategory;
 using LinhChiDoiSOS.Application.Features.EmergencyCategorys.Commands.DeleteEmergencyCategory;
 using LinhChiDoiSOS.Application.Features.EmergencyCategorys.Commands.UpdateEmergencyCategory;
-using LinhChiDoiSOS.Application.Features.EmergencyCategorys.Queries.GetAllEmergencyCategory;
 using LinhChiDoiSOS.Application.Features.EmergencyCategorys.Queries.GetAllEmergencyCategoryAndEmergency;
 using LinhChiDoiSOS.Application.Models.CRUDModel;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LinhChiDoiSOS.WebAPI.Controllers.EmergencyCategorys

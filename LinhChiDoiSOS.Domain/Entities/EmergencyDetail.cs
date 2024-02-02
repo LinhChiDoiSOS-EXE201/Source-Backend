@@ -12,6 +12,11 @@ public class EmergencyDetail : BaseAuditableEntity
     public string? ActionContent { get; set; }
     public string? ContentBottom { get; set; }
 
+    /// <summary>
+    /// Đánh dấu xem tới bước an toàn chưa, bước an toàn thì là màu xanh trên UI
+    /// </summary>
+    public bool IsSafe { get;set; }
+
     [ForeignKey("Emergency")]
     public Guid? EmergencyId { get; set; }
 
