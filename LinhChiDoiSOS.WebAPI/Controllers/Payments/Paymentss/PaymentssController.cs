@@ -1,5 +1,6 @@
 ﻿using Duende.IdentityServer.Extensions;
 using LinhChiDoiSOS.Application.Common.Base;
+using LinhChiDoiSOS.Application.Features.Bookings.Commands.CreateBooking;
 using LinhChiDoiSOS.Application.Features.Payments.Paymentss.Commands;
 using LinhChiDoiSOS.Application.Features.Payments.Paymentss.Commands.ProcessVnpayPaymentReturn;
 using LinhChiDoiSOS.Application.Features.Payments.Paymentss.Dtos;
@@ -45,6 +46,14 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Payments.Paymentss
         {
             var response = new PaymentLinkDtos();
             response = await mediator.Send(request);
+            var booking = new CreateBookingCommand
+            {
+                Price = request.BookingCourse.Price,
+                PaymentId = response.PaymentId,
+                CustomerId = request.BookingCourse.CustomerId,
+                NameComboCourse = request.BookingCourse.NameComboCourse,
+            };
+            await mediator.Send(booking);
             return Ok(response);
         }
 
