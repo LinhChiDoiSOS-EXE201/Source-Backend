@@ -28,13 +28,6 @@
 		<PackageReference Include="System.Globalization" Version="4.3.0" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\EmergencyCategorys\Commands\UpdateEmergencyCategory\" />
-    <Folder Include="TodoItems\Commands\" />
-    <Folder Include="TodoItems\EventHandlers\" />
-    <Folder Include="TodoItems\Queries\" />
-    <Folder Include="TodoLists\Commands\" />
-  </ItemGroup>
 	<ItemGroup>
 		<Folder Include="Features\EmergencyCategorys\Commands\UpdateEmergencyCategory\" />
 		<Folder Include="Features\EmergencyCategorys\Queries\" />
@@ -43,13 +36,6 @@
 		<Folder Include="TodoItems\Queries\" />
 		<Folder Include="TodoLists\Commands\" />
 	</ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\EmergencyCategorys\Commands\UpdateEmergencyCategory\" />
-    <Folder Include="TodoItems\Commands\" />
-    <Folder Include="TodoItems\EventHandlers\" />
-    <Folder Include="TodoItems\Queries\" />
-    <Folder Include="TodoLists\Commands\" />
-  </ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\LinhChiDoiSOS.Domain\LinhChiDoiSOS.Domain.csproj" />
