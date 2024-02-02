@@ -37,11 +37,20 @@ namespace LinhChiDoiSOS.Application.Features.Payments.Paymentss.Commands
         public string? MerchantId { get; set; } = string.Empty;
         public string? PaymentDestinationId { get; set; } = string.Empty;
         public CreatePaymentSignature CreatePaymentSignature { get; set; }
+        public BookingCourse BookingCourse {  get; set; }
     }
     public class CreatePaymentSignature
     {
         public string? SignValue { get; set; } = string.Empty;
         public string? SignAlgo { get; set; } = string.Empty;
+    }
+    public class BookingCourse
+    {
+        public double? Price { get; set; }
+        public string CustomerId { get; set; }
+
+        // comboCourse => premium
+        public string? NameComboCourse { get; set; }
     }
 
     public class CreatePaymentHandler : IRequestHandler<CreatePayment, PaymentLinkDtos>
