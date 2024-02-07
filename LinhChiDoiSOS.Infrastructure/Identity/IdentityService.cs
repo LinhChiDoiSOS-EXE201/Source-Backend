@@ -184,12 +184,11 @@ namespace LinhChiDoiSOS.Infrastructure.Identity
                 }
 
                 var authenKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
-                var test = DateTime.UtcNow.AddHours(7).AddMinutes(_jwtSettings.DurationInMinutes);
                 var token = new JwtSecurityToken(
                     issuer: _jwtSettings.Issuer,
                     audience: _jwtSettings.Audience,
-                    expires: DateTime.UtcNow.AddHours(7).AddMinutes(_jwtSettings.DurationInMinutes),
                     claims: authClaims.Union(userClaims).Union(roleClaims),
+                    expires: DateTime.UtcNow.AddHours(7).AddMinutes(_jwtSettings.DurationInMinutes),
                     signingCredentials: new SigningCredentials(authenKey, SecurityAlgorithms.HmacSha512Signature)
                     );
 
@@ -215,8 +214,9 @@ namespace LinhChiDoiSOS.Infrastructure.Identity
                 return new TokenModel()
                 {
                     AccessToken = accessToken,
-                    RefreshToken = refreshToken
-                };
+                    RefreshToken = refreshToken,
+                    Expires = DateTime.UtcNow.AddHours(7).AddMinutes(_jwtSettings.DurationInMinutes),
+            };
             }
             catch
             {

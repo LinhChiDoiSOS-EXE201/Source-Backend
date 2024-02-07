@@ -5,6 +5,7 @@ using LinhChiDoiSOS.Application.Features.ChuanDoans.Queries.GetAllChuanDoan;
 using LinhChiDoiSOS.Application.Features.ChuanDoans.Queries.GetListChuanDoanByKeyword;
 using LinhChiDoiSOS.Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LinhChiDoiSOS.WebAPI.Controllers.ChuanDoans
@@ -22,6 +23,7 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.ChuanDoans
 
         [HttpGet]
         [Route("all")]
+        [Authorize(Roles = "Customer")]
         public Task<List<ChuanDoanResponse>> Get()
         {
             var response = _mediator.Send(new GetAllChuanDoanQuery());

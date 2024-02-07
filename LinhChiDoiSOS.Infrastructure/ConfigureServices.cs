@@ -73,7 +73,7 @@ namespace LinhChiDoiSOS.Infrastructure
                    options.Cookie.SameSite = SameSiteMode.Lax;
                }).AddJwtBearer(opt =>
                {
-                   opt.TokenValidationParameters = new TokenValidationParameters
+                   /*opt.TokenValidationParameters = new TokenValidationParameters
                    {
                        //tự cấp token
                        ValidateIssuer = false,
@@ -84,8 +84,48 @@ namespace LinhChiDoiSOS.Infrastructure
                        IssuerSigningKey = new SymmetricSecurityKey(secretKeyBytes),
 
                        ClockSkew = TimeSpan.Zero
+                   };*/
+                   opt.SaveToken = true;
+                   opt.RequireHttpsMetadata = false;
+                   opt.TokenValidationParameters = new TokenValidationParameters
+                   {
+                       ValidateIssuerSigningKey = true,
+                       ValidateIssuer = true,
+                       ValidateAudience = true,
+                       ValidateLifetime = true,
+                       ClockSkew = TimeSpan.Zero,
+                       ValidIssuer = configuration["JwtSettings:Issuer"],
+                       ValidAudience = configuration["JwtSettings:Audience"],
+                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:Key"]))
                    };
                });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme, new Microsoft.OpenApi.Models.OpenApiSecurityScheme()
+                {
+                    In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+                    Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+                    BearerFormat = "JwtSettings",
+                    Scheme = JwtBearerDefaults.AuthenticationScheme,
+                    Name = "Authorization",
+                    Description = "Insert JWT Token"
+                });
+                c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = JwtBearerDefaults.AuthenticationScheme
+                            }
+                        },
+                        new string[]{}
+                    }
+                });
+            });
 
             services.AddAuthorization(options =>
             {
@@ -114,11 +154,11 @@ namespace LinhChiDoiSOS.Infrastructure
             .Build());
             });
 
-            services.AddSwaggerGen(options =>
+            /*services.AddSwaggerGen(options =>
             {
                 var jwtSecurityScheme = new OpenApiSecurityScheme
                 {
-                    BearerFormat = "JWT",
+                    BearerFormat = "JwtSettings",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Scheme = JwtBearerDefaults.AuthenticationScheme,
@@ -138,7 +178,7 @@ namespace LinhChiDoiSOS.Infrastructure
                         new List<string>()
                     }
                 });
-            });
+            });*/
 
             services.AddSession();
 

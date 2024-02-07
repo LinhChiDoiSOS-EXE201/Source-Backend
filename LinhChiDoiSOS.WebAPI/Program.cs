@@ -6,6 +6,8 @@ using LinhChiDoiSOS.Servicess.VnPay.Config;
 using LinhChiDoiSOS.Servicess.ZaloPay.Config;
 using LinhChiDoiSOS.WebAPI;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);

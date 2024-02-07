@@ -1,11 +1,9 @@
-﻿using LinhChiDoiSOS.Application.Common.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using LinhChiDoiSOS.WebAPI.Services;
+﻿using FluentValidation.AspNetCore;
+using LinhChiDoiSOS.Application.Common.Interfaces;
 using LinhChiDoiSOS.Infrastructure.Persistence;
 using LinhChiDoiSOS.WebAPI.Filters;
-using FluentValidation.AspNetCore;
-using MediatR;
-using LinhChiDoiSOS.Application.Features.Payments.Merchants.Commands;
+using LinhChiDoiSOS.WebAPI.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LinhChiDoiSOS.WebAPI
 {
@@ -50,8 +48,8 @@ namespace LinhChiDoiSOS.WebAPI
                 // Add the fluent validations schema processor
                 configure.SchemaProcessors.Add(fluentValidationSchemaProcessor);
 
-                configure.Title = "CleanArchitecture API";
-                configure.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme
+                configure.Title = "LinhChiDoiSOS API";
+                configure.AddSecurity("JwtSettings", Enumerable.Empty<string>(), new OpenApiSecurityScheme
                 {
                     Type = OpenApiSecuritySchemeType.ApiKey,
                     Name = "Authorization",
@@ -59,7 +57,7 @@ namespace LinhChiDoiSOS.WebAPI
                     Description = "Type into the textbox: Bearer {your JWT token}."
                 });
 
-                configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
+                configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JwtSettings"));
             });*/
 
             return services;

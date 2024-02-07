@@ -4,6 +4,7 @@ using LinhChiDoiSOS.Application.Features.Customers.Commands.DeleteCustomer;
 using LinhChiDoiSOS.Application.Features.Customers.Commands.UpdateCustomer;
 using LinhChiDoiSOS.Application.Features.Customers.Queries;
 using LinhChiDoiSOS.Application.Features.Customers.Queries.GetAllCustomer;
+using LinhChiDoiSOS.Application.Features.Customers.Queries.GetCustomerByApplicationUserId;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,17 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Customers
         public CustomersController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+
+        [HttpGet]
+        [Route("{applicationuserid}")]
+        public async Task<CustomerResponse> GetById(string applicationuserid)
+        {
+            var response = await _mediator.Send(new GetByIdQuery
+            {
+                ApplicationUserId = applicationuserid
+            });
+            return response;
         }
 
         [HttpGet]
