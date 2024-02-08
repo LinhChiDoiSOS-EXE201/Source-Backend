@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LinhChiDoiSOS.Application.Common.Interfaces;
+using LinhChiDoiSOS.Application.Common.Mappings;
 using LinhChiDoiSOS.Application.Common.Response;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -24,11 +25,16 @@ namespace LinhChiDoiSOS.Application.Features.CourseDetails.Commands.CreateCourse
         public string? Content { get; set; }
         public string? ImageCourseDetail {  get; set; }
 
-        public string? Step { get; set; }
-        public string? ContentStep {  get; set; }
+        public List<StepCourseDetail> StepCourseDetailList {  get; set; }
 
         public string? Conlusion { get; set; }
         #endregion
+    }
+
+    public class StepCourseDetail : IMapFrom<StepOfCourseDetail>
+    {
+        public string? StepName { get; set; }
+        public string? StepContent { get; set; }
     }
 
     public class CreateCourseDetailCommandHandler : IRequestHandler<CreateCourseDetailCommand, SOSResponse>
@@ -63,14 +69,23 @@ namespace LinhChiDoiSOS.Application.Features.CourseDetails.Commands.CreateCourse
                 Name = request.CourseDetailName,
                 Content = request.Content,
                 ImageUrl = request.ImageCourseDetail,
-                Step = request.Step,
-                ContentStep = request.ContentStep,
                 Conlusion = request.Conlusion,
                 CourseId = course.Id
             };
             _dbContext.CourseDetail.Add(courseDetail);
             await _dbContext.SaveChangesAsync();
             #endregion
+            var stepList = request.StepCourseDetailList.ToList();
+            foreach(var step in stepList) {
+                var newStep = new StepOfCourseDetail
+                {
+                    StepName = step.StepName,
+                    StepContent = step.StepContent,
+                    CourseDetailId = courseDetail.Id,
+                };
+                _dbContext.StepOfCourseDetail.Add(newStep);
+            }
+            await _dbContext.SaveChangesAsync();
 
             return new SOSResponse
             {

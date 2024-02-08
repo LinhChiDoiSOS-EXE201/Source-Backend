@@ -2,6 +2,7 @@
 using LinhChiDoiSOS.Application.Features.CourseDetails.Commands.CreateCourseDetail;
 using LinhChiDoiSOS.Application.Features.CourseDetails.Queries;
 using LinhChiDoiSOS.Application.Features.CourseDetails.Queries.GetAllCourseDetail;
+using LinhChiDoiSOS.Application.Features.CourseDetails.Queries.GetCourseDetailByCourseId;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LinhChiDoiSOS.WebAPI.Controllers.CourseDetails
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/course-detail")]
     [ApiController]
     public class CourseDetailsController : ControllerBase
     {
@@ -25,6 +26,17 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.CourseDetails
         public async Task<List<CourseDetailResponse>> Get()
         {
             var response = await _mediator.Send(new GetAllCourseDetailQuery());
+            return response;
+        }
+
+        [HttpGet]
+        [Route("{courseid}")]
+        public async Task<CourseDetailResponse> GetById(string courseid)
+        {
+            var response = await _mediator.Send(new GetCourseDetailByCourseIdQuery
+            {
+                CourseId = courseid
+            });
             return response;
         }
 

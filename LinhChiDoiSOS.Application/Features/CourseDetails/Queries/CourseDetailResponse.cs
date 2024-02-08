@@ -1,4 +1,5 @@
 ﻿using LinhChiDoiSOS.Application.Common.Mappings;
+using LinhChiDoiSOS.Application.Features.CourseDetails.Commands.CreateCourseDetail;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,8 +16,7 @@ namespace LinhChiDoiSOS.Application.Features.CourseDetails.Queries
         public string? Content { get; set; }
         public string? ImageUrl { get; set; }
 
-        public string? Step { get; set; }
-        public string? ContentStep { get; set; }
+        public List<StepCourseDetail> StepCourseDetailList { get; set; }
 
         public string? Conlusion { get; set; }
 

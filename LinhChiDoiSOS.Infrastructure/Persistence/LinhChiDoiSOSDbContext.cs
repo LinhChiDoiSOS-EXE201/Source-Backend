@@ -56,6 +56,7 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
         public DbSet<PaymentNotification> PaymentNotification { get; set; }
         public DbSet<PaymentSignature> PaymentSignature { get; set; }
         public DbSet<PaymentTransaction> PaymentTransaction { get; set; }
+        public DbSet<StepOfCourseDetail> StepOfCourseDetail { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

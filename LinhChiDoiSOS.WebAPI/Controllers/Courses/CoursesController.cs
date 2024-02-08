@@ -19,12 +19,13 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Courses
         }
 
         [HttpGet]
-        public async Task<List<CategoryResponse>> Get(string id)
+        [Route("{applicationuserid}")]
+        public async Task<List<CategoryResponse>> Get(string applicationuserid)
         {
             try {
                 var response = await _mediator.Send(new GetAllCourseQuery
                 {
-                    CustomerId = id
+                    ApplicationUserId = applicationuserid
                 });
                 return response;
             }

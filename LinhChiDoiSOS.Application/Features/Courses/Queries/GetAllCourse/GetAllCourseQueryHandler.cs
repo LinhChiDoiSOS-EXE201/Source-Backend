@@ -3,7 +3,9 @@ using AutoMapper.QueryableExtensions;
 using LinhChiDoiSOS.Application.Common.Exceptions;
 using LinhChiDoiSOS.Application.Common.Interfaces;
 using LinhChiDoiSOS.Application.Features.CourseDetails.Queries;
+using LinhChiDoiSOS.Domain.IdentityModels;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace LinhChiDoiSOS.Application.Features.Courses.Queries.GetAllCourse
@@ -12,15 +14,17 @@ namespace LinhChiDoiSOS.Application.Features.Courses.Queries.GetAllCourse
     {
         public readonly ILinhChiDoiSOSDbContext _dbContext;
         public readonly IMapper _mapper;
-        public GetAllCourseQueryHandler(ILinhChiDoiSOSDbContext dbContext, IMapper mapper)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public GetAllCourseQueryHandler(ILinhChiDoiSOSDbContext dbContext, IMapper mapper, UserManager<ApplicationUser> userManager)
         {
             _dbContext = dbContext;
             _mapper = mapper;
+            _userManager = userManager;
         }
         public async Task<List<CategoryResponse>> Handle(GetAllCourseQuery request, CancellationToken cancellationToken)
         {
             // check isPaid from Customer
-            var customerIsPaid = await _dbContext.Customer.Where(c => c.Id == Guid.Parse(request.CustomerId) && c.IsPaid).SingleOrDefaultAsync();
+            var customerIsPaid = await _dbContext.Customer.Where(c => c.ApplicationUserId == request.ApplicationUserId && c.IsPaid).SingleOrDefaultAsync();
             if (customerIsPaid == null) {
                 throw new BadRequestException("Your account do not pay for learning skill");
             }

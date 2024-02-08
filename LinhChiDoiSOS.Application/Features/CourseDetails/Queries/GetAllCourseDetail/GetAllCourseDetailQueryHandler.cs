@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LinhChiDoiSOS.Application.Common.Interfaces;
+using LinhChiDoiSOS.Application.Features.CourseDetails.Commands.CreateCourseDetail;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,8 +28,12 @@ namespace LinhChiDoiSOS.Application.Features.CourseDetails.Queries.GetAllCourseD
                                                                         Name = detail.Name,
                                                                         Content = detail.Content,
                                                                         ImageUrl = detail.ImageUrl,
-                                                                        Step = detail.Step,
-                                                                        ContentStep = detail.ContentStep,
+                                                                        StepCourseDetailList = _mapper
+                                                                            .Map<List<StepCourseDetail>>(_dbContext.StepOfCourseDetail
+                                                                                        .Where(s => s.CourseDetailId == detail.Id)
+                                                                                        .OrderBy(s => /*s.StepName*/ s.Created)
+                                                                                        .ToList()
+                                                                                    ),
                                                                         Conlusion = detail.Conlusion,
                                                                         CourseId = course.Id,
                                                                         CourseData = _mapper.Map<CourseResponse>(course)
