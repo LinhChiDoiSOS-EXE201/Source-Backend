@@ -1,11 +1,11 @@
 ﻿using FluentValidation.AspNetCore;
 using LinhChiDoiSOS.Application.Common.Interfaces;
 using LinhChiDoiSOS.Infrastructure.Persistence;
-using LinhChiDoiSOS.WebAPI.Filters;
-using LinhChiDoiSOS.WebAPI.Services;
+using LinhChiDoiSOS.API.Filters;
+using LinhChiDoiSOS.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LinhChiDoiSOS.WebAPI
+namespace LinhChiDoiSOS.API
 {
     public static class ConfigureServices
     {

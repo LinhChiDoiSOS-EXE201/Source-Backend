@@ -3,13 +3,13 @@ using LinhChiDoiSOS.Application.Common.Interfaces;
 using LinhChiDoiSOS.Application.Features.Auth.Queries.ResetPassword;
 using LinhChiDoiSOS.Application.Features.Payments.PaymentWithSendMail;
 using LinhChiDoiSOS.Domain.IdentityModels;
-using LinhChiDoiSOS.WebAPI.Controllers.Auth;
+using LinhChiDoiSOS.API.Controllers.Auth;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LinhChiDoiSOS.WebAPI.Controllers.Payments.PaymentSendMail
+namespace LinhChiDoiSOS.API.Controllers.Payments.PaymentSendMail
 {
     [Route("api/v1/payment-send-mail")]
     [ApiController]

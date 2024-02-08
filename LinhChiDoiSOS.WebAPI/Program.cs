@@ -4,7 +4,7 @@ using LinhChiDoiSOS.Infrastructure;
 using LinhChiDoiSOS.Servicess.Momo.Config;
 using LinhChiDoiSOS.Servicess.VnPay.Config;
 using LinhChiDoiSOS.Servicess.ZaloPay.Config;
-using LinhChiDoiSOS.WebAPI;
+using LinhChiDoiSOS.API;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
