@@ -45,7 +45,7 @@ namespace LinhChiDoiSOS.API.Controllers.Payments.Paymentss
         public async Task<IActionResult> Create([FromBody] CreatePayment request)
         {
             var response = new PaymentLinkDtos();
-            response = await mediator.Send(request);
+            /*response = await mediator.Send(request);
             var booking = new CreateBookingCommand
             {
                 Price = request.BookingCourse.Price,
@@ -53,7 +53,7 @@ namespace LinhChiDoiSOS.API.Controllers.Payments.Paymentss
                 CustomerId = request.BookingCourse.CustomerId,
                 NameComboCourse = request.BookingCourse.NameComboCourse,
             };
-            await mediator.Send(booking);
+            await mediator.Send(booking);*/
             return Ok(response);
         }
 

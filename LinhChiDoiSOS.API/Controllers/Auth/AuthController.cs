@@ -98,7 +98,7 @@ namespace LinhChiDoiSOS.API.Controllers.Auth
 
         [HttpPost]
         [Route("reset-password")]
-        public async Task<IActionResult> ResetPassword([FromForm] ResetPasswordQuery request)
+        public async Task<IActionResult> ResetPassword([FromForm]ResetPasswordQuery request)
         {
             try {
                 var result = await _mediator.Send(new ResetPasswordQuery { Email = request.Email });

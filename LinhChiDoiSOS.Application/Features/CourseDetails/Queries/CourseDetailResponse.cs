@@ -31,6 +31,7 @@ namespace LinhChiDoiSOS.Application.Features.CourseDetails.Queries
         public string? Image { get; set; }
 
         public Guid CategoryId { get; set; }
+        public Guid ComboCourseId { get; set; }
     }
 
 }

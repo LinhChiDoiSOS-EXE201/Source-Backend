@@ -14,12 +14,12 @@ namespace LinhChiDoiSOS.Application.Features.Bookings.Commands.CreateBooking
     public class CreateBookingCommand : IRequest<SOSResponse>
     {
         // theo nguyên tắc bussiness t đề ra, trả tiền xong rồi mới tạo booking
+        // bước này admin sẽ tạo cho khách hàng
         public double? Price { get; set; }
-        public string PaymentId { get; set; }
         public string CustomerId { get; set; }
 
         // comboCourse => premium
-        public string? NameComboCourse { get; set; }
+        public string ComboCourseId { get; set; }
     }
 
     public class CreateBookingCommandHandler : IRequestHandler<CreateBookingCommand, SOSResponse>
@@ -34,14 +34,13 @@ namespace LinhChiDoiSOS.Application.Features.Bookings.Commands.CreateBooking
             var booking = new Booking
             {
                 Price = request.Price,
-                PaymentId = Guid.Parse(request.PaymentId),
                 CustomerId = Guid.Parse(request.CustomerId)
             };
             _dbContext.Booking.Add(booking);
 
-            var comboCourseExist = await _dbContext.ComboCourse.Where(c => c.Name == request.NameComboCourse).SingleOrDefaultAsync();
+            var comboCourseExist = await _dbContext.ComboCourse.Where(c => c.Id == Guid.Parse(request.ComboCourseId)).SingleOrDefaultAsync();
             if (comboCourseExist == null) {
-                throw new NotFoundException("Does not exist ComboName");
+                throw new NotFoundException("Does not exist ComboCourse");
             }
             var bookingDetail = new BookingDetail
             {
@@ -49,13 +48,6 @@ namespace LinhChiDoiSOS.Application.Features.Bookings.Commands.CreateBooking
                 ComboCourseId = comboCourseExist.Id
             };
             _dbContext.BookingDetail.Add(bookingDetail);
-
-            var customer = await _dbContext.Customer.Where(c => c.Id == Guid.Parse(request.CustomerId)).SingleOrDefaultAsync();
-            if(customer == null) {
-                throw new NotFoundException("Does not exist CustomerId");
-            }
-            customer.IsPaid = true;
-            _dbContext.Customer.Update(customer);
 
             await _dbContext.SaveChangesAsync();
             return new SOSResponse

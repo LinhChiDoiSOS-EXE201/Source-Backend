@@ -18,6 +18,7 @@ namespace LinhChiDoiSOS.Application.Features.CourseDetails.Commands.CreateCourse
         public string? CourseName {  get; set; }
         public string? ImageCourse { get; set; }
         public Guid CategoryCourseId {  get; set; }
+        public Guid ComboCourseId { get; set; }
         #endregion
 
         #region CourseDetail
@@ -54,6 +55,7 @@ namespace LinhChiDoiSOS.Application.Features.CourseDetails.Commands.CreateCourse
                 Name = request.CourseName,
                 Image = request.ImageCourse,
                 CategoryId = request.CategoryCourseId,
+                ComboCourseId = request.ComboCourseId
             };
             _dbContext.Course.Add(course);
             await _dbContext.SaveChangesAsync();

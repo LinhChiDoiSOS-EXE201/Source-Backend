@@ -30,12 +30,13 @@ namespace LinhChiDoiSOS.API.Controllers.CourseDetails
         }
 
         [HttpGet]
-        [Route("{courseid}")]
-        public async Task<CourseDetailResponse> GetById(string courseid)
+        [Route("{courseid}/{applicationuserid}")]
+        public async Task<CourseDetailResponse> GetById(string courseid, string applicationuserid)
         {
             var response = await _mediator.Send(new GetCourseDetailByCourseIdQuery
             {
-                CourseId = courseid
+                CourseId = courseid,
+                ApplicationUserId = applicationuserid
             });
             return response;
         }
