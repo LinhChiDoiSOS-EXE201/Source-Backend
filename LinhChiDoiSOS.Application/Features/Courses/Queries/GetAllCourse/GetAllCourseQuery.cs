@@ -10,6 +10,5 @@ namespace LinhChiDoiSOS.Application.Features.Courses.Queries.GetAllCourse
 {
     public class GetAllCourseQuery : IRequest<List<CategoryResponse>>
     {
-        public string ApplicationUserId { get; set; }
     }
 }

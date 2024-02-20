@@ -23,12 +23,6 @@ namespace LinhChiDoiSOS.Application.Features.Courses.Queries.GetAllCourse
         }
         public async Task<List<CategoryResponse>> Handle(GetAllCourseQuery request, CancellationToken cancellationToken)
         {
-            // check isPaid from Customer
-            var customerIsPaid = await _dbContext.Customer.Where(c => c.ApplicationUserId == request.ApplicationUserId && c.IsPaid).SingleOrDefaultAsync();
-            if (customerIsPaid == null) {
-                throw new BadRequestException("Your account do not pay for learning skill");
-            }
-
             var categoryList = await _dbContext.Category.Where(c => !c.IsDelete).ToListAsync();
             var response = new List<CategoryResponse>();
             foreach (var category in categoryList) {

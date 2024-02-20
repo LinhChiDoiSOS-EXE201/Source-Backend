@@ -23,10 +23,10 @@ namespace LinhChiDoiSOS.API.Controllers.Courses
         public async Task<List<CategoryResponse>> Get(string applicationuserid)
         {
             try {
-                var response = await _mediator.Send(new GetAllCourseQuery
-                {
+                var response = await _mediator.Send(new GetAllCourseQuery()
+                /*{
                     ApplicationUserId = applicationuserid
-                });
+                }*/);
                 return response;
             }
             catch (Exception ex) {

@@ -46,14 +46,14 @@ namespace LinhChiDoiSOS.API.Controllers.Payments.Paymentss
         {
             var response = new PaymentLinkDtos();
             response = await mediator.Send(request);
-            var booking = new CreateBookingCommand
+            /*var booking = new CreateBookingCommand
             {
                 Price = request.BookingCourse.Price,
                 PaymentId = response.PaymentId,
                 CustomerId = request.BookingCourse.CustomerId,
                 NameComboCourse = request.BookingCourse.NameComboCourse,
             };
-            await mediator.Send(booking);
+            await mediator.Send(booking);*/
             return Ok(response);
         }
 

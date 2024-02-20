@@ -7,6 +7,9 @@ public class Course : BaseAuditableEntity
 
     [ForeignKey("Category")]
     public Guid CategoryId { get; set; }
+    [ForeignKey("ComboCourse")]
+    public Guid ComboCourseId { get; set; }
 
     public virtual Category Category { get; set; }
+    public virtual ComboCourse ComboCourse { get; set; }
 }

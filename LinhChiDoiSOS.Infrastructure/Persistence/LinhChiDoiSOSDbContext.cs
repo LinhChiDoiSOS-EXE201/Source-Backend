@@ -884,63 +884,86 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                         Id = Guid.Parse("2F55AA8B-E887-4808-9E18-7C6556464F16"),
                         Name = "Nguyên tắc an toàn trong sơ cứu",
                         Image = "https://firebasestorage.googleapis.com/v0/b/linhchidoisos.appspot.com/o/SoCapCuu%2Fnguyentacantoan.png?alt=media&token=d453d651-2618-4ccc-abc4-44a7d26168e8",
-                        CategoryId = Guid.Parse("3A477216-D412-43CA-B05F-653BC84F6609")
+                        CategoryId = Guid.Parse("3A477216-D412-43CA-B05F-653BC84F6609"),
+                        ComboCourseId = Guid.Parse("EDD4AE9E-0E26-4ED4-9812-0FBE587FCDB3")
                     },
                     new Course
                     {
                         Id = Guid.Parse("F3DB0B18-003A-4046-873B-264D3498360C"),
                         Name = "Tư thế nằm nghiêng nan toàn",
                         Image = "https://firebasestorage.googleapis.com/v0/b/linhchidoisos.appspot.com/o/SoCapCuu%2Ftuthenamantoan.png?alt=media&token=b84b752c-668f-4eed-8a23-c2743e97fb1f",
-                        CategoryId = Guid.Parse("3A477216-D412-43CA-B05F-653BC84F6609")
+                        CategoryId = Guid.Parse("3A477216-D412-43CA-B05F-653BC84F6609"),
+                        ComboCourseId = Guid.Parse("EDD4AE9E-0E26-4ED4-9812-0FBE587FCDB3")
                     },
                     new Course
                     {
                         Id = Guid.Parse("5EF458ED-6776-43B4-BA9D-9CC9C47D7511"),
                         Name = "Vận chuyển người bệnh an toàn",
                         Image = "https://firebasestorage.googleapis.com/v0/b/linhchidoisos.appspot.com/o/SoCapCuu%2Fvanchuyennguoibenhantoan.png?alt=media&token=b4aa4bda-dd25-4707-874b-205fc092dccd",
-                        CategoryId = Guid.Parse("3A477216-D412-43CA-B05F-653BC84F6609")
-                    }, 
+                        CategoryId = Guid.Parse("3A477216-D412-43CA-B05F-653BC84F6609"),
+                        ComboCourseId = Guid.Parse("EDD4AE9E-0E26-4ED4-9812-0FBE587FCDB3")
+                    },
                     new Course
                     {
                         Id = Guid.Parse("481ABB77-EBD3-47B0-9E9F-718368076074"),
                         Name = "CPR - Hồi sinh tim phổi cơ bản",
                         Image = "https://firebasestorage.googleapis.com/v0/b/linhchidoisos.appspot.com/o/SoCapCuu%2FCPRhoisinhcapcuu.png?alt=media&token=169fb2c8-5ac3-4926-96f8-13d26c28c78c",
-                        CategoryId = Guid.Parse("3A477216-D412-43CA-B05F-653BC84F6609")
-                    }, 
+                        CategoryId = Guid.Parse("3A477216-D412-43CA-B05F-653BC84F6609"),
+                        ComboCourseId = Guid.Parse("EDD4AE9E-0E26-4ED4-9812-0FBE587FCDB3")
+                    },
                     new Course
                     {
                         Id = Guid.Parse("7AA3B055-2B09-4D6A-82E0-89E75A365940"),
                         Name = "Hướng dẫn sơ cứu cho thao tác Heimlich",
                         Image = "https://firebasestorage.googleapis.com/v0/b/linhchidoisos.appspot.com/o/SoCapCuu%2FsocuuthaotacHeimlich.png?alt=media&token=c2cd2541-914e-4e35-91e4-6b96274060b5",
-                        CategoryId = Guid.Parse("3A477216-D412-43CA-B05F-653BC84F6609")
+                        CategoryId = Guid.Parse("3A477216-D412-43CA-B05F-653BC84F6609"),
+                        ComboCourseId = Guid.Parse("EDD4AE9E-0E26-4ED4-9812-0FBE587FCDB3")
                     },
                     new Course
                     {
                         Id = Guid.Parse("C672EBE0-2A8E-4A0E-B21F-F70E0D87EFA2"),
                         Name = "Tạo lửa từ những vật dụng cơ bản",
                         Image = "https://firebasestorage.googleapis.com/v0/b/linhchidoisos.appspot.com/o/KyNangSinhTon%2Ftaoluatunhungvatdungcoban.png?alt=media&token=6311c2ef-acb7-4efd-bfc4-9becb3464503",
-                        CategoryId = Guid.Parse("2B729EFA-3446-405B-9DC7-059A4C451296")
+                        CategoryId = Guid.Parse("2B729EFA-3446-405B-9DC7-059A4C451296"),
+                        ComboCourseId = Guid.Parse("81E210F8-9274-44C5-9256-481ACCE0E8EC")
                     },
                     new Course
                     {
                         Id = Guid.Parse("842765E5-AEC9-402E-93CD-3F3BB3998608"),
                         Name = "10 cách thắt nút dây cơ bản",
                         Image = "https://firebasestorage.googleapis.com/v0/b/linhchidoisos.appspot.com/o/KyNangSinhTon%2Fthatnutdaycoban.png?alt=media&token=434cd218-d2ee-4e15-823c-fe9158f7eecf",
-                        CategoryId = Guid.Parse("2B729EFA-3446-405B-9DC7-059A4C451296")
+                        CategoryId = Guid.Parse("2B729EFA-3446-405B-9DC7-059A4C451296"),
+                        ComboCourseId = Guid.Parse("81E210F8-9274-44C5-9256-481ACCE0E8EC")
                     },
                     new Course
                     {
                         Id = Guid.Parse("807EBC7E-3F10-4C2E-B8B2-138B20A314CC"),
                         Name = "Xác định phương hướng bằng lá cây",
                         Image = "https://firebasestorage.googleapis.com/v0/b/linhchidoisos.appspot.com/o/KyNangSinhTon%2Fxacdinhphuonghuongbanglacay.png?alt=media&token=03ac5e6c-1922-49af-ab29-d0c2b5a70e5b",
-                        CategoryId = Guid.Parse("2B729EFA-3446-405B-9DC7-059A4C451296")
-                    }, 
+                        CategoryId = Guid.Parse("2B729EFA-3446-405B-9DC7-059A4C451296"),
+                        ComboCourseId = Guid.Parse("81E210F8-9274-44C5-9256-481ACCE0E8EC")
+                    },
                     new Course
                     {
                         Id = Guid.Parse("1761D6C6-1155-4534-8D44-9362DB753A9A"),
                         Name = "5 cách phát ra tín hiệu cầu cứu hiệu quả",
                         Image = "https://firebasestorage.googleapis.com/v0/b/linhchidoisos.appspot.com/o/KyNangSinhTon%2F5cachphattinhieucaucuu.png?alt=media&token=6b75b201-d177-47f9-8741-58c52cfcf656",
-                        CategoryId = Guid.Parse("2B729EFA-3446-405B-9DC7-059A4C451296")
+                        CategoryId = Guid.Parse("2B729EFA-3446-405B-9DC7-059A4C451296"),
+                        ComboCourseId = Guid.Parse("81E210F8-9274-44C5-9256-481ACCE0E8EC")
+                    });
+            #endregion
+            #region ComboCourse
+            builder.Entity<ComboCourse>()
+            .HasData(
+                    new ComboCourse
+                    {
+                        Id = Guid.Parse("EDD4AE9E-0E26-4ED4-9812-0FBE587FCDB3"),
+                        Name = "Freemium"
+                    }, 
+                    new ComboCourse
+                    {
+                        Id = Guid.Parse("81E210F8-9274-44C5-9256-481ACCE0E8EC"),
+                        Name = "Premium"
                     });
             #endregion
             base.OnModelCreating(builder);
