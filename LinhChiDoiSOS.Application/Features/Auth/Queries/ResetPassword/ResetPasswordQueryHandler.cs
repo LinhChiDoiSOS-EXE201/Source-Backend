@@ -140,7 +140,7 @@ public class ResetPasswordQueryHandler : IRequestHandler<ResetPasswordQuery, str
             {
                 Port = 587,
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential("nguyenthanhn537@gmail.com", "fekhdfsvjwvetkmq"),
+                Credentials = new NetworkCredential("khancapsos.webapp@gmail.com", "fruehxrmqgywhxnv"),
                 EnableSsl = true
             };
             await smtp.SendMailAsync(message);

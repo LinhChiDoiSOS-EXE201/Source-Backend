@@ -184,7 +184,7 @@ namespace LinhChiDoiSOS.Application.Features.Payments.PaymentWithSendMail
 </html>";
                 bodyOfAdmin = bodyOfAdmin.Replace("[emailOfUser]",user.Email);
                 bodyOfAdmin = bodyOfAdmin.Replace("[DayRegis]", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
-                await SendEmailAsync("nguyenthanhn537@gmail.com", $"Customer email Payment: {request.Email}", bodyOfAdmin);
+                await SendEmailAsync("khancapsos.webapp@gmail.com", $"Customer email Payment: {request.Email}", bodyOfAdmin);
 
 
                 return "PaymentSuccessfully. Please wait for me a minute";
@@ -207,7 +207,7 @@ namespace LinhChiDoiSOS.Application.Features.Payments.PaymentWithSendMail
                 {
                     Port = 587,
                     UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential("nguyenthanhn537@gmail.com", "fekhdfsvjwvetkmq"),
+                    Credentials = new NetworkCredential("khancapsos.webapp@gmail.com", "fruehxrmqgywhxnv"),
                     EnableSsl = true
                 };
                 await smtp.SendMailAsync(message);
