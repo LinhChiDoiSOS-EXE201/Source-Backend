@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace LinhChiDoiSOS.Application.Features.ChuanDoans.Queries.GetListChuanDoanByKeyword
 {
-    public class ChuanDoanByKeywordResponse
+    public class ChuanDoanByListKeywordResponse
     {
         public Guid Id { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
-        public DateTime? Created { get; set; } 
-        public List<KeywordData> keywordListData { get; set; }
+        public List<KeywordData> KeywordListData { get; set; }
     }
 
     public class KeywordData : IMapFrom<Keyword>

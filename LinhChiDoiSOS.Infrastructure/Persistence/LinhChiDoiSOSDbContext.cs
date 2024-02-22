@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Reflection.Emit;
 
 namespace LinhChiDoiSOS.Infrastructure.Persistence
 {
@@ -57,6 +58,7 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
         public DbSet<PaymentSignature> PaymentSignature { get; set; }
         public DbSet<PaymentTransaction> PaymentTransaction { get; set; }
         public DbSet<StepOfCourseDetail> StepOfCourseDetail { get; set; }
+        public DbSet<ChuanDoan_Keyword> ChuanDoan_Keyword { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -959,12 +961,632 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                     {
                         Id = Guid.Parse("EDD4AE9E-0E26-4ED4-9812-0FBE587FCDB3"),
                         Name = "Freemium"
-                    }, 
+                    },
                     new ComboCourse
                     {
                         Id = Guid.Parse("81E210F8-9274-44C5-9256-481ACCE0E8EC"),
                         Name = "Premium"
                     });
+            #endregion
+            #region CategoryKeyword
+            builder.Entity<CategoryKeyword>()
+            .HasData(
+                    new CategoryKeyword
+                    {
+                        Id = Guid.Parse("C0DAA7C5-4331-44BF-A33E-23679C959B12"),
+                        Name = "Đầu",
+                        Description = ""
+                    },
+                    new CategoryKeyword
+                    {
+                        Id = Guid.Parse("54B8BDD4-B49E-4775-AB42-9FF7B4DD0DF6"),
+                        Name = "Mắt",
+                        Description = ""
+                    },
+                    new CategoryKeyword
+                    {
+                        Id = Guid.Parse("1A6C1329-EE6F-4A7D-A5E6-C7DA5D43ED9C"),
+                        Name = "Miệng",
+                        Description = ""
+                    },
+                    new CategoryKeyword
+                    {
+                        Id = Guid.Parse("B8C5CF22-B246-4CA1-B8BF-0F6E7D475027"),
+                        Name = "Xương khớp",
+                        Description = ""
+                    },
+                    new CategoryKeyword
+                    {
+                        Id = Guid.Parse("25FF2950-58EF-4303-8FC7-0E89538A70B2"),
+                        Name = "Mũi",
+                        Description = ""
+                    },
+                    new CategoryKeyword
+                    {
+                        Id = Guid.Parse("18FFF9C2-FF95-454C-9556-02DDFAB87C50"),
+                        Name = "Tim",
+                        Description = ""
+                    },
+                    new CategoryKeyword
+                    {
+                        Id = Guid.Parse("A89744CA-73D3-4F08-9548-9CF8AF8938FB"),
+                        Name = "Cơ thể",
+                        Description = ""
+                    },
+                    new CategoryKeyword
+                    {
+                        Id = Guid.Parse("72C14F87-15AE-4B85-81D1-005562D806C3"),
+                        Name = "Bụng",
+                        Description = ""
+                    },
+                    new CategoryKeyword
+                    {
+                        Id = Guid.Parse("5582C691-4042-40A4-A32B-CDE2EDCB5FE5"),
+                        Name = "Trực tràng",
+                        Description = ""
+                    });
+            #endregion
+            #region keyword
+            builder.Entity<Keyword>()
+            .HasData(
+                    new Keyword
+                    {
+                        Id = Guid.Parse("26D69D6F-F485-46B3-BD62-1B80B2BFC7D7"),
+                        Name = "Buồn nôn",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("C0DAA7C5-4331-44BF-A33E-23679C959B12")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("61105E2B-B22E-4EB2-897F-941818211986"),
+                        Name = "Đau đầu",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("C0DAA7C5-4331-44BF-A33E-23679C959B12")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("5490695B-C2D8-4E4D-92E1-690DA77E395D"),
+                        Name = "Đau nữa đầu trước",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("C0DAA7C5-4331-44BF-A33E-23679C959B12")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("16CFEBEA-D7D0-440D-B4BD-43BBFE6610E0"),
+                        Name = "Đau nữa đầu sau",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("C0DAA7C5-4331-44BF-A33E-23679C959B12")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("C4CCE2A8-1B2E-4443-A59E-E4BEC4F2FE0A"),
+                        Name = "Tê trán",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("C0DAA7C5-4331-44BF-A33E-23679C959B12")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("FEDB71A7-BB4B-441A-B30E-0AF28D6D83A3"),
+                        Name = "Ù tai",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("C0DAA7C5-4331-44BF-A33E-23679C959B12")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("327CA2F9-33CD-421C-B0B2-288582CA465B"),
+                        Name = "Chóng mặt",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("C0DAA7C5-4331-44BF-A33E-23679C959B12")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("FD228CDE-7079-4D6A-835B-1DF8215FA5BB"),
+                        Name = "Mắt lờ đờ",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("54B8BDD4-B49E-4775-AB42-9FF7B4DD0DF6")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("3FE4BDF1-EBDF-43DF-868A-09EB274F6F22"),
+                        Name = "Đỏ mắt",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("54B8BDD4-B49E-4775-AB42-9FF7B4DD0DF6")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("CD0AA7D8-C354-441D-9ED0-EC97D2E91EF2"),
+                        Name = "Đau mắt",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("54B8BDD4-B49E-4775-AB42-9FF7B4DD0DF6")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("7C35E76D-56B9-4EBE-B66A-63E9CE2E9237"),
+                        Name = "Chảy nước mắt",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("54B8BDD4-B49E-4775-AB42-9FF7B4DD0DF6")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("91A89827-BDC9-4B2B-A318-65735075A8EB"),
+                        Name = "Mất vị giác",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("1A6C1329-EE6F-4A7D-A5E6-C7DA5D43ED9C")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("CE0CED0C-38E6-4BDB-9D66-E5BFDFDC35BA"),
+                        Name = "Tê liệt một phần môi",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("1A6C1329-EE6F-4A7D-A5E6-C7DA5D43ED9C")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("4B467404-7405-430B-B458-8AACAC949A5B"),
+                        Name = "Khó nói chuyện",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("1A6C1329-EE6F-4A7D-A5E6-C7DA5D43ED9C")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("2B11F26C-7206-48A5-801C-9610B99B5738"),
+                        Name = "Răng va vào nhau",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("1A6C1329-EE6F-4A7D-A5E6-C7DA5D43ED9C")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("B92E56FC-1BE9-4973-9254-D9CD74A70414"),
+                        Name = "Chảy máu chân răng",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("1A6C1329-EE6F-4A7D-A5E6-C7DA5D43ED9C")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("E9619B3B-A906-4ADA-B211-84543A3B31DF"),
+                        Name = "Nóng rang cổ họng",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("1A6C1329-EE6F-4A7D-A5E6-C7DA5D43ED9C")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("9BC401F4-517B-4765-885F-1C480893F229"),
+                        Name = "Ho khan",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("1A6C1329-EE6F-4A7D-A5E6-C7DA5D43ED9C")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("F6B44C79-92D9-4128-9D6C-40AA134BF0B2"),
+                        Name = "Buồn nôn",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("1A6C1329-EE6F-4A7D-A5E6-C7DA5D43ED9C")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("4F09916E-7A24-455B-BE1E-11340AE4AD68"),
+                        Name = "Đau họng",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("1A6C1329-EE6F-4A7D-A5E6-C7DA5D43ED9C")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("1645E54A-16DB-4C4C-8DE9-3D86F1EE1A36"),
+                        Name = "Xưng tấy ngoài da",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("B8C5CF22-B246-4CA1-B8BF-0F6E7D475027")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("46E01FA7-AF0B-4D0F-8125-56B5772D191B"),
+                        Name = "Đau nhói",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("B8C5CF22-B246-4CA1-B8BF-0F6E7D475027")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("DDBC8B2D-B7E7-445F-9A7B-2194F5AB7704"),
+                        Name = "Không thể cử động",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("B8C5CF22-B246-4CA1-B8BF-0F6E7D475027")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("05EB9523-CBAD-4ABB-97DF-00159D409A78"),
+                        Name = "Có tiếng lạo xạo",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("B8C5CF22-B246-4CA1-B8BF-0F6E7D475027")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("32475E06-C246-437B-9298-4523809622C2"),
+                        Name = "Bầm tím",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("B8C5CF22-B246-4CA1-B8BF-0F6E7D475027")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("04E48A25-DE79-4A3A-88BE-33A8D5829017"),
+                        Name = "Điểm gồ lên trên da",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("B8C5CF22-B246-4CA1-B8BF-0F6E7D475027")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("5A876ED2-ED72-40A0-B099-A50BA8028DD3"),
+                        Name = "Khó thở",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("25FF2950-58EF-4303-8FC7-0E89538A70B2")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("76D5C903-E2E0-4D17-A3BB-09B6A8AE6CD4"),
+                        Name = "Nghẹt mũi",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("25FF2950-58EF-4303-8FC7-0E89538A70B2")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("73A06B9B-83AB-46B1-90E3-3AA6C2773995"),
+                        Name = "Sổ mũi",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("25FF2950-58EF-4303-8FC7-0E89538A70B2")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("2B7A46A0-F703-4DCF-B4F8-66826E128514"),
+                        Name = "Chảy máu cam",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("25FF2950-58EF-4303-8FC7-0E89538A70B2")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("D9D4BA6A-DA09-4482-BF40-E9F9A216CD03"),
+                        Name = "Nước mũi có mùi hôi",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("25FF2950-58EF-4303-8FC7-0E89538A70B2")
+                    },
+                    // tim
+                    new Keyword
+                    {
+                        Id = Guid.Parse("514F5B35-23A3-489F-AFC5-9C80511FAB60"),
+                        Name = "Đập nhanh",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("18FFF9C2-FF95-454C-9556-02DDFAB87C50")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("7B026EBE-11C7-4585-A395-2B42A4489647"),
+                        Name = "Đau nhói nhẹ",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("18FFF9C2-FF95-454C-9556-02DDFAB87C50")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("995FD02A-9F64-45A5-9424-0EC2C9F891A0"),
+                        Name = "Đau nhói thường xuyên",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("18FFF9C2-FF95-454C-9556-02DDFAB87C50")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("B51C1608-7F38-427D-B4D7-C9CD62FF253E"),
+                        Name = "Cảm giác chèn ép",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("18FFF9C2-FF95-454C-9556-02DDFAB87C50")
+                    },
+                    // cơ thể
+                    new Keyword
+                    {
+                        Id = Guid.Parse("65A9FD83-5D8B-4E25-93B8-4125D1281AB7"),
+                        Name = "Mệt mỏi",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("A89744CA-73D3-4F08-9548-9CF8AF8938FB")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("CE2ACC73-28A0-4DD4-9368-C71C81A60665"),
+                        Name = "Sốt",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("A89744CA-73D3-4F08-9548-9CF8AF8938FB")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("41455E11-EC85-4698-9A2D-F57C64A45762"),
+                        Name = "Chuột rút",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("A89744CA-73D3-4F08-9548-9CF8AF8938FB")
+                    },
+                    // bụng
+                    new Keyword
+                    {
+                        Id = Guid.Parse("0E53C113-06CC-4B91-8FD4-D5C62EA70309"),
+                        Name = "Đầy hơi",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("72C14F87-15AE-4B85-81D1-005562D806C3")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("791A9161-5DAB-4FA6-AD27-6B2694AF4E5B"),
+                        Name = "Đau bụng",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("72C14F87-15AE-4B85-81D1-005562D806C3")
+                    },
+                    // Trực tràng
+                    new Keyword
+                    {
+                        Id = Guid.Parse("AFCBCBD1-A29A-4647-B7B3-41C1F6FC45F0"),
+                        Name = "Đại tiện ra máu",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("5582C691-4042-40A4-A32B-CDE2EDCB5FE5")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("E4B92110-7298-48EA-BBE1-1CC21CCFE6B1"),
+                        Name = "Khó đại tiện",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("5582C691-4042-40A4-A32B-CDE2EDCB5FE5")
+                    }
+                    );
+            #endregion
+            #region ChuanDoan
+            builder.Entity<ChuanDoan>()
+            .HasData(
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("E71A9882-2634-411F-A74C-3A49AE3989B9"),
+                        Name = "Viêm xoang",
+                        Description = "Viêm xoang là tình trạng viêm nhiễm các túi khí gần mũi và mắt, thường gây đau đầu và áp lực ở vùng mặt. Điều trị bao gồm thuốc và biện pháp giảm triệu chứng."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("8D4A29C0-775F-49F6-9598-5DBFACCCCED9"),
+                        Name = "Cảm lạnh",
+                        Description = "Cảm lạnh là một trong những căn bệnh về đường hô hấp thường gặp phải ở trẻ em và người lớn"
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("984F2FB4-D29C-4959-8A52-1F43F3380DBA"),
+                        Name = "Tiêu chảy",
+                        Description = "Tiêu chảy là tình trạng mà cơ thể loại bỏ phân đi lỏng hoặc phân nước từ 3 lần/ngày."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("689782FB-F292-47FB-9E78-990E92A0E390"),
+                        Name = "Táo bón",
+                        Description = "Táo bón là tình trạng khó đi đại tiện, phân khô cứng, buồn đi đại tiện mà không đi được phải rặn mạnh phân khó thoát ra, thời gian đi lâu hoặc nhiều ngày mới đi một lần."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("37437D9F-7753-4EE4-A04D-E1CE1651C54F"),
+                        Name = "Đau bụng kinh",
+                        Description = "Đau bụng kinh (hay thống kinh) là triệu chứng rất phổ biến, liên quan đến chu kỳ kinh nguyệt của nữ giới."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("0B1820A0-2C22-47AC-80F4-3630863BB890"),
+                        Name = "Viêm Amidan",
+                        Description = "Viêm amidan là bệnh phổ biến gặp ở mọi lứa tuổi trong cộng đồng, gây ra những triệu chứng đau rát họng, khó nuốt. Nếu không điều trị sớm có thể dẫn đến những ảnh hưởng sức khỏe nghiêm trọng hơn."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("5E3E996B-CF80-46BE-93A1-E822FDA0D50E"),
+                        Name = "Viêm tai giữa",
+                        Description = "Viêm tai giữa là một nhóm các bệnh ở tai giữa, là sự tổn thương và viêm nhiễm xuất hiện trong tai giữa do các loại vi khuẩn sinh sôi và phát triển trong tai hoặc bị tác động từ các yếu tố bên ngoài môi trường."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("0F3633C8-5E37-4F73-B3F6-35933E195046"),
+                        Name = "Thiếu máu não",
+                        Description = "Thiếu máu não là tình trạng giảm tuần hoàn máu lên não, dẫn tới giảm cung cấp oxy và dưỡng chất cần thiết cho các hoạt động của não bộ ảnh hưởng tới cầu trúc và chức năng của một phần hoặc nhiều phần trên não."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("AF316D79-6367-4029-A241-BF49FA9C0F56"),
+                        Name = "Huyết áp cao",
+                        Description = "Cao huyết áp (hay tăng huyết áp) là một bệnh lý mãn tính khi áp lực của máu tác động lên thành động mạch tăng cao."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("092CD36A-4A80-48EF-BD7A-F4E3E63871BD"),
+                        Name = "Covid-19",
+                        Description = "Dịch bệnh viêm đường hô hấp cấp do chủng Coronavirus mới (Covid-19) vẫn đang diễn biến rất phức tạp, nó đã lan rộng ra nhiều quốc gia và vùng lãnh thổ khác ngoài Trung Quốc."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("EEB8AE18-C9A8-485A-9846-C8647D861DC6"),
+                        Name = "Viêm nha chu",
+                        Description = "Bệnh nha chu là một bệnh nhiễm trùng nướu nghiêm trọng làm tổn thương mô mềm và phá hủy xương xung quanh răng."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("491F2B78-009D-4D2E-8AD7-02C25E44DD95"),
+                        Name = "Đột quỵ",
+                        Description = "Người bị đột quỵ cần được cấp cứu ngay lập tức, thời gian kéo dài càng lâu, số lượng tế bào não chết càng nhiều sẽ ảnh hưởng lớn tới khả năng vận động và tư duy của cơ thể, thậm chí là tử vong."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("2AE51909-7BAA-4DE0-AE83-C13C0498B157"),
+                        Name = "Thiếu máu",
+                        Description = "Thiếu máu là tình trạng lượng huyết sắc tốc và số lượng hồng cầu có trong máu ngoại vi bị giảm đi, kết quả là thiếu lượng oxy đến các mô của các tế bào trong cơ thể.\r\n"
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("59A9E104-7D3B-43A9-AFC1-0C58B3AE4016"),
+                        Name = "Rối loạn nhịp tim",
+                        Description = "Rối loạn nhịp tim là tình trạng xảy ra khi các xung điện điều khiển nhịp tim hoạt động bất thường, khiến tim đập quá nhanh, quá chậm hoặc không đều. "
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("D343E947-DBBA-4631-9796-9364369EFAC4"),
+                        Name = "Chèn ép tim cấp",
+                        Description = "Chèn ép tim cấp là một trường hợp cấp cứu, cần được chẩn đoán và xử lý nhanh chóng."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("ADE4F561-1316-489D-B752-DC042DD5B700"),
+                        Name = "Trào ngược axit dạ dày thực quản",
+                        Description = "Bệnh trào ngược dạ dày thực quản có thể gây kích ứng niêm mạc thực quản của người bệnh. "
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("17617323-50A0-492C-A220-84EA0235735F"),
+                        Name = "Đau ruột thừa",
+                        Description = "Đau ruột thừa là dấu hiệu cảnh báo ruột thừa đang có vấn đề, thường gặp nhất là viêm ruột thừa, ruột thừa có thể bị vỡ, nguy hiểm đến tính mạng."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("BAC1C26D-FF9F-4CC7-B4BF-F6009B1C5830"),
+                        Name = "Rối loạn tiền đình",
+                        Description = "Một số người bị rối loạn tiền đình có thể chịu ảnh hưởng nghiêm trọng của bệnh đến cuộc sống hằng ngày cũng như trong học tập."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("2E2C200B-4115-4F49-8516-2A33654C2C00"),
+                        Name = "Huyết áp thấp",
+                        Description = "Huyết áp thấp sẽ nguy hiểm đến tính mạng nếu như không được phòng tránh và chữa trị kịp thời."
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("E6513D6E-0D42-480C-925F-7BF931F86CD0"),
+                        Name = "Rối loại thần kinh thực vật",
+                        Description = "Rối loạn thần kinh thực vật là sự mất cân bằng của hai hệ thống thần kinh giao cảm và phó giao cảm. Bệnh gây đau khiến bệnh nhân gặp phải những hạn chế trong cuộc sống. "
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("4EDC5C6E-DAA5-48A5-9F1B-D63EE7EB6FC3"),
+                        Name = "Viêm kết mạc",
+                        Description = "Bệnh viêm kết mạc là bệnh thường gặp, do nhiều nguyên nhân khác nhau gây ra. Bệnh có thể tự khỏi mà không cần điều trị. "
+                    },
+                    new ChuanDoan
+                    {
+                        Id = Guid.Parse("7BA022BB-325A-4058-A4D9-63892767D7ED"),
+                        Name = "Gãy xương đòn",
+                        Description = "Gãy xương đòn là gãy xương nằm dài nằm ngay dưới da vùng vai, nối giữa xương ức và hệ thống đai vai – cánh tay, có tác dụng như một thanh chống, giằng giữa thân mình và khớp vai."
+                    }
+              );
+            #endregion
+            #region ChuanDoan_keyword
+            builder.Entity<ChuanDoan_Keyword>(entity =>
+            {
+                entity.HasKey(cd => new { cd.ChuanDoanId, cd.KeywordId });
+
+                entity.HasOne(cd => cd.ChuanDoan)
+                .WithMany(c => c.ChuanDoan_Keyword)
+                .HasForeignKey(cd => cd.ChuanDoanId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+                entity.HasOne(cd => cd.Keyword)
+                .WithMany(c => c.ChuanDoan_Keyword)
+                .HasForeignKey(cd => cd.KeywordId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+                entity.HasData(
+                #region viem xoang
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("E71A9882-2634-411F-A74C-3A49AE3989B9"),
+                        KeywordId = Guid.Parse("5490695B-C2D8-4E4D-92E1-690DA77E395D"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("E71A9882-2634-411F-A74C-3A49AE3989B9"),
+                        KeywordId = Guid.Parse("76D5C903-E2E0-4D17-A3BB-09B6A8AE6CD4"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("E71A9882-2634-411F-A74C-3A49AE3989B9"),
+                        KeywordId = Guid.Parse("9BC401F4-517B-4765-885F-1C480893F229"),
+                    },
+                #endregion
+                #region Cảm lạnh
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("8D4A29C0-775F-49F6-9598-5DBFACCCCED9"),
+                        KeywordId = Guid.Parse("73A06B9B-83AB-46B1-90E3-3AA6C2773995"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("8D4A29C0-775F-49F6-9598-5DBFACCCCED9"),
+                        KeywordId = Guid.Parse("76D5C903-E2E0-4D17-A3BB-09B6A8AE6CD4"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("8D4A29C0-775F-49F6-9598-5DBFACCCCED9"),
+                        KeywordId = Guid.Parse("0E53C113-06CC-4B91-8FD4-D5C62EA70309"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("8D4A29C0-775F-49F6-9598-5DBFACCCCED9"),
+                        KeywordId = Guid.Parse("65A9FD83-5D8B-4E25-93B8-4125D1281AB7"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("8D4A29C0-775F-49F6-9598-5DBFACCCCED9"),
+                        KeywordId = Guid.Parse("61105E2B-B22E-4EB2-897F-941818211986"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("8D4A29C0-775F-49F6-9598-5DBFACCCCED9"),
+                        KeywordId = Guid.Parse("CE2ACC73-28A0-4DD4-9368-C71C81A60665"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("8D4A29C0-775F-49F6-9598-5DBFACCCCED9"),
+                        KeywordId = Guid.Parse("4F09916E-7A24-455B-BE1E-11340AE4AD68"),
+                    },
+                #endregion
+                #region Tiêu chảy
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("984F2FB4-D29C-4959-8A52-1F43F3380DBA"),
+                        KeywordId = Guid.Parse("327CA2F9-33CD-421C-B0B2-288582CA465B"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("984F2FB4-D29C-4959-8A52-1F43F3380DBA"),
+                        KeywordId = Guid.Parse("41455E11-EC85-4698-9A2D-F57C64A45762"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("984F2FB4-D29C-4959-8A52-1F43F3380DBA"),
+                        KeywordId = Guid.Parse("0E53C113-06CC-4B91-8FD4-D5C62EA70309"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("984F2FB4-D29C-4959-8A52-1F43F3380DBA"),
+                        KeywordId = Guid.Parse("791A9161-5DAB-4FA6-AD27-6B2694AF4E5B"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("984F2FB4-D29C-4959-8A52-1F43F3380DBA"),
+                        KeywordId = Guid.Parse("CE2ACC73-28A0-4DD4-9368-C71C81A60665"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("984F2FB4-D29C-4959-8A52-1F43F3380DBA"),
+                        KeywordId = Guid.Parse("26D69D6F-F485-46B3-BD62-1B80B2BFC7D7"),
+                    },
+                #endregion
+                #region Táo bón
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("689782FB-F292-47FB-9E78-990E92A0E390"),
+                        KeywordId = Guid.Parse("791A9161-5DAB-4FA6-AD27-6B2694AF4E5B"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("689782FB-F292-47FB-9E78-990E92A0E390"),
+                        KeywordId = Guid.Parse("AFCBCBD1-A29A-4647-B7B3-41C1F6FC45F0"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("689782FB-F292-47FB-9E78-990E92A0E390"),
+                        KeywordId = Guid.Parse("E4B92110-7298-48EA-BBE1-1CC21CCFE6B1"),
+                    }
+                    #endregion
+                );
+            });
             #endregion
             base.OnModelCreating(builder);
         }

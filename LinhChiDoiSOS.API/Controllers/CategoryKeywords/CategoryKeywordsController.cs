@@ -1,15 +1,12 @@
-﻿using LinhChiDoiSOS.Application.Common.Response;
-using LinhChiDoiSOS.Application.Features.ChuanDoans.Commands.CreateChuanDoan;
-using LinhChiDoiSOS.Application.Features.ChuanDoans.Queries.GetAllChuanDoan;
-using LinhChiDoiSOS.Application.Features.ChuanDoans.Queries;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using LinhChiDoiSOS.Application.Features.Keywords.Queries.GetAllKeyword;
-using LinhChiDoiSOS.Application.Features.Keywords.Commands.CreateKeyword;
-using LinhChiDoiSOS.Application.Features.CategoryKeywords.Queries.GetAllCategoryKeyword;
+﻿using LinhChiDoiSOS.Application.Common.Exceptions;
+using LinhChiDoiSOS.Application.Common.Response;
 using LinhChiDoiSOS.Application.Features.CategoryKeywords.Commands.CreateCategoryKeyword;
 using LinhChiDoiSOS.Application.Features.CategoryKeywords.Queries;
+using LinhChiDoiSOS.Application.Features.CategoryKeywords.Queries.GetAllCategoryKeyword;
+using LinhChiDoiSOS.Application.Features.CategoryKeywords.Queries.GetAllCategoryKeywordWithListKeyword;
+using LinhChiDoiSOS.Application.Features.Keywords.Queries;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LinhChiDoiSOS.API.Controllers.CategoryKeywords
 {
@@ -30,6 +27,20 @@ namespace LinhChiDoiSOS.API.Controllers.CategoryKeywords
         {
             var response = _mediator.Send(new GetAllCategoryKeywordQuery());
             return response;
+        }
+
+        [HttpGet]
+        [Route("list-keyword")]
+        public async Task<List<CategoryKeywordWithListKeyword>> GetCategoryKeywordByListKeyword()
+        {
+            try {
+                var response = await _mediator.Send(new GetCategoryKeywordWithListKeywordQuery());
+                return response;
+            }
+            catch (Exception ex) {
+                // Log the exception and return an appropriate response.
+                throw new BadRequestException("Error at category");
+            }
         }
 
         [HttpPost]

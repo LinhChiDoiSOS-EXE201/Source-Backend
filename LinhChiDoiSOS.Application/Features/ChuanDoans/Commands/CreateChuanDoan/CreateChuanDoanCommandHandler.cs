@@ -30,7 +30,6 @@ namespace LinhChiDoiSOS.Application.Features.ChuanDoans.Commands.CreateChuanDoan
                 {
                     Name = request.ChuanDoanName,
                     Description = request.Description,
-                    KeywordId = keyword.Id,
                 };
                 _dbContext.ChuanDoan.Add(chuanDoan);
             }
