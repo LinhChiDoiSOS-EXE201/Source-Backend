@@ -35,6 +35,8 @@ namespace LinhChiDoiSOS.Application.Common.Interfaces
         public DbSet<PaymentSignature> PaymentSignature { get;set; }
         public DbSet<PaymentTransaction> PaymentTransaction { get;set; }
         public DbSet<StepOfCourseDetail> StepOfCourseDetail { get;set; }
+        public DbSet<ChuanDoan_Keyword> ChuanDoan_Keyword { get; set; }
+
 
         public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

@@ -21,4 +21,12 @@ namespace LinhChiDoiSOS.Application.Features.Keywords.Queries
         public Guid Id { get; set; }
         public string? Name { get; set; }
     }
+
+    public class KeywordDataResponse : IMapFrom<Keyword>
+    {
+        public Guid Id { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        public Guid CategoryKeywordId { get; set; }
+    }
 }

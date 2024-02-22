@@ -30,13 +30,13 @@ namespace LinhChiDoiSOS.API.Controllers.ChuanDoans
             return response;
         }
 
-        [HttpGet]
+        /*[HttpGet]
         [Route("by-keyword-id")]
-        public Task<List<ChuanDoanByKeywordResponse>> GetKeywordId()
+        public Task<List<ChuanDoanByListKeywordResponse>> GetKeywordId()
         {
             var response = _mediator.Send(new GetChuanDoanByKeyQuery());
             return response;
-        }
+        }*/
 
         [HttpPost]
         [ProducesResponseType(201)]

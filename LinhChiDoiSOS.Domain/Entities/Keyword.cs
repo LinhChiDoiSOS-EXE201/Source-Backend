@@ -10,7 +10,7 @@ namespace LinhChiDoiSOS.Domain.Entities
         [ForeignKey("CategoryKeywork")]
         public Guid CategoryKeywordId { get; set; }
         
-        public virtual IList<ChuanDoan> ChuanDoan { get; set; }
+        public virtual ICollection<ChuanDoan_Keyword> ChuanDoan_Keyword { get; set; }
         public virtual CategoryKeyword CategoryKeyword { get; set; }
     }
 }

@@ -14,6 +14,5 @@ namespace LinhChiDoiSOS.Application.Features.ChuanDoans.Queries
         public string? Name { get; set; }
         public string? Description { get; set; }
         public DateTime? Created { get; set; } // Truyền DateTime bị lỗi ????
-        public Guid keywordId { get; set; }
     }
 }

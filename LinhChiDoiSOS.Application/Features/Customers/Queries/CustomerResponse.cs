@@ -20,7 +20,6 @@ namespace LinhChiDoiSOS.Application.Features.Customers.Queries
     {
         public Guid Id { get; set; }
         public string? ApplicationUserId { get; set; }
-        public bool IsPaid { get; set; }
     }
 
     public class ApplicationCustomer : IMapFrom<ApplicationUser>

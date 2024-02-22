@@ -10,11 +10,8 @@ namespace LinhChiDoiSOS.Domain.Entities
     public class ChuanDoan : BaseAuditableEntity
     {
         public string? Name { get; set; }
-        public string? Description {  get; set; }
+        public string? Description { get; set; }
 
-        [ForeignKey("Keyword")]
-        public Guid KeywordId { get; set; }
-
-        public virtual Keyword Keyword { get; set; }
+        public virtual ICollection<ChuanDoan_Keyword> ChuanDoan_Keyword { get; set; }
     }
 }

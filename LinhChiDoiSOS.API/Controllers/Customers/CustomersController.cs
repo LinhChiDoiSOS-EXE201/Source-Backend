@@ -5,6 +5,8 @@ using LinhChiDoiSOS.Application.Features.Customers.Commands.UpdateCustomer;
 using LinhChiDoiSOS.Application.Features.Customers.Queries;
 using LinhChiDoiSOS.Application.Features.Customers.Queries.GetAllCustomer;
 using LinhChiDoiSOS.Application.Features.Customers.Queries.GetCustomerByApplicationUserId;
+using LinhChiDoiSOS.Application.Features.Customers.Queries.GetCustomerByEmail;
+using LinhChiDoiSOS.Domain.IdentityModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,6 +32,17 @@ namespace LinhChiDoiSOS.API.Controllers.Customers
             var response = await _mediator.Send(new GetByIdQuery
             {
                 ApplicationUserId = applicationuserid
+            });
+            return response;
+        }
+
+        [HttpGet]
+        [Route("email/{email}")]
+        public async Task<CustomerResponse> GetByEmail(string email)
+        {
+            var response = await _mediator.Send(new GetCustomerByEmailQuery
+            {
+                Email = email
             });
             return response;
         }

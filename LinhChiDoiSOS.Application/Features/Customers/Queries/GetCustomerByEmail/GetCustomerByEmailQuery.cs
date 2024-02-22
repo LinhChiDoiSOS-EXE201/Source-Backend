@@ -43,7 +43,8 @@ namespace LinhChiDoiSOS.Application.Features.Customers.Queries.GetCustomerByEmai
             var applicationUser = _dbConext.ApplicationUsers.Where(a => a.Email == request.Email);
             var user = applicationUser.SingleOrDefault();
             if (user == null) {
-                throw new NotFoundException("Not Found");
+                /*throw new NotFoundException("Not Found");*/
+                return new CustomerResponse();
             }
             var customer = _dbConext.Customer.Where(c => c.ApplicationUserId == user.Id);
 
