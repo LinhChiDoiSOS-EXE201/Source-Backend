@@ -631,6 +631,143 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
 
             #endregion
 
+            #region Đột quỵ Id = Guid.Parse("B8055C5B-A7FE-4D1B-8FBC-5EBD33FAC035"),
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("5F589B73-6307-4BA1-9B6E-A0AEA9DBB10A"),
+                    EmergencyId = Guid.Parse("B8055C5B-A7FE-4D1B-8FBC-5EBD33FAC035"),
+                    Step = 1,
+                    TopContent = @"Giảm thiểu tổn thương não",
+                    MainPictureUrl = "dotquy_main_step_1",
+                    ActionContent = "Gọi cấp cứu 115",
+                    // IsSafe = false
+                },
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("1E9DAE67-083C-40A3-9D33-1DE20E22C900"),
+                    EmergencyId = Guid.Parse("B8055C5B-A7FE-4D1B-8FBC-5EBD33FAC035"),
+                    Step = 2,
+                    TopContent = @"Giảm thiểu tổn thương não",
+                    MainPictureUrl = "dotquy_main_step_2",
+                    ActionContent = "Kiếm tra nhịp thở và thực hiện hô hấp nhân tạo",
+                    // IsSafe = false
+                },
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("7978618A-D7BE-4975-8DB9-648A435925CE"),
+                    EmergencyId = Guid.Parse("B8055C5B-A7FE-4D1B-8FBC-5EBD33FAC035"),
+                    Step = 3,
+                    TopContent = @"Giảm thiểu tổn thương não",
+                    MainPictureUrl = "dotquy_main_step_3",
+                    ActionContent = "Nới lỏng quần áo, phụ kiện",
+                    // IsSafe = false
+                },
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("E57DADDB-F9B7-483B-B4AB-153957577E7F"),
+                    EmergencyId = Guid.Parse("B8055C5B-A7FE-4D1B-8FBC-5EBD33FAC035"),
+                    Step = 4,
+                    TopContent = @"Giảm thiểu tổn thương não",
+                    MainPictureUrl = "dotquy_main_step_4",
+                    ActionContent = "Dùng khăn tay lấy sạch đờm",
+                    // IsSafe = false
+                },
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("299B419B-4894-4D0E-820F-E62774AAB8C6"),
+                    EmergencyId = Guid.Parse("B8055C5B-A7FE-4D1B-8FBC-5EBD33FAC035"),
+                    Step = 5,
+                    TopContent = @"Giảm thiểu tổn thương não",
+                    MainPictureUrl = "dotquy_main_step_5",
+                    ActionContent = "Ghi lại các biểu hiện của người bệnh và đưa tới bệnh viện",
+                    IsSafe = true
+                },
+            #endregion
+
+            #region Đuối nước Id = Guid.Parse("C2D48BF7-05FD-4743-95DB-A32C8D53DE88"),
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("2DE49840-07B0-478C-B045-A46E311BFC2D"),
+                    EmergencyId = Guid.Parse("C2D48BF7-05FD-4743-95DB-A32C8D53DE88"),
+                    Step = 1,
+                    TopContent = @"Cứu sống nạn nhân trước khi tới bệnh viện",
+                    MainPictureUrl = "duoinuoc_main_step_1.svg",
+                    ActionContent = "Gọi người hỗ trợ",
+                   // // IsSafe = false
+                },
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("EEA55B8B-FA03-4ECB-819A-CA9A6F9D43EF"),
+                    EmergencyId = Guid.Parse("C2D48BF7-05FD-4743-95DB-A32C8D53DE88"),
+                    Step = 2,
+                    TopContent = @"Cứu sống nạn nhân trước khi tới bệnh viện",
+                    MainPictureUrl = "duoinuoc_main_step_2.svg",
+                    ActionContent = "Đặt nạn nhân nằm ngửa và hồi sức tim phổi",
+                    // IsSafe = false
+                },
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("B9EA8984-A752-4AC4-8BF2-E30A90E497D0"),
+                    EmergencyId = Guid.Parse("C2D48BF7-05FD-4743-95DB-A32C8D53DE88"),
+                    Step = 3,
+                    TopContent = @"Cứu sống nạn nhân trước khi tới bệnh viện",
+                    MainPictureUrl = "duoinuoc_main_step_3.svg",
+                    ActionContent = "Cởi bỏ quần áo ướt và giữ ấm",
+                    // IsSafe = false
+                },
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("EFE5F9C2-9615-41B1-A4DB-B229DEA17BEF"),
+                    EmergencyId = Guid.Parse("C2D48BF7-05FD-4743-95DB-A32C8D53DE88"),
+                    Step = 4,
+                    TopContent = @"Cứu sống nạn nhân trước khi tới bệnh viện",
+                    MainPictureUrl = "duoinuoc_main_step_4.svg",
+                    ActionContent = "Đưa nạn nhân đến cơ sở y tế",
+                    IsSafe = true
+                },
+            #endregion
+            #region Điện giật Id = Guid.Parse("D16CCFF2-A7A8-4B9A-80FD-DD8B37AEB3B7"),
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("0CFF733F-47E0-4656-B356-557D02EF9F9C"),
+                    EmergencyId = Guid.Parse("D16CCFF2-A7A8-4B9A-80FD-DD8B37AEB3B7"),
+                    Step = 1,
+                    TopContent = @"Đảm bảo an toàn cho bệnh nhân",
+                    MainPictureUrl = "diengiat_main_step_1",
+                    ActionContent = "Tắt nguồn điện",
+                    // IsSafe = false
+                },
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("BC5DB5FE-B982-44E6-A591-B2596CCD5522"),
+                    EmergencyId = Guid.Parse("D16CCFF2-A7A8-4B9A-80FD-DD8B37AEB3B7"),
+                    Step = 2,
+                    TopContent = @"Đảm bảo an toàn cho bệnh nhân",
+                    MainPictureUrl = "diengiat_main_step_2",
+                    ActionContent = "Tách nạn nhân ra khỏi nguồn điện ",
+                    // IsSafe = false
+                },
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("B8A7EC77-865B-4864-B52C-E0951B48E322"),
+                    EmergencyId = Guid.Parse("D16CCFF2-A7A8-4B9A-80FD-DD8B37AEB3B7"),
+                    Step = 3,
+                    TopContent = @"Đảm bảo an toàn cho bệnh nhân",
+                    MainPictureUrl = "diengiat_main_step_3",
+                    ActionContent = "Hô hấp nhân tạo hoặc ép tim ngoài lồng ngực",
+                    // IsSafe = false
+                },
+                new EmergencyDetail
+                {
+                    Id = Guid.Parse("9951C3AA-3245-4A3B-AE23-26339B08ECE0"),
+                    EmergencyId = Guid.Parse("D16CCFF2-A7A8-4B9A-80FD-DD8B37AEB3B7"),
+                    Step = 4,
+                    TopContent = @"Đảm bảo an toàn cho bệnh nhân",
+                    MainPictureUrl = "diengiat_main_step_4",
+                    ActionContent = "Chuyển tới cơ sở y tế",
+                    IsSafe = true
+                },
+            #endregion
             #region Cầm máu                          Id = Guid.Parse("BD166379-995B-449D-B381-DB1FD362BE0C"),
                 new EmergencyDetail
                 {
