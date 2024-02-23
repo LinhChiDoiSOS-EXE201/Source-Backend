@@ -1031,8 +1031,15 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
             .HasData(
                     new Keyword
                     {
-                        Id = Guid.Parse("26D69D6F-F485-46B3-BD62-1B80B2BFC7D7"),
-                        Name = "Buồn nôn",
+                        Id = Guid.Parse("0CB0D678-9454-4391-BD9E-2B536A50F1F7"),
+                        Name = "Giảm trí nhớ",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("C0DAA7C5-4331-44BF-A33E-23679C959B12")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("831C6F2E-7C32-4AE6-8AF6-FDB3897C612B"),
+                        Name = "Đau tai",
                         Description = "",
                         CategoryKeywordId = Guid.Parse("C0DAA7C5-4331-44BF-A33E-23679C959B12")
                     },
@@ -1046,14 +1053,14 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                     new Keyword
                     {
                         Id = Guid.Parse("5490695B-C2D8-4E4D-92E1-690DA77E395D"),
-                        Name = "Đau nữa đầu trước",
+                        Name = "Đau nửa đầu trước",
                         Description = "",
                         CategoryKeywordId = Guid.Parse("C0DAA7C5-4331-44BF-A33E-23679C959B12")
                     },
                     new Keyword
                     {
                         Id = Guid.Parse("16CFEBEA-D7D0-440D-B4BD-43BBFE6610E0"),
-                        Name = "Đau nữa đầu sau",
+                        Name = "Đau nửa đầu sau",
                         Description = "",
                         CategoryKeywordId = Guid.Parse("C0DAA7C5-4331-44BF-A33E-23679C959B12")
                     },
@@ -1105,6 +1112,14 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                         Name = "Chảy nước mắt",
                         Description = "",
                         CategoryKeywordId = Guid.Parse("54B8BDD4-B49E-4775-AB42-9FF7B4DD0DF6")
+                    },
+                    // Miệng
+                    new Keyword
+                    {
+                        Id = Guid.Parse("BFE028FA-949F-44C8-95C9-FBB4537114C9"),
+                        Name = "Sưng tấy nướu",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("1A6C1329-EE6F-4A7D-A5E6-C7DA5D43ED9C")
                     },
                     new Keyword
                     {
@@ -1169,10 +1184,18 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                         Description = "",
                         CategoryKeywordId = Guid.Parse("1A6C1329-EE6F-4A7D-A5E6-C7DA5D43ED9C")
                     },
+                    // xương khớp
+                    new Keyword
+                    {
+                        Id = Guid.Parse("8EF3E270-6C5A-4393-9060-DE98E98E6E84"),
+                        Name = "Điềm gồ lên trên da",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("B8C5CF22-B246-4CA1-B8BF-0F6E7D475027")
+                    },
                     new Keyword
                     {
                         Id = Guid.Parse("1645E54A-16DB-4C4C-8DE9-3D86F1EE1A36"),
-                        Name = "Xưng tấy ngoài da",
+                        Name = "Sưng tấy ngoài da",
                         Description = "",
                         CategoryKeywordId = Guid.Parse("B8C5CF22-B246-4CA1-B8BF-0F6E7D475027")
                     },
@@ -1297,6 +1320,27 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                         Description = "",
                         CategoryKeywordId = Guid.Parse("A89744CA-73D3-4F08-9548-9CF8AF8938FB")
                     },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("C55D01CE-F82B-4EF4-B9B2-42452D718E50"),
+                        Name = "Đổ mồ hôi lạnh",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("A89744CA-73D3-4F08-9548-9CF8AF8938FB")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("090A2B95-7B45-4600-AD80-DD2853CC9685"),
+                        Name = "Mất ngủ",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("A89744CA-73D3-4F08-9548-9CF8AF8938FB")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("7C57B22B-C472-419C-AD81-EE87410C36DE"),
+                        Name = "Đau nhứt toàn thân",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("A89744CA-73D3-4F08-9548-9CF8AF8938FB")
+                    },
                     // bụng
                     new Keyword
                     {
@@ -1312,6 +1356,13 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                         Description = "",
                         CategoryKeywordId = Guid.Parse("72C14F87-15AE-4B85-81D1-005562D806C3")
                     },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("A7247C61-4CE6-478C-8C6F-56DF1C72FE1D"),
+                        Name = "Đau bụng dưới",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("72C14F87-15AE-4B85-81D1-005562D806C3")
+                    },
                     // Trực tràng
                     new Keyword
                     {
@@ -1324,6 +1375,13 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                     {
                         Id = Guid.Parse("E4B92110-7298-48EA-BBE1-1CC21CCFE6B1"),
                         Name = "Khó đại tiện",
+                        Description = "",
+                        CategoryKeywordId = Guid.Parse("5582C691-4042-40A4-A32B-CDE2EDCB5FE5")
+                    },
+                    new Keyword
+                    {
+                        Id = Guid.Parse("01EA28B2-56FF-44E8-883A-EF8890BD426D"),
+                        Name = "Tiêu chảy",
                         Description = "",
                         CategoryKeywordId = Guid.Parse("5582C691-4042-40A4-A32B-CDE2EDCB5FE5")
                     }
@@ -1565,7 +1623,7 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                     new ChuanDoan_Keyword
                     {
                         ChuanDoanId = Guid.Parse("984F2FB4-D29C-4959-8A52-1F43F3380DBA"),
-                        KeywordId = Guid.Parse("26D69D6F-F485-46B3-BD62-1B80B2BFC7D7"),
+                        KeywordId = Guid.Parse("F6B44C79-92D9-4128-9D6C-40AA134BF0B2"),
                     },
                 #endregion
                 #region Táo bón
@@ -1583,6 +1641,457 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                     {
                         ChuanDoanId = Guid.Parse("689782FB-F292-47FB-9E78-990E92A0E390"),
                         KeywordId = Guid.Parse("E4B92110-7298-48EA-BBE1-1CC21CCFE6B1"),
+                    },
+                #endregion
+                #region Đau bụng kinh
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("37437D9F-7753-4EE4-A04D-E1CE1651C54F"),
+                        KeywordId = Guid.Parse("A7247C61-4CE6-478C-8C6F-56DF1C72FE1D"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("37437D9F-7753-4EE4-A04D-E1CE1651C54F"),
+                        KeywordId = Guid.Parse("F6B44C79-92D9-4128-9D6C-40AA134BF0B2"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("37437D9F-7753-4EE4-A04D-E1CE1651C54F"),
+                        KeywordId = Guid.Parse("01EA28B2-56FF-44E8-883A-EF8890BD426D"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("37437D9F-7753-4EE4-A04D-E1CE1651C54F"),
+                        KeywordId = Guid.Parse("61105E2B-B22E-4EB2-897F-941818211986"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("37437D9F-7753-4EE4-A04D-E1CE1651C54F"),
+                        KeywordId = Guid.Parse("0E53C113-06CC-4B91-8FD4-D5C62EA70309"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("37437D9F-7753-4EE4-A04D-E1CE1651C54F"),
+                        KeywordId = Guid.Parse("C55D01CE-F82B-4EF4-B9B2-42452D718E50"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("37437D9F-7753-4EE4-A04D-E1CE1651C54F"),
+                        KeywordId = Guid.Parse("327CA2F9-33CD-421C-B0B2-288582CA465B"),
+                    },
+                #endregion
+                #region Viêm Amidan
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("0B1820A0-2C22-47AC-80F4-3630863BB890"),
+                        KeywordId = Guid.Parse("CE2ACC73-28A0-4DD4-9368-C71C81A60665"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("0B1820A0-2C22-47AC-80F4-3630863BB890"),
+                        KeywordId = Guid.Parse("831C6F2E-7C32-4AE6-8AF6-FDB3897C612B"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("0B1820A0-2C22-47AC-80F4-3630863BB890"),
+                        KeywordId = Guid.Parse("61105E2B-B22E-4EB2-897F-941818211986"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("0B1820A0-2C22-47AC-80F4-3630863BB890"),
+                        KeywordId = Guid.Parse("9BC401F4-517B-4765-885F-1C480893F229"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("0B1820A0-2C22-47AC-80F4-3630863BB890"),
+                        KeywordId = Guid.Parse("4F09916E-7A24-455B-BE1E-11340AE4AD68"),
+                    },
+                #endregion
+                #region Viêm tai giữa
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("5E3E996B-CF80-46BE-93A1-E822FDA0D50E"),
+                        KeywordId = Guid.Parse("CE2ACC73-28A0-4DD4-9368-C71C81A60665"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("5E3E996B-CF80-46BE-93A1-E822FDA0D50E"),
+                        KeywordId = Guid.Parse("831C6F2E-7C32-4AE6-8AF6-FDB3897C612B"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("5E3E996B-CF80-46BE-93A1-E822FDA0D50E"),
+                        KeywordId = Guid.Parse("01EA28B2-56FF-44E8-883A-EF8890BD426D"),
+                    },
+                #endregion
+                #region Thiếu máu não
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("0F3633C8-5E37-4F73-B3F6-35933E195046"),
+                        KeywordId = Guid.Parse("327CA2F9-33CD-421C-B0B2-288582CA465B"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("0F3633C8-5E37-4F73-B3F6-35933E195046"),
+                        KeywordId = Guid.Parse("16CFEBEA-D7D0-440D-B4BD-43BBFE6610E0"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("0F3633C8-5E37-4F73-B3F6-35933E195046"),
+                        KeywordId = Guid.Parse("0CB0D678-9454-4391-BD9E-2B536A50F1F7"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("0F3633C8-5E37-4F73-B3F6-35933E195046"),
+                        KeywordId = Guid.Parse("090A2B95-7B45-4600-AD80-DD2853CC9685"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("0F3633C8-5E37-4F73-B3F6-35933E195046"),
+                        KeywordId = Guid.Parse("FEDB71A7-BB4B-441A-B30E-0AF28D6D83A3"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("0F3633C8-5E37-4F73-B3F6-35933E195046"),
+                        KeywordId = Guid.Parse("61105E2B-B22E-4EB2-897F-941818211986"),
+                    },
+                #endregion
+                #region Huyết áp cao
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("AF316D79-6367-4029-A241-BF49FA9C0F56"),
+                        KeywordId = Guid.Parse("61105E2B-B22E-4EB2-897F-941818211986"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("AF316D79-6367-4029-A241-BF49FA9C0F56"),
+                        KeywordId = Guid.Parse("5A876ED2-ED72-40A0-B099-A50BA8028DD3"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("AF316D79-6367-4029-A241-BF49FA9C0F56"),
+                        KeywordId = Guid.Parse("2B7A46A0-F703-4DCF-B4F8-66826E128514"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("AF316D79-6367-4029-A241-BF49FA9C0F56"),
+                        KeywordId = Guid.Parse("327CA2F9-33CD-421C-B0B2-288582CA465B"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("AF316D79-6367-4029-A241-BF49FA9C0F56"),
+                        KeywordId = Guid.Parse("F6B44C79-92D9-4128-9D6C-40AA134BF0B2"),
+                    },
+                #endregion
+                #region Covid-19
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("092CD36A-4A80-48EF-BD7A-F4E3E63871BD"),
+                        KeywordId = Guid.Parse("CE2ACC73-28A0-4DD4-9368-C71C81A60665"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("092CD36A-4A80-48EF-BD7A-F4E3E63871BD"),
+                        KeywordId = Guid.Parse("9BC401F4-517B-4765-885F-1C480893F229"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("092CD36A-4A80-48EF-BD7A-F4E3E63871BD"),
+                        KeywordId = Guid.Parse("65A9FD83-5D8B-4E25-93B8-4125D1281AB7"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("092CD36A-4A80-48EF-BD7A-F4E3E63871BD"),
+                        KeywordId = Guid.Parse("91A89827-BDC9-4B2B-A318-65735075A8EB"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("092CD36A-4A80-48EF-BD7A-F4E3E63871BD"),
+                        KeywordId = Guid.Parse("01EA28B2-56FF-44E8-883A-EF8890BD426D"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("092CD36A-4A80-48EF-BD7A-F4E3E63871BD"),
+                        KeywordId = Guid.Parse("F6B44C79-92D9-4128-9D6C-40AA134BF0B2"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("092CD36A-4A80-48EF-BD7A-F4E3E63871BD"),
+                        KeywordId = Guid.Parse("7C57B22B-C472-419C-AD81-EE87410C36DE"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("092CD36A-4A80-48EF-BD7A-F4E3E63871BD"),
+                        KeywordId = Guid.Parse("5A876ED2-ED72-40A0-B099-A50BA8028DD3"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("092CD36A-4A80-48EF-BD7A-F4E3E63871BD"),
+                        KeywordId = Guid.Parse("4F09916E-7A24-455B-BE1E-11340AE4AD68"),
+                    },
+                #endregion
+                #region Viêm nha chu
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("EEB8AE18-C9A8-485A-9846-C8647D861DC6"),
+                        KeywordId = Guid.Parse("B92E56FC-1BE9-4973-9254-D9CD74A70414"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("EEB8AE18-C9A8-485A-9846-C8647D861DC6"),
+                        KeywordId = Guid.Parse("BFE028FA-949F-44C8-95C9-FBB4537114C9"),
+                    },
+                #endregion
+                #region Đột quỵ
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("491F2B78-009D-4D2E-8AD7-02C25E44DD95"),
+                        KeywordId = Guid.Parse("CE0CED0C-38E6-4BDB-9D66-E5BFDFDC35BA"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("491F2B78-009D-4D2E-8AD7-02C25E44DD95"),
+                        KeywordId = Guid.Parse("4B467404-7405-430B-B458-8AACAC949A5B"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("491F2B78-009D-4D2E-8AD7-02C25E44DD95"),
+                        KeywordId = Guid.Parse("FD228CDE-7079-4D6A-835B-1DF8215FA5BB"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("491F2B78-009D-4D2E-8AD7-02C25E44DD95"),
+                        KeywordId = Guid.Parse("65A9FD83-5D8B-4E25-93B8-4125D1281AB7"),
+                    },
+                #endregion
+                #region Thiếu máu
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("2AE51909-7BAA-4DE0-AE83-C13C0498B157"),
+                        KeywordId = Guid.Parse("514F5B35-23A3-489F-AFC5-9C80511FAB60"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("2AE51909-7BAA-4DE0-AE83-C13C0498B157"),
+                        KeywordId = Guid.Parse("65A9FD83-5D8B-4E25-93B8-4125D1281AB7"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("2AE51909-7BAA-4DE0-AE83-C13C0498B157"),
+                        KeywordId = Guid.Parse("327CA2F9-33CD-421C-B0B2-288582CA465B"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("2AE51909-7BAA-4DE0-AE83-C13C0498B157"),
+                        KeywordId = Guid.Parse("FD228CDE-7079-4D6A-835B-1DF8215FA5BB"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("2AE51909-7BAA-4DE0-AE83-C13C0498B157"),
+                        KeywordId = Guid.Parse("7B026EBE-11C7-4585-A395-2B42A4489647"),
+                    },
+                #endregion
+                #region Rối loạn nhịp tim
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("59A9E104-7D3B-43A9-AFC1-0C58B3AE4016"),
+                        KeywordId = Guid.Parse("514F5B35-23A3-489F-AFC5-9C80511FAB60"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("59A9E104-7D3B-43A9-AFC1-0C58B3AE4016"),
+                        KeywordId = Guid.Parse("65A9FD83-5D8B-4E25-93B8-4125D1281AB7"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("59A9E104-7D3B-43A9-AFC1-0C58B3AE4016"),
+                        KeywordId = Guid.Parse("5A876ED2-ED72-40A0-B099-A50BA8028DD3"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("59A9E104-7D3B-43A9-AFC1-0C58B3AE4016"),
+                        KeywordId = Guid.Parse("B51C1608-7F38-427D-B4D7-C9CD62FF253E"),
+                    },
+                #endregion
+                #region Chèn ép tim cấp
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("D343E947-DBBA-4631-9796-9364369EFAC4"),
+                        KeywordId = Guid.Parse("B51C1608-7F38-427D-B4D7-C9CD62FF253E"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("D343E947-DBBA-4631-9796-9364369EFAC4"),
+                        KeywordId = Guid.Parse("5A876ED2-ED72-40A0-B099-A50BA8028DD3"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("D343E947-DBBA-4631-9796-9364369EFAC4"),
+                        KeywordId = Guid.Parse("514F5B35-23A3-489F-AFC5-9C80511FAB60"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("D343E947-DBBA-4631-9796-9364369EFAC4"),
+                        KeywordId = Guid.Parse("995FD02A-9F64-45A5-9424-0EC2C9F891A0"),
+                    },
+                #endregion
+                #region Trào ngược axit dạ dày thực quản
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("ADE4F561-1316-489D-B752-DC042DD5B700"),
+                        KeywordId = Guid.Parse("E9619B3B-A906-4ADA-B211-84543A3B31DF"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("ADE4F561-1316-489D-B752-DC042DD5B700"),
+                        KeywordId = Guid.Parse("9BC401F4-517B-4765-885F-1C480893F229"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("ADE4F561-1316-489D-B752-DC042DD5B700"),
+                        KeywordId = Guid.Parse("D9D4BA6A-DA09-4482-BF40-E9F9A216CD03"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("ADE4F561-1316-489D-B752-DC042DD5B700"),
+                        KeywordId = Guid.Parse("F6B44C79-92D9-4128-9D6C-40AA134BF0B2"),
+                    },
+                #endregion
+                #region Đau ruột thừa
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("17617323-50A0-492C-A220-84EA0235735F"),
+                        KeywordId = Guid.Parse("791A9161-5DAB-4FA6-AD27-6B2694AF4E5B"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("17617323-50A0-492C-A220-84EA0235735F"),
+                        KeywordId = Guid.Parse("F6B44C79-92D9-4128-9D6C-40AA134BF0B2"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("17617323-50A0-492C-A220-84EA0235735F"),
+                        KeywordId = Guid.Parse("CE2ACC73-28A0-4DD4-9368-C71C81A60665"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("17617323-50A0-492C-A220-84EA0235735F"),
+                        KeywordId = Guid.Parse("46E01FA7-AF0B-4D0F-8125-56B5772D191B"),
+                    },
+                #endregion
+                #region Rối loạn tiền đình
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("BAC1C26D-FF9F-4CC7-B4BF-F6009B1C5830"),
+                        KeywordId = Guid.Parse("327CA2F9-33CD-421C-B0B2-288582CA465B"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("BAC1C26D-FF9F-4CC7-B4BF-F6009B1C5830"),
+                        KeywordId = Guid.Parse("FEDB71A7-BB4B-441A-B30E-0AF28D6D83A3"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("BAC1C26D-FF9F-4CC7-B4BF-F6009B1C5830"),
+                        KeywordId = Guid.Parse("FD228CDE-7079-4D6A-835B-1DF8215FA5BB"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("BAC1C26D-FF9F-4CC7-B4BF-F6009B1C5830"),
+                        KeywordId = Guid.Parse("0CB0D678-9454-4391-BD9E-2B536A50F1F7"),
+                    },
+                #endregion
+                #region Huyết áp thấp
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("2E2C200B-4115-4F49-8516-2A33654C2C00"),
+                        KeywordId = Guid.Parse("514F5B35-23A3-489F-AFC5-9C80511FAB60"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("2E2C200B-4115-4F49-8516-2A33654C2C00"),
+                        KeywordId = Guid.Parse("65A9FD83-5D8B-4E25-93B8-4125D1281AB7"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("2E2C200B-4115-4F49-8516-2A33654C2C00"),
+                        KeywordId = Guid.Parse("FD228CDE-7079-4D6A-835B-1DF8215FA5BB"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("2E2C200B-4115-4F49-8516-2A33654C2C00"),
+                        KeywordId = Guid.Parse("5490695B-C2D8-4E4D-92E1-690DA77E395D"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("2E2C200B-4115-4F49-8516-2A33654C2C00"),
+                        KeywordId = Guid.Parse("FEDB71A7-BB4B-441A-B30E-0AF28D6D83A3"),
+                    },
+                #endregion
+                #region Rối loại thần kinh thực vật
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("E6513D6E-0D42-480C-925F-7BF931F86CD0"),
+                        KeywordId = Guid.Parse("C4CCE2A8-1B2E-4443-A59E-E4BEC4F2FE0A"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("E6513D6E-0D42-480C-925F-7BF931F86CD0"),
+                        KeywordId = Guid.Parse("46E01FA7-AF0B-4D0F-8125-56B5772D191B"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("E6513D6E-0D42-480C-925F-7BF931F86CD0"),
+                        KeywordId = Guid.Parse("090A2B95-7B45-4600-AD80-DD2853CC9685"),
+                    },
+                #endregion
+                #region Viêm kết mạc
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("4EDC5C6E-DAA5-48A5-9F1B-D63EE7EB6FC3"),
+                        KeywordId = Guid.Parse("3FE4BDF1-EBDF-43DF-868A-09EB274F6F22"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("4EDC5C6E-DAA5-48A5-9F1B-D63EE7EB6FC3"),
+                        KeywordId = Guid.Parse("FD228CDE-7079-4D6A-835B-1DF8215FA5BB"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("4EDC5C6E-DAA5-48A5-9F1B-D63EE7EB6FC3"),
+                        KeywordId = Guid.Parse("CE2ACC73-28A0-4DD4-9368-C71C81A60665"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("4EDC5C6E-DAA5-48A5-9F1B-D63EE7EB6FC3"),
+                        KeywordId = Guid.Parse("CD0AA7D8-C354-441D-9ED0-EC97D2E91EF2"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("4EDC5C6E-DAA5-48A5-9F1B-D63EE7EB6FC3"),
+                        KeywordId = Guid.Parse("7C35E76D-56B9-4EBE-B66A-63E9CE2E9237"),
+                    },
+                #endregion
+                #region Gãy xương đòn
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("7BA022BB-325A-4058-A4D9-63892767D7ED"),
+                        KeywordId = Guid.Parse("8EF3E270-6C5A-4393-9060-DE98E98E6E84"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("7BA022BB-325A-4058-A4D9-63892767D7ED"),
+                        KeywordId = Guid.Parse("05EB9523-CBAD-4ABB-97DF-00159D409A78"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("7BA022BB-325A-4058-A4D9-63892767D7ED"),
+                        KeywordId = Guid.Parse("1645E54A-16DB-4C4C-8DE9-3D86F1EE1A36"),
+                    },
+                    new ChuanDoan_Keyword
+                    {
+                        ChuanDoanId = Guid.Parse("7BA022BB-325A-4058-A4D9-63892767D7ED"),
+                        KeywordId = Guid.Parse("32475E06-C246-437B-9298-4523809622C2"),
                     }
                     #endregion
                 );
