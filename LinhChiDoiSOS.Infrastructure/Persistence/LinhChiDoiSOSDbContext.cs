@@ -610,6 +610,29 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                 },
             #endregion
 
+            #region Tạo lửa Id = Guid.Parse("3BA5C72A-2843-4DD8-A958-F008A6BFF38B"),
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{632BA757-0DC2-4A89-8462-285041471DB2}"),
+                    EmergencyId = Guid.Parse("3BA5C72A-2843-4DD8-A958-F008A6BFF38B"),
+                    Step = 1,
+                    TopContent = @"Sinh tồn trong môi trường khắc nghiệt",
+                    MainPictureUrl = "taolua_main_step_1",
+                    ActionContent = "Dùng dao hoặc đá sắc để bào mỏng một đầu của que cọ.",
+                    IsSafe = true
+                },
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{616FCFD4-AAD3-4881-8FC2-CFBBFA2077DD}"),
+                    EmergencyId = Guid.Parse("3BA5C72A-2843-4DD8-A958-F008A6BFF38B"),
+                    Step = 2,
+                    TopContent = @"Sinh tồn trong môi trường khắc nghiệt",
+                    MainPictureUrl = "taolua_main_step_2",
+                    ActionContent = "Dùng tay di chuyển que cọ qua lại tạo ra lực ma sát",
+                    IsSafe = true
+                },
+            #endregion
+
             #region Con trùng cắn Id = Guid.Parse("C813800B-BA50-4270-B3A6-9313E7884646"),
                 new EmergencyDetail
                 {
@@ -640,6 +663,120 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                     IsSafe = true
                 },
             #endregion
+
+            #region Xác định phương hướng Id = Guid.Parse("231D86A8-97CB-4B12-B734-4C72FD8E6C67"),
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{79509A95-2CE1-496E-82F6-98B31940C359}"),
+                    EmergencyId = Guid.Parse("231D86A8-97CB-4B12-B734-4C72FD8E6C67"),
+                    Step = 1,
+                    TopContent = @"Thoát khỏi nguy hiểm",
+                    MainPictureUrl = "xacdinhphuonghuong_main_step_1",
+                    ActionContent = "Cắm cọc xuống mặt phẳng sao cho cọc đứng thẳng.",
+                },
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{A82EAF8A-5CB2-4815-9394-59110A2A3699}"),
+                    EmergencyId = Guid.Parse("231D86A8-97CB-4B12-B734-4C72FD8E6C67"),
+                    Step = 2,
+                    TopContent = @"Thoát khỏi nguy hiểm",
+                    MainPictureUrl = "xacdinhphuonghuong_main_step_2",
+                    ActionContent = "Đánh dấu vị trí của đầu bóng cọc.",
+                },
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{89D12998-FD7A-4858-8F65-6CA330469D80}"),
+                    EmergencyId = Guid.Parse("231D86A8-97CB-4B12-B734-4C72FD8E6C67"),
+                    Step = 3,
+                    TopContent = @"Thoát khỏi nguy hiểm",
+                    MainPictureUrl = "xacdinhphuonghuong_main_step_3",
+                    ActionContent = "Đợi 15-20 phút để bóng cọc di chuyển.",
+                },
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{FBF0061B-5F88-45F1-8546-CA2E9D5ED35D}"),
+                    EmergencyId = Guid.Parse("231D86A8-97CB-4B12-B734-4C72FD8E6C67"),
+                    Step = 4,
+                    TopContent = @"Thoát khỏi nguy hiểm",
+                    MainPictureUrl = "xacdinhphuonghuong_main_step_4",
+                    ActionContent = "Đánh dấu vị trí mới của đầu bóng cọc.",
+                },
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{B02698B9-8560-4C1B-967B-8C4CF7C68C03}"),
+                    EmergencyId = Guid.Parse("231D86A8-97CB-4B12-B734-4C72FD8E6C67"),
+                    Step = 5,
+                    TopContent = @"Thoát khỏi nguy hiểm",
+                    MainPictureUrl = "xacdinhphuonghuong_main_step_5",
+                    ActionContent = "Nối hai điểm đánh dấu bằng một đường thẳng.",
+                },
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{DE66382B-5819-4D2C-B0AF-37E7EAF682B5}"),
+                    EmergencyId = Guid.Parse("231D86A8-97CB-4B12-B734-4C72FD8E6C67"),
+                    Step = 6,
+                    TopContent = @"Thoát khỏi nguy hiểm",
+                    MainPictureUrl = "xacdinhphuonghuong_main_step_6",
+                    ActionContent = "Đường thẳng này sẽ chỉ hướng Đông - Tây.",
+                    IsSafe = true
+                },
+            #endregion
+
+            #region Tín hiệu cầu cứu Id = Guid.Parse("39047891-AE02-4927-849B-A950F85F4480"),
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{81725D34-8224-438C-995E-2A02006295FB}"),
+                    EmergencyId = Guid.Parse("39047891-AE02-4927-849B-A950F85F4480"),
+                    Step = 1,
+                    TopContent = @"Truyền thông tin để xin giúp đỡ",
+                    MainPictureUrl = "sos_main_step_1",
+                    ActionContent = "Chuẩn bị cây khô hoặc đá",
+                    IsSafe = true
+                },
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{AA158C9C-5A68-4059-B1AE-E4085ADCD51F}"),
+                    EmergencyId = Guid.Parse("39047891-AE02-4927-849B-A950F85F4480"),
+                    Step = 2,
+                    TopContent = @"Truyền thông tin để xin giúp đỡ",
+                    MainPictureUrl = "sos_main_step_2",
+                    ActionContent = "Viết chữ SOS lên mặt đất",
+                    IsSafe = true
+                },
+            #endregion
+
+            #region Thắt nút dây Guid.Parse("280F5A0E-0379-4B8E-A09D-AACDA21CDDAF"),
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{41FA54BE-CB59-42AD-A6BD-48F705B7BD7A}"),
+                    EmergencyId = Guid.Parse("280F5A0E-0379-4B8E-A09D-AACDA21CDDAF"),
+                    Step = 1,
+                    TopContent = @"Buộc thuyền, dây thừng, dây liều...",
+                    MainPictureUrl = "thatnutdaythuyendai_main_step_1",
+                    ActionContent = "Luồn đầu dây tự do qua dưới vòng dây vừa tạo.",
+                    IsSafe = true
+                },
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{910CAE89-7155-499F-8B69-0071B959FE59}"),
+                    EmergencyId = Guid.Parse("280F5A0E-0379-4B8E-A09D-AACDA21CDDAF"),
+                    Step = 2,
+                    TopContent = @"Buộc thuyền, dây thừng, dây liều...",
+                    MainPictureUrl = "thatnutdaythuyendai_main_step_2",
+                    ActionContent = "Vòng đầu dây tự do qua vòng dây một lần nữa, theo hướng từ dưới lên trên.",
+                    IsSafe = true
+                },
+                new EmergencyDetail
+                {
+                    Id = GuidParse("{905A8CA1-92EF-445F-A4AA-1838D653AF5B}"),
+                    EmergencyId = Guid.Parse("280F5A0E-0379-4B8E-A09D-AACDA21CDDAF"),
+                    Step = 3,
+                    TopContent = @"Buộc thuyền, dây thừng, dây liều...",
+                    MainPictureUrl = "thatnutdaythuyendai_main_step_3",
+                    ActionContent = "Siết chặt nút bằng cách kéo hai đầu dây.",
+                    IsSafe = true
+                },
+            #endregion 
 
             #region Ngộ độc Id = Guid.Parse("D390145B-B53A-4CCC-AFE3-BB9B218332C0"),
                 new EmergencyDetail
