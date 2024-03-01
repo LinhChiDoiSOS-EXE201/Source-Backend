@@ -1852,6 +1852,790 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                         Name = "Kỹ năng sinh tồn"
                     });
             #endregion
+            #region Course Detail
+            builder.Entity<CourseDetail>()
+                .HasData(
+                    // Nguyên Tắc An Toàn
+                    new CourseDetail
+                    {
+                        CourseId = Guid.Parse("2F55AA8B-E887-4808-9E18-7C6556464F16"),
+                        Content = @"<div style=""width: 100%; margin-top: 200px; justify-content: center; align-items: center; align-content: center; position: relative; display: grid;"">
+    <h1 style=""font-size: 45px; font-weight: 900; color: #000000; justify-content: center; text-align: center; margin-bottom: 10px;"">
+        Nguyên Tắc An Toàn Trong Sơ Cứu: Bảo Vệ Sức Khỏe Mọi Người
+    </h1>
+    <p style=""font-size: 28px; color: #000000; margin-bottom: 60px; text-align: center;"">
+        Kiến thức Sơ cấp cứu
+    </p>
+    <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+        Sơ cứu là một kỹ năng cơ bản mà mỗi người nên biết, vì nó có thể giữ lại mạng sống cho người khác trong những tình huống khẩn cấp. Tuy nhiên, sự hiểu biết về những nguyên tắc an toàn trong quá trình thực hiện sơ cứu cũng quan trọng không kém. Dưới đây là những nguyên tắc quan trọng cần tuân thủ để đảm bảo an toàn cho cả người cứu thương lẫn người bị nạn.
+    </p>
+    <img
+        style=""width: 600px; height: 400px; margin-bottom: 40px; margin-top: 40px; margin-left: auto; margin-right: auto;""
+        src=""https://firebasestorage.googleapis.com/v0/b/linhchidoisos.appspot.com/o/SoCapCuu%2Fsocapcuu.jpg?alt=media&token=8f3138c9-174e-4933-867e-c4ae18095c1f""
+        alt=""svg""
+    />
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+            1. Bảo Vệ Bản Thân Đầu Tiên
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Khi đối mặt với tình huống sơ cứu, quyết định đầu tiên và quan trọng nhất là bảo vệ chính bạn. Đảm bảo rằng không có nguy hiểm nào tiếp tục tồn tại trước khi tiếp cận người bị nạn. Đeo bảo hộ cá nhân nếu có thể, và luôn đánh giá an toàn cho cả mình và người xung quanh.
+        </p>
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+            2. Gọi Cấp Cứu Trước Khi Hành Động
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Trước khi bắt đầu thực hiện bất kỳ biện pháp sơ cứu nào, việc gọi đến số điện thoại cấp cứu là điều quan trọng. Cung cấp thông tin chi tiết về tình hình và tuân theo hướng dẫn từ bác sĩ điều phối giúp đảm bảo có kế hoạch chăm sóc y tế chính xác và nhanh chóng.
+        </p>
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+            3. Đánh Giá An Toàn Của Môi Trường
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Trước khi tiếp cận nạn nhân, hãy đánh giá môi trường xung quanh để đảm bảo an toàn cho cả người cứu thương và người bị nạn. Loại bỏ các nguy cơ tiềm ẩn như lửa, điện áp cao, hoặc vật dụng gây nguy hiểm.
+        </p>
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+            4. Động Tác Nhẹ Nhàng và Hiệu Quả
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Trong quá trình thực hiện sơ cứu, hãy luôn tuân thủ nguyên tắc ""động tác nhẹ nhàng"". Tránh gây thêm tổn thương cho nạn nhân và chỉ thực hiện những biện pháp mà bạn đã được đào tạo. Sự nhẹ nhàng kết hợp với hiệu quả sẽ giúp giảm nguy cơ gặp phải tác động phụ không mong muốn.
+        </p>
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+            5. Đề Xuất Giúp Đỡ Từ Người Xung Quanh
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Trong một tình huống khẩn cấp, không ngần ngại hỏi xem có ai khác có kỹ năng sơ cứu hay không. Sự hợp tác giữa mọi người có thể tăng khả năng cứu sống và giảm áp lực cho người cứu thương chính.
+        </p>
+    </div>
+    <div style=""margin-top: 40px; margin-bottom: 80px;"">
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Nhớ rằng, việc thực hiện sơ cứu không chỉ là về việc cứu sống mà còn là về cách làm đúng để đảm bảo an toàn cho tất cả mọi người liên quan. Hãy hiểu rõ và áp dụng những nguyên tắc an toàn này để sẵn sàng đối mặt với mọi tình huống khẩn cấp một cách hiệu quả và an toàn.
+        </p>
+    </div>
+</div>
+"
+                    },
+                    // Tư thế nằm nghiêng an toàn
+                    new CourseDetail
+                    {
+                        CourseId = Guid.Parse("F3DB0B18-003A-4046-873B-264D3498360C"),
+                        Content = @"<div style=""width: 100%; margin-top: 200px; justify-content: center; align-items: center; align-content: center; position: relative; display: grid;"">
+    <h1 style=""font-size: 45px; font-weight: 900; color: #000000; justify-content: center; text-align: center; margin-bottom: 10px;"">
+       Tư Thế Nằm Nghiêng An Toàn Trong Sơ Cấp Cứu: Biết Để Bảo Vệ Bản Thân và Người Khác
+    </h1>
+    <p style=""font-size: 28px; color: #000000; margin-bottom: 60px; text-align: center;"">
+        Kiến thức Sơ cấp cứu
+    </p>
+    <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+        Nhắc đến sơ cấp cứu, việc biết cách giữ tư thế nằm nghiêng an toàn có thể là yếu tố quyết định giữa sự cứu chữa thành công và biến chứng nghiêm trọng. Trong bài viết này, chúng ta sẽ tìm hiểu về các tư thế nằm nghiêng cơ bản mà bạn có thể áp dụng trong các trường hợp khẩn cấp.
+    </p>
+    <img
+        style=""width: 600px; height: 400px; margin-bottom: 40px; margin-top: 40px; margin-left: auto; margin-right: auto;""
+        src=""https://suckhoe123.vn/uploads/suc-khoe/2021_05/20200424_172336_448622_nghieng.max-1800x1800.jpg""
+        alt=""svg""
+    />
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+            Tại sao Tư Thế Nằm Nghiêng Quan Trọng?
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Trong một số trường hợp, đặc biệt là khi có nguy cơ nôn mửa hoặc hít phải chất lỏng, máu hoặc cơ hội nằm nghiêng có thể ngăn chặn việc phụt ngược chất lỏng vào đường hô hấp, giữ cho đường thoát khí mở rộng và giảm áp lực lên cổ và phổi.
+        </p>
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+Cách Thực Hiện Tư Thế Nằm Nghiêng
+        </p>
+    </div>
+
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+1. Tư Thế Nằm Nghiêng Đơn Giản:
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            - Đặt người bệnh nằm sấp và kéo một chân về phía trên.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+- Đặt một bộ phận dưới đầu để giữ cho đầu của họ nghiêng về một bên.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+- Đảm bảo đầu và cổ của họ đều ở vị trí tự nhiên.
+        </p>
+
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+            2. Tư Thế Nằm Nghiêng Phức Tạp:
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            - Đặt người bệnh nằm sấp.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+- Đặt một tấm gối hoặc đối vật cứng dưới người bệnh từ dưới đầu đến dưới đùi của họ.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+- Kéo một chân của họ về phía trên và đặt gối hoặc chăn dưới chân để giữ cho cơ thể họ nghiêng.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+- Giữ đầu và cổ của họ trong một tư thế tự nhiên.
+        </p>
+
+    </div>
+    <div style=""margin-top: 40px; margin-bottom: 80px;"">
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Lưu Ý Quan Trọng
+Luôn Giữ Đầu và Cổ Trong Tư Thế Tự Nhiên: Đảm bảo rằng đầu và cổ của người bệnh luôn được giữ trong một tư thế tự nhiên và không bị ép vào bất kỳ hướng nào khi thực hiện tư thế nằm nghiêng.
+Theo Dõi Tình Trạng Của Người Bệnh: Luôn lưu ý đến các biểu hiện của người bệnh và sẵn sàng điều chỉnh tư thế nếu cần thiết.
+        </p>
+    </div>
+</div>
+
+"
+                    },
+                    // Vận chuyển người an toàn 
+                    new CourseDetail
+                    {
+                        CourseId = Guid.Parse("5EF458ED-6776-43B4-BA9D-9CC9C47D7511"),
+                        Content = @"<div style=""width: 100%; margin-top: 200px; justify-content: center; align-items: center; align-content: center; position: relative; display: grid;"">
+    <h1 style=""font-size: 45px; font-weight: 900; color: #000000; justify-content: center; text-align: center; margin-bottom: 10px;"">
+Hướng Dẫn Vận Chuyển Người Bệnh An Toàn Trong Mọi Tình Huống
+    </h1>
+    <p style=""font-size: 28px; color: #000000; margin-bottom: 60px; text-align: center;"">
+        Kiến thức Sơ cấp cứu
+    </p>
+    <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+        Việc vận chuyển người bệnh là một phần quan trọng trong sơ cứu và chăm sóc y tế. Tuy nhiên, nếu không thực hiện đúng cách, nó có thể gây ra thêm tổn thương và biến chứng cho người bệnh. Trong bài viết này, chúng ta sẽ tìm hiểu về cách vận chuyển người bệnh một cách an toàn và hiệu quả trong mọi tình huống.
+    </p>
+    <img
+        style=""width: 600px; height: 400px; margin-bottom: 40px; margin-top: 40px; margin-left: auto; margin-right: auto;""
+        src=""https://baoquangbinh.vn/dataimages/202107/original/images704000_cc3.jpg""
+        alt=""svg""
+    />
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+1. Đánh Giá Tình Hình
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Trước khi vận chuyển bất kỳ người bệnh nào, hãy đánh giá tình hình và quyết định liệu có cần gọi xe cấp cứu hay không. Nếu không có xe cấp cứu, đảm bảo rằng bạn có đủ sự trang bị và kiến thức để vận chuyển một cách an toàn.
+        </p>
+    </div>
+
+
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+2. Chuẩn Bị Môi Trường
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Đảm bảo không gian vận chuyển rộng rãi và an toàn.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Loại bỏ các vật dụng nguy hiểm khỏi lối đi.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Làm cho không gian thoáng đãng và dễ dàng tiếp cận.
+        </p>
+
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+3. Sử Dụng Kỹ Thuật Đúng
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Sử dụng các kỹ thuật vận chuyển như chuyển lên giường, ghế hoặc xe lăn một cách cẩn thận và nhẹ nhàng.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Luôn sử dụng tư thế bảo vệ cho cơ thể của người bệnh, đặc biệt là đầu, cổ và cột sống.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Sử dụng hỗ trợ bổ sung như gối, băng cố định và dây đai an toàn nếu cần thiết.
+        </p>
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+4. Giao Tiếp Và Động Viên
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Luôn giữ liên lạc với người bệnh và cung cấp sự động viên và an ủi.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Giải thích mọi động tác và kế hoạch di chuyển trước khi thực hiện.
+        </p>
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+5. Sự Theo Dõi Sau Khi Vận Chuyển
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Sau khi đặt người bệnh vào vị trí mới, đảm bảo rằng họ đang cảm thấy thoải mái và không gặp phải bất kỳ vấn đề nào.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Kiểm tra các dấu hiệu và triệu chứng có thể báo hiệu về tình trạng tồn tại hoặc mới.
+        </p>
+    </div>
+
+
+    <div style=""margin-top: 40px; margin-bottom: 80px;"">
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Việc vận chuyển người bệnh đòi hỏi sự chuẩn bị kỹ lưỡng, kiến thức và kỹ năng. Quan trọng nhất là phải luôn đặt sự an toàn và thoải mái của người bệnh lên hàng đầu. Hy vọng rằng với những hướng dẫn trên, bạn sẽ có thêm niềm tin và kiến thức để vận chuyển người bệnh một cách an toàn và hiệu quả trong mọi tình huống.
+        </p>
+    </div>
+</div>
+"
+                    },
+                    // "CPR - Hồi sinh tim phổi cơ bản",
+                    new CourseDetail
+                    {
+                        CourseId = Guid.Parse("481ABB77-EBD3-47B0-9E9F-718368076074"),
+                        Content = @"<div style=""width: 100%; margin-top: 200px; justify-content: center; align-items: center; align-content: center; position: relative; display: grid;"">
+    <h1 style=""font-size: 45px; font-weight: 900; color: #000000; justify-content: center; text-align: center; margin-bottom: 10px;"">
+CPR - Kỹ Năng Hồi Sinh Tim Phổi Cơ Bản Mà Mọi Người Cần Biết    </h1>
+    <p style=""font-size: 28px; color: #000000; margin-bottom: 60px; text-align: center;"">
+        Kiến thức Sơ cấp cứu
+    </p>
+    <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+        Trong một tình huống khẩn cấp khi người khác đột ngột gặp phải ngừng tim phổi, kỹ năng CPR (Cardiopulmonary Resuscitation) - hồi sinh tim phổi là một kỹ năng quan trọng có thể cứu mạng. Trong bài viết này, chúng ta sẽ tìm hiểu về CPR cơ bản và cách thực hiện nó một cách hiệu quả.
+    </p>
+    <img
+        style=""width: 600px; height: 400px; margin-bottom: 40px; margin-top: 40px; margin-left: auto; margin-right: auto;""
+        src=""https://th.bing.com/th/id/R.3c96bb6b124829db33aa812a1814ee9d?rik=dnxzH5j9nJ0rnw&pid=ImgRaw&r=0""
+        alt=""svg""
+    />
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+CPR là gì?
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            CPR là quá trình cung cấp áp lực hồi sinh tim phổi thông qua việc nén tim và cung cấp hơi thở nhân tạo, nhằm duy trì lưu lượng máu và ôxy đến não và các cơ quan quan trọng khác.
+        </p>
+    </div>
+
+
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+Bước 1: Kiểm Tra An Toàn
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Kiểm tra khu vực xung quanh để đảm bảo an toàn cho bản thân và người bệnh.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Gọi cấp cứu nếu có sẵn.
+        </p>
+    
+
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+Bước 2: Kiểm Tra Tình Trạng
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Gọi lên và kiểm tra phản ứng của người bệnh.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Kiểm tra hơi thở và dấu hiệu sống
+        </p>
+       
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+Bước 3: Báo Cáo Và Bắt Đầu CPR
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Nếu người bệnh không hít thở và không có nhịp tim, bắt đầu CPR ngay lập tức.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Nén tim: Đặt lòng bàn tay ở giữa ngực, nén tim khoảng 5-6cm sâu với tần suất khoảng 100-120 lần mỗi phút.
+        </p>
+<p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Hơi thở nhân tạo: Thực hiện 2 hơi thở nhân tạo với miệng che miệng và mũi người bệnh.
+        </p>
+
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+Bước 4: Tiếp Tục CPR
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Tiếp tục lặp lại chu trình nén tim và hơi thở cho đến khi cứu thương viên đến hoặc người bệnh hồi phục.
+        </p>
+    </div>
+</div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+Lưu Ý Quan Trọng
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Thực hiện CPR một cách nhanh chóng và mạnh mẽ, nhưng đồng thời cẩn thận để tránh gây tổn thương.
+Đảm bảo bạn đã được đào tạo và tự tin trước khi thực hiện CPR trên người bệnh.
+        </p>
+    </div>
+<div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+Kết luận
+        </p>
+    </div>
+
+
+    <div style=""margin-top: 40px; margin-bottom: 80px;"">
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            CPR là một kỹ năng quan trọng mà ai cũng nên biết, vì nó có thể là yếu tố quyết định giữa sự sống và cái chết trong một tình huống khẩn cấp. Hy vọng rằng bài viết này đã cung cấp cho bạn cái nhìn tổng quan về CPR và cung cấp thông tin cần thiết để bạn có thể thực hiện nó một cách hiệu quả khi cần thiết. Hãy nhớ, một phút cứu mạng có thể phát huy tác dụng lớn!
+        </p>
+    </div>
+</div>
+
+"
+                    },
+                    // Hướng dẫn sơ cứu cho thao tác He
+                    new CourseDetail
+                    {
+                        CourseId = Guid.Parse("7AA3B055-2B09-4D6A-82E0-89E75A365940"),
+                        Content = @"<div style=""width: 100%; margin-top: 200px; justify-content: center; align-items: center; align-content: center; position: relative; display: grid;"">
+    <h1 style=""font-size: 45px; font-weight: 900; color: #000000; justify-content: center; text-align: center; margin-bottom: 10px;"">
+Sơ Cứu Cho Thao Tác Heimlich: Biết Cách Cứu Mạng Trong Trường Hợp Hóc Thức Ăn
+</h1>
+    <p style=""font-size: 28px; color: #000000; margin-bottom: 60px; text-align: center;"">
+        Kiến thức Sơ cấp cứu
+    </p>
+    <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+        Trong tình huống khẩn cấp khi một người đang bị hóc thức ăn và không thể nói hoặc thở, thao tác Heimlich là một kỹ năng cứu mạng quan trọng. Trong bài viết này, chúng ta sẽ tìm hiểu cách thực hiện thao tác Heimlich một cách đúng đắn để cứu mạng cho người đang bị hóc.
+    </p>
+    <img
+        style=""width: 600px; height: 400px; margin-bottom: 40px; margin-top: 40px; margin-left: auto; margin-right: auto;""
+        src=""https://www.topontiki.gr/wp-content/uploads/2023/08/Untitled-design-2023-08-14T190744.334.jpg""
+        alt=""svg""
+    />
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+1. Đánh Giá Tình Hình
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;""> 
+Trước tiên, hãy đảm bảo rằng người đó thực sự đang bị hóc thức ăn và không thể nói hoặc thở. Nếu họ vẫn có thể nói hoặc ho thở, họ có thể tự giải quyết vấn đề và bạn chỉ cần đề xuất họ làm theo.
+        </p>
+    </div>
+
+
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+2. Thực Hiện Thao Tác Heimlich
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+- Đứng phía sau: Đứng phía sau người bị hóc, đặt một chân giữa chân họ để tạo sự ổn định.        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+- Bám vào phía sau: Đặt một bàn tay lớn vào phía trên của hốc ngực của họ, đặt còn lại vào phía dưới, trên phần dưới của lồng ngực.
+        </p>
+<p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+- Thực hiện cú đẩy: Đẩy mạnh và nhanh chóng vào trong và lên trên, hướng ra phía trên, nhưng không đặt quá cao lên phần xương sườn.
+        </p>
+<p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+- Lặp lại nếu cần thiết: Lặp lại cú đẩy cho đến khi vật thể bị hóc được thải ra hoặc cho đến khi đội cứu hộ đến.
+        </p>
+    
+
+    </div>
+    <div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+3. Sự Theo Dõi Và Hỗ Trợ Sau Khi Thực Hiện
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Theo dõi người bị hóc cho đến khi họ hoàn toàn ổn định.
+        </p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+Nếu người bị hóc mất ý thức hoặc ngừng hô hấp, thực hiện CPR ngay lập tức.
+        </p>
+       
+    </div>
+    
+   
+  
+<div style=""margin-bottom: 40px;"">
+        <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+Kết luận
+        </p>
+    </div>
+
+
+    <div style=""margin-top: 40px; margin-bottom: 80px;"">
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+           Thao tác Heimlich là một kỹ năng cứu mạng quan trọng mà mọi người nên biết. Hy vọng rằng bài viết này đã cung cấp cho bạn cái nhìn tổng quan và kiến thức cần thiết để thực hiện thao tác Heimlich một cách an toàn và hiệu quả trong trường hợp cần thiết. Hãy nhớ, sự chuẩn bị và kiến thức là chìa khóa cho mọi sự thành công trong sơ cứu.
+        </p>
+    </div>
+</div>
+
+"
+                    },
+                    // Tạo lửa
+                    new CourseDetail
+                    {
+                        CourseId = Guid.Parse("C672EBE0-2A8E-4A0E-B21F-F70E0D87EFA2"),
+                        Content = @"<div style=""width: 100%; margin-top: 200px; justify-content: center; align-items: center; align-content: center; position: relative; display: grid;"">
+        <h1 style=""font-size: 45px; font-weight: 900; color: #000000; justify-content: center; text-align: center; margin-bottom: 10px;"">
+            10 Cách thắt nút dây cơ bản mà bạn nên biết
+        </h1>
+        <p style=""font-size: 28px; color: #000000; margin-bottom: 60px; text-align: center;"">Kiến thức Sơ cấp cứu</p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Trong những tình huống khẩn cấp, khả năng tạo lửa có thể là yếu tố quyết định giữa sự sống và cái chết. Dù
+            bạn đang dã ngoại, mắc kẹt trong rừng hoặc gặp phải tình huống khẩn cấp khác, biết cách tạo lửa từ những vật
+            dụng cơ bản có thể cực kỳ hữu ích. Trong bài viết này, chúng ta sẽ khám phá những cách tạo lửa đơn giản mà
+            bất kỳ ai cũng có thể thực hiện.
+        </p>
+        <img
+            style=""width: 600px; height: 400px; margin-bottom: 40px; margin-top: 40px; margin-left: auto; margin-right: auto;""
+            src=""https://st.quantrimang.com/photos/image/2016/11/08/tao-lua-650.jpg""
+            alt=""svg""
+        />
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                1. Sử dụng đánh lửa
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Một trong những cách đơn giản nhất để tạo lửa là sử dụng đánh lửa hoặc bật lửa di động. Đảm bảo rằng bạn
+                luôn giữ một chiếc đánh lửa hoặc bật lửa trong túi hoặc trong hành trang của mình.
+            </p>
+        </div>
+
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                2. Sử Dụng Que Diêm
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Que diêm là một phương tiện khác để tạo lửa nhanh chóng và dễ dàng. Hãy đảm bảo rằng bạn luôn mang theo
+                một số que diêm trong túi hoặc hành trang của mình.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                3. Sử Dụng Các Vật Dụng Tự Nhiên
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nếu bạn không có đánh lửa hoặc que diêm, bạn vẫn có thể tạo lửa bằng cách sử dụng các vật dụng tự nhiên
+                như cây khô, lá khô, vỏ cây, hoặc cành cây sấy khô dưới ánh nắng mặt trời.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                4. Sử Dụng Kỹ Thuật Friction
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Một kỹ thuật khác để tạo lửa là sử dụng ma sát. Bạn có thể sử dụng hai vật dụng có thể tạo ra ma sát
+                mạnh mẽ khi chúng va chạm với nhau như các cành cây, bàn tay, hoặc một miếng vải và một cành cây.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                5. Sử Dụng Kính Lúp
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nếu bạn có một kính lúp, bạn có thể sử dụng nó để tập trung ánh nắng mặt trời vào một điểm nhỏ trên vật
+                liệu cháy để tạo nên lửa.
+            </p>
+        </div>
+
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">Kết luận</p>
+        </div>
+
+        <div style=""margin-top: 40px; margin-bottom: 80px;"">
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Biết cách tạo lửa từ những vật dụng cơ bản có thể là một kỹ năng quan trọng trong mọi tình huống khẩn
+                cấp. Hy vọng rằng bài viết này đã cung cấp cho bạn cái nhìn tổng quan và kiến thức cần thiết để thực
+                hiện điều này một cách an toàn và hiệu quả. Đừng quên, luôn luôn lưu ý đến sự an toàn khi làm việc với
+                lửa.
+            </p>
+        </div>
+    </div>
+
+"
+                    },
+                    // 10 cách thắt nút dây
+                    new CourseDetail
+                    {
+                        CourseId = Guid.Parse("842765E5-AEC9-402E-93CD-3F3BB3998608"),
+                        Content = @"<div style=""width: 100%; margin-top: 200px; justify-content: center; align-items: center; align-content: center; position: relative; display: grid;"">
+        <h1 style=""font-size: 45px; font-weight: 900; color: #000000; justify-content: center; text-align: center; margin-bottom: 10px;"">
+            10 Cách Thắt Nút Dây Cơ Bản Mà Bạn Nên Biết
+        </h1>
+        <p style=""font-size: 28px; color: #000000; margin-bottom: 60px; text-align: center;"">Kiến thức Sơ cấp cứu</p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Thắt nút là một trong những kỹ năng cơ bản mà ai cũng nên biết, không chỉ trong các hoạt động dã ngoại mà
+            còn trong cuộc sống hàng ngày. Từ việc thắt dây giày đến thắt dây dẹt trên thùng đồ, việc biết cách thắt nút
+            một cách đúng đắn có thể giúp bạn giữ dây chặt chẽ và an toàn. Trong bài viết này, chúng ta sẽ khám phá 10
+            cách thắt nút dây cơ bản mà bạn nên biết.
+        </p>
+        <img
+            style=""width: 600px; height: 400px; margin-bottom: 40px; margin-top: 40px; margin-left: auto; margin-right: auto;""
+            src=""https://chuyendaychi.com/wp-content/uploads/2018/05/n%C3%BAt-th%E1%BA%AFt-d%C3%A2y-th%E1%BA%A3-di%E1%BB%81u.jpg""
+            alt=""svg""
+        />
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                1. Nút Dây Dẹt (Overhand Knot)
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nút dây dẹt là một trong những nút đơn giản nhất và được sử dụng phổ biến trong cuộc sống hàng ngày. Đây
+                là cách thắt nút cơ bản nhất để ngăn dây khỏi tự lỏng ra.
+            </p>
+        </div>
+
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                2. Nút Dây Buộc (Square Knot)
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nút dây buộc là một trong những nút được sử dụng rộng rãi để nối hai đoạn dây lại với nhau một cách chắc
+                chắn và an toàn.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                3. Nút Dây Chặn (Slip Knot)
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nút dây chặn là một loại nút có thể điều chỉnh kích thước và được sử dụng để buộc dây một cách nhanh
+                chóng và dễ dàng.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                4. Nút Dây Leo Cây (Clove Hitch)
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nút dây leo cây là một nút linh hoạt được sử dụng để buộc dây vào một vật thể tròn như cây hoặc ống.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                5. Nút Dây Buông (Bowline Knot)
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nút dây buông là một trong những nút an toàn nhất để tạo ra một lỗ hoặc vòng không bao giờ tự động co
+                lại.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                6. Nút Dây Buộc Gói (Package Knot)
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nút dây buộc gói là một loại nút được sử dụng để buộc chặt các gói hàng hoặc túi.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                7. Nút Dây Buộc Dính (Sheet Bend)
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nút dây buộc dính là một cách tốt để nối hai đoạn dây có đường kính khác nhau lại với nhau một cách chắc
+                chắn.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                8. Nút Dây Leo Núi (Figure Eight Knot)
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nút dây leo núi là một loại nút được sử dụng rộng rãi trong leo núi và leo dã ngoại vì nó giữ dây chắc
+                chắn và không bao giờ tự động co lại.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                9. Nút Dây Buộc Thuyền (Anchor Hitch)
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nút dây buộc thuyền là một nút đơn giản được sử dụng để buộc dây vào một đinh, cột hoặc vật thể tương
+                tự.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                10. Nút Dây Đồng Đều (Trucker's Hitch)
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nút dây đồng đều là một cách tốt để tạo ra một vòng đeo chắc chắn và được sử dụng rộng rãi trong việc
+                buộc chặt và cố định hàng hoặc dụng cụ.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">Kết luận</p>
+        </div>
+
+        <div style=""margin-top: 40px; margin-bottom: 80px;"">
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Biết cách thắt nút là một kỹ năng quan trọng và hữu ích trong mọi tình huống. Hy vọng rằng bài viết này
+                đã cung cấp cho bạn cái nhìn tổng quan và kiến thức cần thiết để thực hiện các loại nút cơ bản một cách
+                an toàn và hiệu quả. Hãy thực hành thường xuyên để trở thành một chuyên gia thực sự trong việc thắt nút!
+            </p>
+        </div>
+    </div>
+
+"
+                    },
+                    // Xác định hướng bằng lá cây ????
+                    new CourseDetail
+                    {
+                        CourseId = Guid.Parse("807EBC7E-3F10-4C2E-B8B2-138B20A314CC"),
+                        Content = @"    <div style=""width: 100%; margin-top: 200px; justify-content: center; align-items: center; align-content: center; position: relative; display: grid;"">
+        <h1 style=""font-size: 45px; font-weight: 900; color: #000000; justify-content: center; text-align: center; margin-bottom: 10px;"">
+            Bí Quyết Xác Định Phương Hướng Bằng Lá Cây: Kỹ Năng Sinh Tồn Cơ Bản
+        </h1>
+        <p style=""font-size: 28px; color: #000000; margin-bottom: 60px; text-align: center;"">Kiến thức Sơ cấp cứu</p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Trong các tình huống khẩn cấp hoặc khi bị lạc trong thiên nhiên, việc biết cách xác định phương hướng có thể
+            là yếu tố quyết định giữa sự sống và cái chết. Mặc dù hiện đại có nhiều công nghệ giúp xác định hướng, nhưng
+            việc sử dụng các phương tiện tự nhiên như lá cây vẫn là một kỹ năng cơ bản mà bất kỳ ai cũng nên biết. Trong
+            bài viết này, chúng ta sẽ khám phá cách sử dụng lá cây để xác định phương hướng.
+        </p>
+        <img
+            style=""width: 600px; height: 400px; margin-bottom: 40px; margin-top: 40px; margin-left: auto; margin-right: auto;""
+            src=""https://bizweb.dktcdn.net/100/032/885/files/cac-ky-nang-sinh-ton-trong-rung-ban-nen-biet.jpg?v=1664768241728""
+            alt=""svg""
+        />
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                1. Lá Cây Như Một Dụng Cụ Xác Định Phương Hướng
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Lá cây có thể được sử dụng để xác định hướng chính xác bằng cách nhìn vào cách mà các lá hình dạng và
+                màu sắc của chúng thay đổi dựa trên hướng mặt trời.
+            </p>
+        </div>
+
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                2. Hướng Dựa Trên Sự Chiếu Sáng
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Lá Cây Láng: Lá cây sẽ láng hơn ở phía nam so với phía bắc vì mặt trời chiếu sáng trực tiếp vào phía
+                nam. Kích Thước Của Bóng Dáng: Khi mặt trời ở trên đỉnh, bóng của cây sẽ nằm ở phía dưới cây về phía
+                phía đông. Khi mặt trời ở phía tây, bóng của cây sẽ nằm ở phía dưới cây về phía tây.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                3. Sử Dụng Cây Cây Đồng Thời
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Cây Cây Cây Tập Trung: Các cây sẽ tập trung nhiều ở phía bắc vì phía nam thường có ít ánh sáng mặt trời
+                hơn.
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Cây Cây Cây Dày Đặc: Cây sẽ dày đặc hơn ở phía nam do nhận được nhiều ánh sáng mặt trời hơn.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">4. Sự Thực Hành</p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Thực hành thường xuyên và thử nghiệm với lá cây để làm quen với cách chúng phản ánh ánh sáng và hướng
+                của mặt trời trong các điều kiện khác nhau.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">Kết luận</p>
+        </div>
+
+        <div style=""margin-top: 40px; margin-bottom: 80px;"">
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Biết cách sử dụng lá cây để xác định phương hướng là một kỹ năng cơ bản và quan trọng trong việc sinh
+                tồn trong môi trường tự nhiên. Hy vọng rằng bài viết này đã cung cấp cho bạn cái nhìn tổng quan và kiến
+                thức cần thiết để thực hiện điều này một cách hiệu quả. Hãy thực hành và trở thành một bậc thầy trong
+                việc xác định hướng bằng lá cây!
+            </p>
+        </div>
+    </div>
+
+"
+                    },
+                    // 5 cách ra tín hiệu cầu cứu
+                    new CourseDetail
+                    {
+                        CourseId = Guid.Parse("1761D6C6-1155-4534-8D44-9362DB753A9A"),
+                        Content = @"<div style=""width: 100%; margin-top: 200px; justify-content: center; align-items: center; align-content: center; position: relative; display: grid;"">
+        <h1 style=""font-size: 45px; font-weight: 900; color: #000000; justify-content: center; text-align: center; margin-bottom: 10px;"">
+            5 Cách Phát Ra Tín Hiệu Cầu Cứu Hiệu Quả Trong Tình Huống Khẩn Cấp
+        </h1>
+        <p style=""font-size: 28px; color: #000000; margin-bottom: 60px; text-align: center;"">Kiến thức Sơ cấp cứu</p>
+        <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+            Trong một tình huống khẩn cấp, khả năng phát ra tín hiệu cầu cứu có thể là yếu tố quyết định giữa sự sống và
+            cái chết. Tuy nhiên, không phải ai cũng biết cách phát ra tín hiệu cầu cứu một cách hiệu quả. Trong bài viết
+            này, chúng ta sẽ khám phá 5 cách phát ra tín hiệu cầu cứu mà bạn nên biết để có thể thu hút sự chú ý và giúp
+            đỡ trong một tình huống khẩn cấp.
+        </p>
+        <img
+            style=""width: 600px; height: 400px; margin-bottom: 40px; margin-top: 40px; margin-left: auto; margin-right: auto;""
+            src=""https://e.khoahoc.tv/photos/image/2015/07/01/SOS_2.jpg""
+            alt=""svg""
+        />
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">1. Tiếng Hét Lớn</p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Một trong những cách phổ biến nhất để phát ra tín hiệu cầu cứu là hét lớn. Hãy hét càng to càng tốt để
+                thu hút sự chú ý của người xung quanh và gửi đi tín hiệu rằng bạn đang gặp vấn đề và cần sự giúp đỡ.
+            </p>
+        </div>
+
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                2. Sử Dụng Còi Cứu Hộ
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Mang theo một còi cứu hộ là một ý tưởng tốt để có thể phát ra tín hiệu cầu cứu một cách nhanh chóng và
+                dễ dàng. Khi gặp phải tình huống khẩn cấp, bạn chỉ cần thổi vào còi một cách mạnh mẽ để thu hút sự chú ý
+                của người xung quanh.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                3. Sử Dụng Đèn Pin
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Trong tình huống mà việc gọi cầu cứu bằng tiếng không hiệu quả, việc sử dụng đèn pin có thể là một
+                phương tiện hiệu quả khác để thu hút sự chú ý của người xung quanh, đặc biệt là vào ban đêm hoặc trong
+                điều kiện ánh sáng yếu.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                4. Sử Dụng Gương Soi Ánh Sáng Mặt Trời
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nếu bạn bị mắc kẹt và không thể di chuyển, việc sử dụng một chiếc gương nhỏ hoặc vật phản quang để soi
+                ánh sáng mặt trời có thể là một cách hiệu quả để phát ra tín hiệu cầu cứu và thu hút sự chú ý của người
+                đi ngang qua.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">
+                5. Sử Dụng Biểu Tượng Cầu Cứu Quốc Tế
+            </p>
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Nếu bạn có một biểu tượng cầu cứu quốc tế như biểu tượng SOS, bạn có thể sử dụng nó để tạo ra tín hiệu
+                cầu cứu và gửi đi thông điệp rằng bạn đang cần sự giúp đỡ khẩn cấp.
+            </p>
+        </div>
+        <div style=""margin-bottom: 40px;"">
+            <p style=""display: flex; font-size: 30px; font-weight: 900; width: 50%; margin: auto;"">Kết luận</p>
+        </div>
+
+        <div style=""margin-top: 40px; margin-bottom: 80px;"">
+            <p style=""display: flex; font-size: 26.7px; font-weight: 500; width: 50%; margin: auto;"">
+                Biết cách phát ra tín hiệu cầu cứu là một kỹ năng quan trọng và có thể cứu sống trong một tình huống
+                khẩn cấp. Hy vọng rằng bài viết này đã cung cấp cho bạn cái nhìn tổng quan và kiến thức cần thiết để
+                thực hiện điều này một cách an toàn và hiệu quả. Hãy nhớ, sự chuẩn bị và kiến thức là chìa khóa cho mọi
+                sự thành công trong tình huống khẩn cấp.
+            </p>
+        </div>
+    </div>
+
+"
+                    }
+                    );
+            #endregion
             #region Course
             builder.Entity<Course>()
                 .HasData(
@@ -1866,7 +2650,7 @@ namespace LinhChiDoiSOS.Infrastructure.Persistence
                     new Course
                     {
                         Id = Guid.Parse("F3DB0B18-003A-4046-873B-264D3498360C"),
-                        Name = "Tư thế nằm nghiêng nan toàn",
+                        Name = "Tư thế nằm nghiêng an toàn",
                         Image = "https://firebasestorage.googleapis.com/v0/b/linhchidoisos.appspot.com/o/SoCapCuu%2Ftuthenamantoan.png?alt=media&token=b84b752c-668f-4eed-8a23-c2743e97fb1f",
                         CategoryId = Guid.Parse("3A477216-D412-43CA-B05F-653BC84F6609"),
                         ComboCourseId = Guid.Parse("EDD4AE9E-0E26-4ED4-9812-0FBE587FCDB3")
