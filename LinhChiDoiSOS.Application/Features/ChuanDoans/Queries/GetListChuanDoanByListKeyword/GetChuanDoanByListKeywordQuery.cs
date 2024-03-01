@@ -57,6 +57,7 @@ namespace LinhChiDoiSOS.Application.Features.ChuanDoans.Queries.GetListChuanDoan
                             Id = chuanDoan.Id,
                             Name = chuanDoan.Name,
                             Description = chuanDoan.Description,
+                            UrlImage = chuanDoan.UrlImage,
                             KeywordListData = ListKeywordData(chuanDoan.Id)
                         };
                         chuanDoanListKeyword.Add(chuanDoanListKeywordResponse);
