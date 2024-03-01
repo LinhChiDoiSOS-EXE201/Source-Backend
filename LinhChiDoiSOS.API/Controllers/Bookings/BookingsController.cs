@@ -34,5 +34,17 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Bookings
             var response = await _mediator.Send(new GetBookingWaitingCheckCommand());
             return response;
         }
+        [HttpGet]
+        [Route("users-are-booked-by-time/{starttime}/{endtime}")]
+        public async Task<TotalBooked> GetUsersBooked(DateTime starttime, DateTime endtime)
+        {
+            var request = new GetCustomerBookedCommand()
+            {
+                StartDate = starttime,
+                EndDate = endtime
+            };
+            var response = await _mediator.Send(request);
+            return response;
+        }
     }
 }
