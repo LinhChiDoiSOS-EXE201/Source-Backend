@@ -10,6 +10,8 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using LinhChiDoiSOS.Application.Common.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace LinhChiDoiSOS.Application.Features.Payments.PaymentWithSendMail
 {
@@ -21,10 +23,14 @@ namespace LinhChiDoiSOS.Application.Features.Payments.PaymentWithSendMail
     public class PaymentWithSendMailQueryHandler : IRequestHandler<PaymentWithSendMailQuery, string>
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        public PaymentWithSendMailQueryHandler(UserManager<ApplicationUser> userManager)
+        private ILinhChiDoiSOSDbContext _dbContext;
+
+        public PaymentWithSendMailQueryHandler(UserManager<ApplicationUser> userManager, ILinhChiDoiSOSDbContext dbContext)
         {
             _userManager = userManager;
+            _dbContext = dbContext;
         }
+
         public async Task<string> Handle(PaymentWithSendMailQuery request, CancellationToken cancellationToken)
         {
             try {
@@ -186,7 +192,14 @@ namespace LinhChiDoiSOS.Application.Features.Payments.PaymentWithSendMail
                 bodyOfAdmin = bodyOfAdmin.Replace("[DayRegis]", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
                 await SendEmailAsync("khancapsos.webapp@gmail.com", $"Customer email Payment: {request.Email}", bodyOfAdmin);
 
-
+                var customer = await _dbContext.Customer.Where(x => x.ApplicationUserId ==user.Id).SingleOrDefaultAsync();
+                if (customer == null)
+                {
+                    throw new BadRequestException($"Error at Send Mail");
+                }
+                customer.IsPremium = 1;
+                _dbContext.Customer.Update(customer);
+                await _dbContext.SaveChangesAsync();
                 return "PaymentSuccessfully. Please wait for me a minute";
             }
             catch (Exception ex) { throw new BadRequestException($"Error at ResetPasswordQueryHandler : {ex}"); }

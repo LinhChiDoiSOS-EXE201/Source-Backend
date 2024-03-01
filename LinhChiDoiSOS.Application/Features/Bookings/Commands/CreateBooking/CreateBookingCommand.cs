@@ -48,7 +48,12 @@ namespace LinhChiDoiSOS.Application.Features.Bookings.Commands.CreateBooking
                 ComboCourseId = comboCourseExist.Id
             };
             _dbContext.BookingDetail.Add(bookingDetail);
-
+            var customer = _dbContext.Customer.Where(x => x.Id == Guid.Parse(request.CustomerId)).SingleOrDefault();
+            if(customer != null)
+            {
+                customer.IsPremium = 2;
+                _dbContext.Customer.Update(customer);
+            }
             await _dbContext.SaveChangesAsync();
             return new SOSResponse
             {

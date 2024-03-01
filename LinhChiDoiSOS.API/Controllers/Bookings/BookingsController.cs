@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using LinhChiDoiSOS.Application.Common.Response;
 using LinhChiDoiSOS.Application.Features.Bookings.Commands.CreateBooking;
+using LinhChiDoiSOS.Application.Features.Bookings.Queries;
 
 namespace LinhChiDoiSOS.WebAPI.Controllers.Bookings
 {
@@ -24,6 +25,13 @@ namespace LinhChiDoiSOS.WebAPI.Controllers.Bookings
         public async Task<SOSResponse> Create(CreateBookingCommand request)
         {
             var response = await _mediator.Send(request);
+            return response;
+        }
+        [HttpGet]
+        [Route("users-are-waitng-for-premium")]
+        public async Task<List<CustomerWaitingForPremium>> GetUsersAreWaitingForPremium()
+        {
+            var response = await _mediator.Send(new GetBookingWaitingCheckCommand());
             return response;
         }
     }

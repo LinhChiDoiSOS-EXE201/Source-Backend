@@ -12,6 +12,12 @@ namespace LinhChiDoiSOS.Domain.Entities
     {
         [ForeignKey("ApplicationUser")]
         public string ApplicationUserId { get; set; }
+        /// <summary>
+        /// 0. Chưa đăng ký
+        /// 1. Đã gửi đăng ký, đang đợi admin kiểm tra
+        /// 2. Premium check!
+        /// </summary>
+        public int IsPremium { get; set; } = 0;
 
         // relationShip
         public virtual ApplicationUser ApplicationUser { get; set; }
