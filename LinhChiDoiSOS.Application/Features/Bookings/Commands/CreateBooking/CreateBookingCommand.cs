@@ -13,13 +13,15 @@ namespace LinhChiDoiSOS.Application.Features.Bookings.Commands.CreateBooking
 {
     public class CreateBookingCommand : IRequest<SOSResponse>
     {
+        public string PaymentId { get; set; }
+        public string NameComboCourse { get; set; }
         // theo nguyên tắc bussiness t đề ra, trả tiền xong rồi mới tạo booking
         // bước này admin sẽ tạo cho khách hàng
         public double? Price { get; set; }
         public string CustomerId { get; set; }
 
         // comboCourse => premium
-        public string ComboCourseId { get; set; }
+        /*public string ComboCourseId { get; set; }*/
     }
 
     public class CreateBookingCommandHandler : IRequestHandler<CreateBookingCommand, SOSResponse>
@@ -34,11 +36,14 @@ namespace LinhChiDoiSOS.Application.Features.Bookings.Commands.CreateBooking
             var booking = new Booking
             {
                 Price = request.Price,
-                CustomerId = Guid.Parse(request.CustomerId)
+                CustomerId = Guid.Parse(request.CustomerId),
+
+                PaymentId = Guid.Parse(request.PaymentId)   
             };
             _dbContext.Booking.Add(booking);
 
-            var comboCourseExist = await _dbContext.ComboCourse.Where(c => c.Id == Guid.Parse(request.ComboCourseId)).SingleOrDefaultAsync();
+            //var comboCourseExist = await _dbContext.ComboCourse.Where(c => c.Id == Guid.Parse(request.ComboCourseId)).SingleOrDefaultAsync();
+            var comboCourseExist = await _dbContext.ComboCourse.Where(c => c.Name.Contains(request.NameComboCourse)).SingleOrDefaultAsync();
             if (comboCourseExist == null) {
                 throw new NotFoundException("Does not exist ComboCourse");
             }

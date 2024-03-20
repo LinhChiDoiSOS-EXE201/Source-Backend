@@ -1,32 +1,52 @@
 ﻿using LinhChiDoiSOS.Servicess.VnPay.Lib;
 using LinhChiDoiSOS.Utils.Helpers;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Newtonsoft.Json;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LinhChiDoiSOS.Servicess.VnPay.Response
 {
-    [BindProperties]
     public class VnpayPayResponse
     {
         public SortedList<string, string> responseData
             = new SortedList<string, string>(new VnpayCompare());
+        [JsonProperty(PropertyName = "vnp_TmnCode")]
         public string vnp_TmnCode { get; set; } = string.Empty;
+
+        [JsonProperty(PropertyName = "vnp_BankCode")]
         public string vnp_BankCode { get; set; } = string.Empty;
+
+        [JsonProperty(PropertyName = "vnp_BankTranNo")]
         public string vnp_BankTranNo { get; set; } = string.Empty;
+
+        [JsonProperty(PropertyName = "vnp_CardType")]
         public string vnp_CardType { get; set; } = string.Empty;
+
+        [JsonProperty(PropertyName = "vnp_OrderInfo")]
         public string vnp_OrderInfo { get; set; } = string.Empty;
+
+        [JsonProperty(PropertyName = "vnp_TransactionNo")]
         public string vnp_TransactionNo { get; set; } = string.Empty;
+
+        [JsonProperty(PropertyName = "vnp_TransactionStatus")]
         public string vnp_TransactionStatus { get; set; } = string.Empty;
+
+        [JsonProperty(PropertyName = "vnp_TxnRef")]
         public string vnp_TxnRef { get; set; } = string.Empty;
+
+        [JsonProperty(PropertyName = "vnp_SecureHashType")]
         public string vnp_SecureHashType { get; set; } = string.Empty;
+
+        [JsonProperty(PropertyName = "vnp_SecureHash")]
         public string vnp_SecureHash { get; set; } = string.Empty;
+
+        [JsonProperty(PropertyName = "vnp_Amount")]
         public int? vnp_Amount { get; set; }
+
+        [JsonProperty(PropertyName = "vnp_ResponseCode")]
         public string? vnp_ResponseCode { get; set; }
+
+        [JsonProperty(PropertyName = "vnp_PayDate")]
         public string vnp_PayDate { get; set; } = string.Empty;
 
         public bool IsValidSignature(string secretKey)

@@ -46,14 +46,14 @@ namespace LinhChiDoiSOS.API.Controllers.Payments.Paymentss
         {
             var response = new PaymentLinkDtos();
             response = await mediator.Send(request);
-            /*var booking = new CreateBookingCommand
+            var booking = new CreateBookingCommand
             {
                 Price = request.BookingCourse.Price,
                 PaymentId = response.PaymentId,
                 CustomerId = request.BookingCourse.CustomerId,
                 NameComboCourse = request.BookingCourse.NameComboCourse,
             };
-            await mediator.Send(booking);*/
+            await mediator.Send(booking);
             return Ok(response);
         }
 
@@ -83,7 +83,8 @@ namespace LinhChiDoiSOS.API.Controllers.Payments.Paymentss
             var returnModel = new PaymentReturnDtos();
             var processResult = await mediator.Send(response.Adapt<ProcessMomoPaymentReturn>());
 
-            if (processResult.Success) {
+            if (processResult.Success)
+            {
                 returnModel = processResult.Data.Item1 as PaymentReturnDtos;
                 returnUrl = processResult.Data.Item2 as string;
             }
