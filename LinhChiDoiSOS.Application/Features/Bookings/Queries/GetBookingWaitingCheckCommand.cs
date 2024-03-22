@@ -14,6 +14,7 @@ namespace LinhChiDoiSOS.Application.Features.Bookings.Queries
         public int IsPremium { get; set; }
         public string? Fullname { get; set; }
         public string? Address { get; set; }
+        public string? PhoneNumber { get; set; }    
         public DateTime? BirthDay { get; set; }
         public string? Image { get; set; }
     }
@@ -51,10 +52,11 @@ namespace LinhChiDoiSOS.Application.Features.Bookings.Queries
                         Address = applicationUser!.Address,
                         ApplicationUserId = Guid.Parse(user.ApplicationUserId),
                         BirthDay = applicationUser!.BirthDay,
+                        PhoneNumber = applicationUser!.PhoneNumber,
                         CustomerId = user.Id,
                         Fullname = applicationUser!.Fullname,
                         Image = applicationUser!.Image,
-                        IsPremium = user.IsPremium,
+                        IsPremium = user.IsPremium, 
                     };
                     listResult.Add(result);
                 }
