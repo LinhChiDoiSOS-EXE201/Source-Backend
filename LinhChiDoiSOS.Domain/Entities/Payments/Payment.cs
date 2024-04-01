@@ -29,6 +29,7 @@ namespace LinhChiDoiSOS.Domain.Entities.Payments
         public Guid PaymentDestinationId { get; set; }
 
         // relationShip
+        public virtual Booking Booking { get; set; }
         public virtual Merchant Merchant { get; set; }
         public virtual PaymentDestination PaymentDestination { get; set; }
         public virtual IList<PaymentSignature> PaymentSignature { get; set; }

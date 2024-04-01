@@ -42,10 +42,10 @@ namespace LinhChiDoiSOS.API.Controllers.Payments.Paymentss
         [HttpPost]
         [ProducesResponseType(typeof(BaseResultWithData<PaymentLinkDtos>), 200)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> Create([FromBody] CreatePayment request)
+        public async Task<PaymentLinkDtos> Create([FromBody] CreatePayment request)
         {
-            var response = new PaymentLinkDtos();
-            response = await mediator.Send(request);
+            /*var response = new PaymentLinkDtos();*/
+            var response = await mediator.Send(request);
             var booking = new CreateBookingCommand
             {
                 Price = request.BookingCourse.Price,
@@ -54,7 +54,7 @@ namespace LinhChiDoiSOS.API.Controllers.Payments.Paymentss
                 NameComboCourse = request.BookingCourse.NameComboCourse,
             };
             await mediator.Send(booking);
-            return Ok(response);
+            return response;
         }
 
         [HttpGet]
