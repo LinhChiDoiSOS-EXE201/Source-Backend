@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinhChiDoiSOS.Application.Features.MiniContents.Commands
+namespace LinhChiDoiSOS.Application.Features.MiniContents.Commands.UpdateMiniContent
 {
-    public class CreateMiniContentCommand : IRequest<SOSResponse>
+    public class UpdateMiniContentCommand : IRequest<SOSResponse>
     {
+        public Guid MiniContentId { get; set; }
         public Guid EmergencyDetailId { get; set; }
         public string? ContentUrl { get; set; }
         public string? Content { get; set; }
